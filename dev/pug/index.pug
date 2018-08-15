@@ -1,0 +1,28 @@
+doctype html
+html
+  head(lang="ru")
+    include layout/__head
+  body
+    include layout/__header
+    section.content
+      .swiper-container.ibanner.js-ibanner
+        .swiper-wrapper
+          .swiper-slide 
+            img(src="img/ibanner1.jpg", alt="").ibanner__bg
+            section.container
+              p.ibanner__title Собственная Италия
+              p.ibanner__subtitle на моей кухне
+          .swiper-slide 
+            img(src="img/ibanner1.jpg", alt="").ibanner__bg
+            section.container
+              .ibanner__maxwidth
+                p.ibanner__title Новый бренд в сфере выращивания овощных культур1
+                section.ibanner__content 
+                  p.ibanner__text Мы обеспечиваем стабильно высокий уровень сбора и качества урожая за счет применения самых современных технологий, экологических методов защиты растений, а также осуществления строгого санитарного контроля.12
+                  a(href="#").ibanner__more Подробнее
+        .swiper-buttons
+          .swiper-button-prev
+          .swiper-button-next
+              
+    include layout/__footer
+    include layout/__scripts

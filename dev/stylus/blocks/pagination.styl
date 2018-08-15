@@ -1,0 +1,63 @@
+.pagination
+  display flex
+  justify-content flex-start
+  pb 10px
+  &__prev
+    ib()
+    w 27px
+    h 25px
+    mr 50px
+    background url('../i/arleft_black.png') no-repeat 0 -756px
+    transition .5s left, .5s opacity
+    @media $desktopMin
+      mr 30px
+    &.disabled
+      opacity .25
+    &:not(.disabled):hover
+      animation arrAnimation 1s steps(28)
+  &__next
+    ib()
+    w 27px
+    h 25px
+    ml 50px
+    background url('../i/arright_black.png') no-repeat 0 -756px
+    transition .5s left, .5s opacity
+    @media $desktopMin
+      ml 30px
+    &.disabled
+      opacity .25
+    &:not(.disabled):hover
+      animation arrAnimation 1s steps(28)
+  &__list
+    display flex
+  &__item
+    text-align center
+    color $dark
+    fontify 23px 400 21px
+    & + &
+      ml 28px
+      @media $desktopMin
+        ml 18px
+    &-href
+      pos relative
+      display inline-block
+      vertical-align middle
+      color $dark
+      fontify 23px 400 21px
+      transition .7s border
+      &:after
+        content ""
+        pos absolute
+        bgc alpha($dark, .25)
+        w 100%
+        h 1px
+        b 0
+        l 50%
+        transform translateX(-50%)
+        transition .7s width
+      &:hover:after
+        w 0
+      &:not(a):after
+        dn()
+      ^[-1].active &
+        color $green

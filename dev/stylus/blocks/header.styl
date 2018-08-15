@@ -1,0 +1,327 @@
+.header
+  pos fixed
+  w 100%
+  t 0
+  l 0
+  padding 30px 30px 0
+  z-index 11
+  display flex
+  justify-content space-between
+  align-items flex-start
+  &.hidden
+    h 0px
+    & ^[0]__edge
+      transform rotateX(90deg)
+      transition-delay 0s
+      &_rear
+        transform rotateX(0deg)
+        transition-delay .7s
+    & ^[0]__logo
+      opacity 0
+      visibility hidden
+      l -500px
+      transition .7s opacity, .7s visibility, 0s left .7s
+  @media $desktopMin
+    h 0px
+    & ^[0]__edge
+      transform rotateX(90deg)
+      transition-delay 0s
+      &_rear
+        transform rotateX(0deg)
+        transition-delay .7s
+  &__logo
+    l 0
+    pos relative
+    transition .7s opacity, .7s visibility, 0s left
+  &__edge
+    display flex
+    will-change transform
+    transition .7s transform
+    transform-origin center
+    transition-delay .7s
+    &_rear
+      pos absolute
+      r 30px
+      t 30px
+      transform rotateX(90deg)
+      transition-delay 0s
+  &__menu
+    mt -2px
+    &-list
+      display flex
+    &-item
+      & + &
+        ml 27px
+        @media $desktopMax
+          ml 17px
+    &-href
+      color white
+      fontify 14px 700 16px
+      text-transform uppercase
+      letter-spacing 0.1em
+      pos relative
+      transition .7s color
+      @media $desktopMedium
+        fontify 12px 700 14px
+      &:after
+        content ""
+        pos absolute
+        bgc alpha(white, .25)
+        w 0
+        h 1px
+        b 0
+        l 50%
+        transform translateX(-50%)
+        transition .7s width
+      &.active
+        color $yellow
+      &:not(.active):hover:after
+        w 100%
+  &__phones
+    mt -2px
+    ml 48px
+    @media $desktopMax
+      ml 35px
+    &-elem
+      color white
+      fontify 14px 700 16px
+      text-transform uppercase
+      letter-spacing 0.1em
+      @media $desktopMedium
+        fontify 12px 700 14px
+      & + &
+        ml 28px
+        @media $desktopMax
+          ml 17px
+  &__socials
+    display flex
+    ml 48px
+    @media $desktopMax
+      ml 35px
+    &-elem
+      transition .7s opacity
+      &:hover
+        opacity .6
+      & + &
+        ml 30px
+        @media $desktopMax
+          ml 20px
+      &[data-type="inst"]
+        size 12px
+        background url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMCAMAAABhq6zVAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAP1BMVEX///////////////////////////////////////////////////////////////////////////////////81m6ZbAAAAFHRSTlMAA37ree2Qg4+O+W4SEedvdoHhd8PbWNMAAAABYktHRACIBR1IAAAACXBIWXMAAAsSAAALEgHS3X78AAAAU0lEQVQI122N0Q6AIAhFLxqZolnG/39rkrXW1n3hHMa4IOf1ip8IbqDyzAH3XhdERp9JcpE1sppU9GwdTLJJ/pPPWZJSJJk8r60K+ysB5NrAdtAJRDMH441ZvLkAAAAASUVORK5CYII=") no-repeat center
+      &[data-type="fb"]
+        size 7px 13px
+        background url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAANBAMAAACX52mGAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAHlBMVEX///////////////////////////////////////8V2MxSAAAACXRSTlMAEardd2bumbuE/Rs4AAAAAWJLR0QAiAUdSAAAAAlwSFlzAAALEgAACxIB0t1+/AAAACxJREFUCNdjYBCaOYGBQRNEzDQJABIKDAxKM5MKGGbOnGkAIhogYliJtAIGAA1bDqr8bfauAAAAAElFTkSuQmCC") no-repeat center
+
+
+body[data-color="light"]
+  .burger__button
+    &:before,
+    &:after,
+    &-meat
+      bgc $dark
+      
+body[data-color="dark"],
+body:not(.index)
+  .burger__button
+    &:before,
+    &:after,
+    &-meat
+      bgc white
+
+body:not(.index)[data-color="light"]
+  .burger__button
+    &:before,
+    &:after,
+    &-meat
+      bgc $dark
+  
+.burger
+  &__bg
+    pos absolute
+    l  50%
+    t 50%
+    transform translate(-50%, -50%) scale(1.06)
+    transition 1s transform
+    will-change transform
+    opacity .5
+    @media $desktopMin
+      dn()
+  &__button
+    cursor pointer
+    w 25px
+    h 25px
+    pos relative
+    &:before
+      content ""
+      pos absolute
+      t 0
+      r 0
+      w 25px
+      h 1px
+      transition .5s width, .5s background, .5s transform, .5s top
+    &:after
+      content ""
+      pos absolute
+      b 0
+      r 0
+      w 25px
+      h 1px
+      transition .5s width, .5s background, .5s transform, .5s top  
+    &-meat
+      content ""
+      pos absolute
+      t 50%
+      r 0
+      w 25px
+      h 1px
+      mt -1px
+      transition .5s width, .5s background, .5s transform, .5s top  
+    &:not(.open):hover
+      &:before
+        animation burger-hover 1s infinite ease-in-out alternate
+      &:after
+        animation burger-hover 1s infinite ease-in-out alternate forwards 400ms
+    &:not(.open):hover &-meat
+      animation burger-hover 1s infinite ease-in-out alternate forwards 200ms
+    &.open
+      &:before
+        animation burger-top 1s ease-in-out forwards
+      &:after
+        animation burger-bottom 1s ease-in-out forwards
+      & ^[-1]-meat
+        opacity 0
+    &.open.remove
+      &:before
+        animation burger-top-invert 1s ease-in-out forwards
+      &:after
+        animation burger-bottom-invert 1s ease-in-out forwards
+      & ^[-1]-meat
+        opacity 1
+        transition .4s opacity .6s
+  &__popup
+    visibility hidden
+    opacity 0
+    pos fixed
+    t 0 
+    l 0
+    w 100vw
+    h 100vh
+    z-index 9
+    background black
+    display flex
+    align-items center
+    justify-content flex-start
+    transition .7s visibility, .7s opacity
+  &__menu
+    &-list
+      display flex
+      flex-direction column
+      pos relative
+      opacity 0
+      b -20px
+      transition .7s bottom, .7s opacity
+    &-item
+      & + &
+        mt 59px
+        @media $lDesktopMedium
+          mt 44px
+        @media $LandscapeMedium
+          mt 10px
+      &_mobile
+        @media (min-width:651px)
+          dn()
+          & + .burger__menu-item
+            mt 0
+    &-href
+      color white
+      fontify 72px 400 48px
+      pos relative
+      l 0
+      transition .7s color, .7s left
+      @media $lDesktopMax
+        fontify 66px 400 48px
+      @media $lDesktopMedium
+        fontify 60px 400 48px
+      @media $LandscapeMedium
+        fontify 36px 400 48px
+      &:after
+        content ""
+        pos absolute
+        bgc alpha(white, .25)
+        w 0
+        h 3px
+        b 4px
+        l 50%
+        transform translateX(-50%)
+        transition .7s width
+      &.active
+        color $yellow
+      &:hover
+        l 15px
+
+@keyframes burger-hover
+  0%
+    w 100%
+  50%
+    w 50%
+  100%
+    w 100%
+      
+@keyframes burger-top
+  0%
+    t 0
+  40%
+    t 12px
+  60%
+    t 12px
+    transform rotate(0)
+  100%
+    t 12px
+    transform rotate(45deg)
+    
+@keyframes burger-bottom
+  0%
+    b 0
+  40%
+    b 12px
+  60%
+    b 12px
+    transform rotate(0)
+  100%
+    b 12px
+    transform rotate(-45deg)
+
+@keyframes burger-top-invert
+  0%
+    t 12px
+    transform rotate(45deg)
+  40%
+    t 12px
+    transform rotate(0)
+  60%
+    t 12px
+  100%
+    t 0
+    
+@keyframes burger-bottom-invert
+  0%
+    b 12px
+    transform rotate(-45deg)
+  40%
+    b 12px
+    transform rotate(0)
+  60%
+    b 12px
+  100%
+    b 0
+        
+html.touchevents
+  .burger__button
+    &:not(.open):hover
+      &:before
+        animation none
+      &:after
+        animation none
+    &:not(.open):hover .burger__button-meat
+      animation none

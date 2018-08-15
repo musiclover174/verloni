@@ -1,0 +1,47 @@
+.ibanner
+  h 100vh
+  .swiper-slide
+    min-width 100vw
+    pos relative
+    z-index 1
+    overflow hidden
+    display flex
+    align-items center
+    justify-content flex-start
+    &-active
+      & ^[0]
+        &__bg
+          transition 7s transform
+          transform translate(-50%, -50%) scale(1.08)
+        &__title
+          opacity 1
+          b 0
+          transition-delay .8s
+        &__subtitle
+          opacity 1
+          b 0
+          transition-delay .9s
+  .swiper-buttons
+    b 62px
+    @media $LandscapeMedium
+      b 29px
+  &__bg
+    opacity .5
+    z-index -1
+    imgCenteringMin()
+  &__maxwidth
+    max-width 700px
+  &__title
+    color white
+    fontify 72px 400 76px
+    pos relative
+    opacity 0
+    b -20px
+    transition .7s opacity, .7s bottom
+    @media $lDesktopMedium
+      fontify 60px 400 64px
+    @media $desktopMin
+      max-width 540px
+    @media $LandscapeMedium
+      fontify 36px 400 40px
+  
