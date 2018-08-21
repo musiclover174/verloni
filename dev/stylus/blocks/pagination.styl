@@ -1,39 +1,70 @@
 .pagination
   display flex
-  justify-content flex-start
-  pb 10px
+  justify-content center
+  align-items flex-start
   &__prev
     ib()
-    w 27px
-    h 25px
+    pos relative
+    color black
+    fontify 18px 400 18px
     mr 50px
-    background url('../i/arleft_black.png') no-repeat 0 -756px
-    transition .5s left, .5s opacity
+    mt 6px
+    border-bottom 1px solid black
+    transition .5s left, .5s opacity, .5s border
+    &:hover
+      border-color transparent
+    @media $lDesktopMedium
+      fontify 15px 400 15px
+    @media $LandscapeMax
+      fontify 0px 400 15px
+      mr 30px
+    &:before
+      content ""
+      pos absolute
+      l -16px
+      t 3px
+      size 8px 12px
+      background url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAMCAMAAABoQAyvAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAV1BMVEUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD///8OKbV/AAAAG3RSTlMAgOUBjYIDmXgEpP5qBrD8X7P5VLQHpXaPf9ow85dSAAAAAWJLR0QcnARBBwAAAAlwSFlzAAALEgAACxIB0t1+/AAAAEVJREFUCNdjYAABRiZmEMXMIs0KotnYpTlANCcXNw+I5uXjFwCrExQSBtMMIjCGKEyKgVMMohisXRzCYpaQZoSwGCSlmAFwQQJVo5L3WQAAAABJRU5ErkJggg==") no-repeat center
     @media $desktopMin
       mr 30px
     &.disabled
       opacity .25
-    &:not(.disabled):hover
-      animation arrAnimation 1s steps(28)
+      border-bottom transparent
   &__next
     ib()
-    w 27px
-    h 25px
+    pos relative
+    color black
+    fontify 18px 400 18px
     ml 50px
-    background url('../i/arright_black.png') no-repeat 0 -756px
-    transition .5s left, .5s opacity
-    @media $desktopMin
+    mt 6px
+    border-bottom 1px solid black
+    transition .5s left, .5s opacity, .5s border
+    &:hover
+      border-color transparent
+    @media $lDesktopMedium
+      fontify 15px 400 15px
+    @media $LandscapeMax
+      fontify 0px 400 15px
       ml 30px
+    &:before
+      content ""
+      pos absolute
+      r -16px
+      t 3px
+      size 8px 12px
+      background url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAMCAMAAABoQAyvAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAV1BMVEUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD///8OKbV/AAAAG3RSTlMAgOUBjYIDmXgEpP5qBrD8X7P5VLQHpXaPf9ow85dSAAAAAWJLR0QcnARBBwAAAAlwSFlzAAALEgAACxIB0t1+/AAAAEVJREFUCNdjYAABRiZmEMXMIs0KotnYpTlANCcXNw+I5uXjFwCrExQSBtMMIjCGKEyKgVMMohisXRzCYpaQZoSwGCSlmAFwQQJVo5L3WQAAAABJRU5ErkJggg==") no-repeat center
+      transform scaleX(-1)
     &.disabled
       opacity .25
-    &:not(.disabled):hover
-      animation arrAnimation 1s steps(28)
+      border-bottom transparent
   &__list
     display flex
   &__item
     text-align center
     color $dark
-    fontify 23px 400 21px
+    fontify 24px 700 19px
+    @media $lDesktopMedium
+      fontify 21px 700 19px
     & + &
       ml 28px
       @media $desktopMin
@@ -42,22 +73,14 @@
       pos relative
       display inline-block
       vertical-align middle
-      color $dark
-      fontify 23px 400 21px
+      color black
+      fontify 24px 700 19px
       transition .7s border
-      &:after
-        content ""
-        pos absolute
-        bgc alpha($dark, .25)
-        w 100%
-        h 1px
-        b 0
-        l 50%
-        transform translateX(-50%)
-        transition .7s width
-      &:hover:after
-        w 0
+      border-bottom 1px solid alpha(black, 1)
+      @media $lDesktopMedium
+        fontify 21px 700 19px
       &:not(a):after
-        dn()
+        border-bottom transparent
       ^[-1].active &
-        color $green
+        color $red
+        border-bottom transparent

@@ -1,17 +1,48 @@
 .ibanner
   h 100vh
+  @media $LandscapeMax
+    h 400px
+  @media $LandscapeMin
+    h auto
+  &__carover
+    pos relative
+  &__tonext
+    pos absolute
+    size 50px
+    t calc(100vh - 100px)
+    l 50%
+    ml -25px
+    z-index 2
+    padding 0
+    border-radius 50%
+    bgc $green
+    @media $lDesktopSmall
+      t calc(100vh - 75px)
+    @media $LandscapeMax
+      dn()
+    &:before
+      content ""
+      pos absolute
+      t 18px
+      l 20px
+      size 10px 14px
+      background url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAOBAMAAADkjZCYAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAJFBMVEX////////////////////////////////////////////////Vd7HLAAAAC3RSTlMAwxnnogPwqDc4GtZ0rMUAAAABYktHRACIBR1IAAAACXBIWXMAAAsSAAALEgHS3X78AAAAMklEQVQI12NgYBBkAIHdRJLKrrtDjBjUtu+uTmLgyN69rYGBYdruDKAEZ1oDSM0qBgYA9twPA3rfhXkAAAAASUVORK5CYII=") no-repeat center
+      animation arrow .8s infinite ease-in-out
+    &:hover
+      bgc $red
   .swiper-slide
-    min-width 100vw
     pos relative
     z-index 1
     overflow hidden
     display flex
     align-items center
     justify-content flex-start
+    background-color black
+    @media $LandscapeMin
+      padding 70px 0
     &-active
       & ^[0]
         &__bg
-          transition 7s transform
           transform translate(-50%, -50%) scale(1.08)
         &__title
           opacity 1
@@ -19,29 +50,481 @@
           transition-delay .8s
         &__subtitle
           opacity 1
-          b 0
+          l 0
           transition-delay .9s
-  .swiper-buttons
-    b 62px
-    @media $LandscapeMedium
-      b 29px
+  &__carover
+    .swiper-buttons
+      @media $LandscapeMin
+        pos relative
+        h 22px
+        mt 20px
+        display flex
+        justify-content center
+    .swiper-button-prev, 
+    .swiper-button-next
+      @media $LandscapeMin
+        z-index 1
+        size 22px
+        bgc transparent
+        mt 0
+        pos relative
+        t 0
+      &:before
+        @media $LandscapeMin
+          t 0
+    .swiper-button-prev:before
+      @media $LandscapeMin
+        l 0
+    .swiper-button-next:before
+      @media $LandscapeMin
+        l 0
+    .swiper-button-next
+      @media $LandscapeMin
+        ml 40px
   &__bg
-    opacity .5
     z-index -1
+    opacity .75
     imgCenteringMin()
-  &__maxwidth
-    max-width 700px
+    transition 7s transform
+  &__container
+    padding 0 100px
+    max-width 1300px
+    @media $lDesktopSmall
+      max-width 960px
+    @media $LandscapeMax
+      padding 0 70px
+    @media $LandscapeMin
+      padding 0 20px
   &__title
-    color white
-    fontify 72px 400 76px
+    color #fefefe
+    fontify 90px 900 82px
     pos relative
     opacity 0
     b -20px
     transition .7s opacity, .7s bottom
-    @media $lDesktopMedium
-      fontify 60px 400 64px
+    @media $lDesktopSmall
+      fontify 60px 900 50px
     @media $desktopMin
-      max-width 540px
+      fontify 52px 700 50px
     @media $LandscapeMedium
-      fontify 36px 400 40px
+      fontify 32px 700 32px
+  &__subtitle
+    color white
+    font-family $handy
+    fontify 90px 400 71px
+    text-align right
+    pos relative
+    opacity 0
+    l -20px
+    transition .7s opacity, .7s left
+    @media $lDesktopSmall
+      fontify 60px 400 43px
+    @media $desktopMin
+      fontify 52px 400 40px
+    @media $LandscapeMax
+      text-align left
+    @media $LandscapeMedium
+      fontify 32px 400 30px
+    
+@keyframes arrow {
+  from {
+    t 18px
+  }
+  50% {
+    t 21px
+  }
+  to {
+    t 18px
+  }
+}
+
+.idishes
+  margin 20px
+  overflow hidden
+  pt 100px
+  pb 164px
+  pos relative
+  z-index 1
+  @media $lDesktopSmall
+    margin 10px
+    pt 67px
+  @media $desktopMedium
+    pb 80px
+  &:before
+    content ""
+    position absolute
+    z-index -1
+    t -156px
+    r -196px
+    border-radius 50%
+    size 716px
+    background url('../i/board-bg.jpg') repeat center
+    @media $lDesktopSmall
+      size 650px
+    @media $LandscapeMedium
+      dn()
+  &__top
+    padding 0 125px
+    mb 54px
+    @media $lDesktopSmall
+      max-width 1000px
+      padding 0 50px
+      margin 0 auto 54px
+    @media $LandscapeMax
+      padding 0
+  &__cols
+    display flex
+    justify-content space-between
+    @media $desktopMedium
+      flex-wrap wrap
+  &__col
+    pos relative
+    w calc(100% / 3 - 43px)
+    @media $lDesktopSmall
+      w calc(100% / 3 - 30px)
+    @media $desktopMedium
+      w 100%
+    &:nth-child(2)
+      pt 52px
+      @media $desktopMedium
+        pt 0
+        mt 40px
+    &:nth-child(3)
+      mt -16px
+      @media $desktopMedium
+        mt 40px
+    img:not([class])
+      @media $desktopMedium
+        display inline !important
+        margin-bottom 5px !important
+  &__brand
+    fontify 30px 600 36px
+    @media $lDesktopSmall
+      fontify 24px 600 30px
+    @media $desktopMedium
+      fontify 20px 600 26px
   
+.icollections 
+  overflow hidden
+  &__top
+    text-align center
+    mb 40px
+  &__btns
+    pos relative
+    z-index 2
+    display flex
+    overflow auto
+    justify-content center
+    align-items flex-start
+    padding 31px 0 56px
+    @media $LandscapeMax
+      display block
+      white-space nowrap
+      padding 0
+      pt 15px
+      mb 30px
+  &__btn
+    color white
+    cursor pointer
+    overflow hidden
+    pos relative
+    fontify 18px 400 55px
+    @media $lDesktopSmall
+      fontify 15px 400 45px
+    @media $LandscapeMax
+      ib()
+    & + &
+      ml 38px
+      @media $desktopMedium
+        ml 18px
+    &:before
+      content attr(data-text)
+      color rgba(black, .5)
+      pos absolute
+      t 0
+      l 0
+      opacity 1
+      fontify 18px 400 20px
+      transition .7s color, .7s opacity, .7s top
+      @media $lDesktopSmall
+        fontify 15px 400 20px
+    &:after
+      content attr(data-text)
+      pos absolute
+      t 25px
+      l 0
+      bgc white
+      color rgba(black, 1)
+      opacity 0
+      font-family $handy
+      fontify 48px 400 55px
+      transition .7s opacity, .7s top
+      @media $lDesktopSmall
+        fontify 39px 400 45px
+    &:hover
+      &:before
+        color black
+    &.active
+      mt -22px
+      font-family $handy
+      fontify 48px 400 55px
+      @media $lDesktopSmall
+        fontify 39px 400 45px
+        mt -14px
+      @media $desktopMedium
+        mt -19px
+      &:after
+        t 0
+        opacity 1
+      &:before
+        t -25px
+        opacity 0
+  &__tabs
+    mb 10px
+  &__tab
+    dn()
+    pos relative
+    z-index 1
+    text-align center
+    &.active
+      db()
+  &__bgover
+    pos absolute
+    z-index -1
+    h 723px
+    w 100%
+    t -65px
+    l 50%
+    transform translateX(-50%)
+    overflow hidden
+    @media $lDesktopSmall
+      w 70%
+      h 530px
+    @media $LandscapeMax
+      dn()
+    &:after
+      content ""
+      background url('../i/collections-bg.png') no-repeat center
+      pos absolute
+      t 0
+      l 0
+      z-index 1
+      w 100%
+      h 100%
+      @media $lDesktopMedium
+        background-size 140% 100%
+  &__bg
+    pos absolute
+    t 1px
+    l 1px
+    z-index -1
+    w calc(100% - 2px)
+    h calc(100% - 1px)
+    background-repeat no-repeat
+    background-position center
+  &__dishes
+    pos absolute
+    z-index 1
+    @media $lDesktopSmall
+      transform scale(.7)
+    @media $desktopMin
+      dn()
+    &_elem1
+      t 181px
+      l -238px
+      @media $lDesktopSmall
+        t 103px
+        l -197px
+    &_elem2
+      t -260px
+      l 38px
+      @media $lDesktopMedium
+        l -85px
+      @media $lDesktopSmall
+        t -160px
+        l -10px
+    &_elem3
+      t 84px
+      r -175px
+      @media $lDesktopSmall
+        t 24px
+        r -115px
+  &__text
+    max-width 492px
+    margin 0 auto
+    mb 232px
+    @media $lDesktopSmall
+      mb 110px
+    @media $desktopMin
+      mb 200px
+    @media $LandscapeMax
+      mb 50px
+  &__food
+    db()
+    margin 0 auto 26px
+    @media $lDesktopSmall
+      transform scale(.7)
+      margin 0 auto -8px
+    @media $desktopMin
+      transform none
+      max-width 70%
+      mb 26px
+    @media $LandscapeMax
+      max-width 80%
+.iabout
+  mt 258px
+  padding 100px 0
+  overflow hidden
+  @media $lDesktopSmall
+    mt 140px
+  @media $desktopMin
+    mt 0
+  @media $LandscapeMax
+    dn()
+  &__spacer
+    h 0
+  &__styled
+    pos relative
+    z-index 1
+    size 0 0
+    margin -150px auto 150px
+    @media $lDesktopSmall
+      margin -100px auto 100px
+  &__positioner
+    pos absolute
+    l 0
+    r 0
+    t 0
+    background url('../i/board-bg.jpg') repeat top left
+    padding 150px 0 113px
+    @media $lDesktopSmall
+      padding 100px 0 83px
+    &.fixed
+      /*pos fixed
+      t 50%
+      transform translateY(-50%)*/
+    &.tobottom
+      pos absolute
+      t auto
+      b 0
+      transform none
+  &__main
+    pos relative
+  &__content
+    display flex
+    justify-content space-between
+    align-content center
+    @media $lDesktopSmall
+      padding 0 48px
+  &__verloni,
+  &__text,
+  &__dishes
+    w calc(100% / 3 - 43px)
+    @media $desktopMin
+      w calc(50% - 25px)
+  &__text
+    display flex
+    align-items center
+    @media $desktopMin
+      dn()
+    &-type
+      dn()
+      pos relative
+      l -20px
+      opacity 0
+      max-width 390px
+      &[data-step="1"]
+        l 0
+        opacity 1
+        db()
+  &__verloni
+    display flex
+    flex-direction column
+    justify-content center
+    &-title
+      color black
+      fontify 72px 700 65px
+      @media $lDesktopMedium
+        fontify 65px 700 60px
+      @media $lDesktopSmall
+        fontify 53px 700 45px
+      @media $desktopMax
+        fontify 43px 700 40px
+      @media $desktopMedium
+        fontify 35px 700 40px
+      span
+        color $red
+        font-family RaleighBT
+    &-values
+      pos relative
+      h 68px
+      @media $lDesktopSmall
+        h 43px
+    &-value
+      pos absolute
+      r 20px
+      opacity 0
+      text-align right
+      color black
+      font-family $handy
+      fontify 72px 400 68px
+      @media $lDesktopSmall
+        fontify 48px 400 43px
+      @media $desktopMedium
+        fontify 38px 400 43px
+      &[data-step="1"]
+        opacity 1
+        r 0
+  &__dishes
+    pos relative
+    h 160px
+    @media $lDesktopSmall
+      transform scale(.8)
+    &-dish
+      pos absolute
+      l 50%
+      t -100px
+      opacity 0
+      transform translateX(-50%)
+      &[data-step="1"]
+        t -100px
+        opacity 1
+      &[data-step="2"]
+        t 80px
+      &[data-step="3"]
+        t 225px
+.igal
+  mt 152px
+  @media $lDesktopSmall
+    mt 78px
+  &__car
+    .swiper-slide
+      size 384px
+      pos relative
+      overflow hidden
+      @media $desktopMin
+        size 270px
+  &__img
+    imgCenteringMin()
+    transition .35s transform
+    &:hover
+      transform translate(-50%, -50%) scale(1.08)
+  &__top
+    max-width 730px
+    margin 0 auto
+    mb 56px
+    @media $lDesktopSmall
+      max-width 490px
+      mb 36px
+    @media $LandscapeMax
+      max-width none
+      text-align center
+  &__text
+    max-width 635px
+    margin 0 auto 62px
+    fontify 18px 400 24px
+    text-align center
+    @media $lDesktopMedium
+      fontify 15px 400 23px
+    @media $lDesktopSmall
+      mb 40px

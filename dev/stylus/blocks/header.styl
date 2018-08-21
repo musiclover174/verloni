@@ -1,140 +1,100 @@
 .header
   pos fixed
   w 100%
+  max-width 840px
   t 0
-  l 0
-  padding 30px 30px 0
+  l 50%
+  bgc white
+  padding 28px 9px 28px 0
   z-index 11
   display flex
   justify-content space-between
   align-items flex-start
-  &.hidden
-    h 0px
-    & ^[0]__edge
-      transform rotateX(90deg)
-      transition-delay 0s
-      &_rear
-        transform rotateX(0deg)
-        transition-delay .7s
-    & ^[0]__logo
-      opacity 0
-      visibility hidden
-      l -500px
-      transition .7s opacity, .7s visibility, 0s left .7s
+  transform translateX(-50%)
   @media $desktopMin
-    h 0px
-    & ^[0]__edge
-      transform rotateX(90deg)
-      transition-delay 0s
-      &_rear
-        transform rotateX(0deg)
-        transition-delay .7s
+    max-width none
+    padding 28px 30px
+    box-shadow 0 5px 35px rgba(0, 0, 0, 0.25)
+  @media $LandscapeMax
+    padding 18px 30px
+    align-items center
+  @media $LandscapeMedium
+    padding 18px 20px
+  &__shadow
+    pos absolute
+    t 100%
+    l 0
+    size 100% 36px
+    background url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAkCAMAAACDv4v0AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAeFBMVEUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD///8Vdm6aAAAAJ3RSTlMmJyQlIiMhHyAdHhwaGxgZFxUWFBITERAODw0MCwoJCAcGBQQDAgGpDWmSAAAAAWJLR0QnLQ+oIwAAAAlwSFlzAAALEgAACxIB0t1+/AAAAH9JREFUGNN9x9EagUAUAOEpS0KxLLIlJbz/I9pzdj/d+a9mQGRZRp4vFGapclbCGENRFGtBWW4U24SdqKqKut4rDlGNtfYoOEUW586Ki3DOcU1obhHe+0bQBmE8nWpb7lFHH915qL5nCCQZx0GFiHgmTOoX08QrmeOdzPFJ/sQXtaEbbITspccAAAAASUVORK5CYII=") repeat-x top center
+    @media $desktopMin
+      dn()
+  &:before
+    content ""
+    pos absolute
+    l -123px
+    t 0
+    background url('../i/header-aside.png') no-repeat center
+    size 123px 127px
+    @media $desktopMin
+      dn()
+  &:after
+    content ""
+    pos absolute
+    r -115px
+    t 0
+    background url('../i/header-aside.png') no-repeat top right
+    size 115px 127px
+    transform: scaleX(-1)
+    @media $desktopMin
+      dn()
   &__logo
     l 0
     pos relative
     transition .7s opacity, .7s visibility, 0s left
-  &__edge
-    display flex
-    will-change transform
-    transition .7s transform
-    transform-origin center
-    transition-delay .7s
-    &_rear
-      pos absolute
-      r 30px
-      t 30px
-      transform rotateX(90deg)
-      transition-delay 0s
   &__menu
     mt -2px
+    @media $LandscapeMax
+      dn()
     &-list
       display flex
     &-item
       & + &
-        ml 27px
-        @media $desktopMax
-          ml 17px
-    &-href
-      color white
-      fontify 14px 700 16px
-      text-transform uppercase
-      letter-spacing 0.1em
-      pos relative
-      transition .7s color
-      @media $desktopMedium
-        fontify 12px 700 14px
-      &:after
-        content ""
-        pos absolute
-        bgc alpha(white, .25)
-        w 0
-        h 1px
-        b 0
-        l 50%
-        transform translateX(-50%)
-        transition .7s width
-      &.active
-        color $yellow
-      &:not(.active):hover:after
-        w 100%
-  &__phones
-    mt -2px
-    ml 48px
-    @media $desktopMax
-      ml 35px
-    &-elem
-      color white
-      fontify 14px 700 16px
-      text-transform uppercase
-      letter-spacing 0.1em
-      @media $desktopMedium
-        fontify 12px 700 14px
-      & + &
         ml 28px
         @media $desktopMax
-          ml 17px
-  &__socials
-    display flex
-    ml 48px
-    @media $desktopMax
-      ml 35px
-    &-elem
-      transition .7s opacity
-      &:hover
-        opacity .6
-      & + &
-        ml 30px
-        @media $desktopMax
-          ml 20px
-      &[data-type="inst"]
-        size 12px
-        background url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMCAMAAABhq6zVAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAP1BMVEX///////////////////////////////////////////////////////////////////////////////////81m6ZbAAAAFHRSTlMAA37ree2Qg4+O+W4SEedvdoHhd8PbWNMAAAABYktHRACIBR1IAAAACXBIWXMAAAsSAAALEgHS3X78AAAAU0lEQVQI122N0Q6AIAhFLxqZolnG/39rkrXW1n3hHMa4IOf1ip8IbqDyzAH3XhdERp9JcpE1sppU9GwdTLJJ/pPPWZJSJJk8r60K+ysB5NrAdtAJRDMH441ZvLkAAAAASUVORK5CYII=") no-repeat center
-      &[data-type="fb"]
-        size 7px 13px
-        background url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAANBAMAAACX52mGAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAHlBMVEX///////////////////////////////////////8V2MxSAAAACXRSTlMAEardd2bumbuE/Rs4AAAAAWJLR0QAiAUdSAAAAAlwSFlzAAALEgAACxIB0t1+/AAAACxJREFUCNdjYBCaOYGBQRNEzDQJABIKDAxKM5MKGGbOnGkAIhogYliJtAIGAA1bDqr8bfauAAAAAElFTkSuQmCC") no-repeat center
-
-
-body[data-color="light"]
-  .burger__button
-    &:before,
-    &:after,
-    &-meat
-      bgc $dark
-      
-body[data-color="dark"],
-body:not(.index)
-  .burger__button
-    &:before,
-    &:after,
-    &-meat
-      bgc white
-
-body:not(.index)[data-color="light"]
-  .burger__button
-    &:before,
-    &:after,
-    &-meat
-      bgc $dark
+          ml 19px
+    &-href
+      ib()
+      color black
+      fontify 16px 700 16px
+      pos relative
+      transition .7s color
+      &:hover,
+      &.active
+        color $red
+      &:not(&_red)
+        mt 12px
+        @media $desktopMin
+          mt 14px
+      @media $desktopMin
+        fontify 14px 700 14px
+      &_red
+        ib()
+        mt 2px
+        ml 18px
+        bgc $red
+        border-radius 19px
+        color white
+        outline none
+        cursor pointer
+        fontify 16px 700 36px
+        padding 0 30px
+        transition .7s background
+        @media $desktopMin
+          fontify 14px 700 36px
+          ml 0
+        &:hover
+          bgc $green
+          color white
   
 .burger
   &__bg
@@ -148,17 +108,21 @@ body:not(.index)[data-color="light"]
     @media $desktopMin
       dn()
   &__button
+    dn()
     cursor pointer
     w 25px
     h 25px
     pos relative
+    @media $LandscapeMax
+      db()
     &:before
       content ""
       pos absolute
       t 0
       r 0
       w 25px
-      h 1px
+      h 2px
+      bgc $red
       transition .5s width, .5s background, .5s transform, .5s top
     &:after
       content ""
@@ -166,7 +130,8 @@ body:not(.index)[data-color="light"]
       b 0
       r 0
       w 25px
-      h 1px
+      h 2px
+      bgc $red
       transition .5s width, .5s background, .5s transform, .5s top  
     &-meat
       content ""
@@ -174,8 +139,9 @@ body:not(.index)[data-color="light"]
       t 50%
       r 0
       w 25px
-      h 1px
+      h 2px
       mt -1px
+      bgc $red
       transition .5s width, .5s background, .5s transform, .5s top  
     &:not(.open):hover
       &:before
@@ -207,8 +173,16 @@ body:not(.index)[data-color="light"]
     l 0
     w 100vw
     h 100vh
+    pl 30px
+    pb 30px
+    pr 30px
+    @media $LandscapeMedium
+      pl 20px
+      pb 20px
+      pr 20px
     z-index 9
-    background black
+    overflow auto
+    background white
     display flex
     align-items center
     justify-content flex-start
@@ -223,42 +197,27 @@ body:not(.index)[data-color="light"]
       transition .7s bottom, .7s opacity
     &-item
       & + &
-        mt 59px
-        @media $lDesktopMedium
-          mt 44px
-        @media $LandscapeMedium
-          mt 10px
+        mt 10px
       &_mobile
         @media (min-width:651px)
           dn()
           & + .burger__menu-item
             mt 0
     &-href
-      color white
-      fontify 72px 400 48px
+      color black
+      fontify 36px 400 48px
       pos relative
       l 0
       transition .7s color, .7s left
-      @media $lDesktopMax
-        fontify 66px 400 48px
-      @media $lDesktopMedium
-        fontify 60px 400 48px
-      @media $LandscapeMedium
+      &_red
         fontify 36px 400 48px
-      &:after
-        content ""
-        pos absolute
-        bgc alpha(white, .25)
-        w 0
-        h 3px
-        b 4px
-        l 50%
-        transform translateX(-50%)
-        transition .7s width
-      &.active
-        color $yellow
-      &:hover
-        l 15px
+        bgc $red
+        border-radius 19px
+        color white
+        padding 0 15px
+        ml -15px
+        ib()
+        
 
 @keyframes burger-hover
   0%
@@ -316,6 +275,30 @@ body:not(.index)[data-color="light"]
   100%
     b 0
         
+html.burgeropen
+  overflow hidden
+  pos fixed
+  body
+    overflow hidden
+    pos fixed
+  .header
+    box-shadow none
+  .burger
+    &__popup
+      visibility visible
+      opacity 1
+      @media $LandscapeMedium
+        pt 150px
+      @media $desktopMin
+        pt 70px
+    &__bg
+      transform translate(-50%, -50%) scale(1)
+    &__menu
+      &-list
+        opacity 1
+        b 0
+        transition-delay .8s
+    
 html.touchevents
   .burger__button
     &:not(.open):hover

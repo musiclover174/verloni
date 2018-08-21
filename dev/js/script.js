@@ -225,62 +225,7 @@
 
   window.agroculture.obj = ({
 
-    progressUpdate: (val) => {
-      const progressEl = document.querySelector('.js-progress')
-
-      progressEl.style.width = val + '%'
-    },
-
-    indexVertCarousel: () => {
-      const headerEl = document.querySelector('.header'),
-        bodyEl = document.querySelector('body'),
-        carElemCount = document.querySelector('.js-icar .swiper-wrapper').children.length,
-        areaOverEl = document.querySelector('.js-area-over'),
-        _self = this
-
-      let bodyElColor = bodyEl.getAttribute('data-color')
-
-      if (window.xs && window.touch) {
-        document.querySelector('.js-icar .swiper-no-swiping').classList.remove('swiper-no-swiping')
-      }
-
-      const mainVertSwiper = new Swiper('.js-icar', {
-        speed: 1500,
-        direction: 'vertical',
-        slidesPerView: 1,
-        spaceBetween: 0,
-        mousewheel: {
-          releaseOnEdges: true
-        },
-        allowTouchMove: window.xs && window.touch
-      })
-
-      mainVertSwiper.on('slideChangeTransitionStart', function () {
-        if (this.activeIndex) {
-          headerEl.classList.add('hidden')
-          window.agroculture.obj.progressUpdate(Math.floor((this.activeIndex + 1) * 100 / carElemCount))
-        } else {
-          headerEl.classList.remove('hidden')
-          window.agroculture.obj.progressUpdate(0)
-        }
-
-        if (areaOverEl && this.activeIndex !== 1) {
-          areaOverEl.classList.remove('changed')
-        }
-
-        let slideColor = this.slides[this.activeIndex].getAttribute('data-color')
-        if (slideColor != bodyElColor) {
-          bodyElColor = slideColor
-          bodyEl.setAttribute('data-color', slideColor)
-        }
-
-      })
-    },
-
     indexBannerCarousel: () => {
-      const toggleHiddens = document.querySelectorAll('.js-area-toggler'),
-        toggleOver = document.querySelector('.js-area-over')
-
       const bannerSwiper = new Swiper('.js-ibanner', {
         loop: false,
         speed: 800,
@@ -288,66 +233,138 @@
         spaceBetween: 0,
         parallax: true,
         navigation: {
-          nextEl: '.js-ibanner .swiper-button-next',
-          prevEl: '.js-ibanner .swiper-button-prev',
+          nextEl: '.js-ibanner ~ .swiper-buttons .swiper-button-next',
+          prevEl: '.js-ibanner ~ .swiper-buttons .swiper-button-prev',
         },
         autoplay: {
           delay: 5000
         }
       })
-
-      for (let toggleButton of toggleHiddens) {
-        toggleButton.addEventListener('click', () => {
-          toggleOver.classList.toggle('changed')
-        })
-      }
-
     },
-
-    indexShowMap: () => {
-      const mapButton = document.querySelector('.js-mapshower'),
-        mapAreaOver = document.querySelector('.js-slide-mapper'),
-        roadBack = document.querySelector('.js-iroad-back')
+    
+    indexGalleryCarousel: () => {
+      const gallerySwiper = new Swiper('.js-igal', {
+        loop: true,
+        loopedSlides: 4,
+        centeredSlides: true,
+        speed: 800,
+        slidesPerView: 'auto',
+        spaceBetween: 0,
+        navigation: {
+          nextEl: '.js-igal .swiper-button-next',
+          prevEl: '.js-igal .swiper-button-prev',
+        }
+      })
+    },
+    
+    indexDishes: () => {
+      let step = 1
+      
+      const spacers = document.querySelectorAll('.js-dishes-spacer'),
+            positioner = document.querySelector('.js-dishes-positioner'),
+            dishesOver = document.querySelector('.js-dishes'),
+            positionHeight = getComputedStyle(positioner)['height']
+      
+      for (let spacer of spacers) {
+        spacer.style.height = positionHeight
+      }
+      
+      window.addEventListener('scroll', () => {
+        const dishesRect = dishesOver.getBoundingClientRect(),
+              posRect = positioner.getBoundingClientRect(),
+              wHeightHalf = (window.innerHeight || document.documentElement.clientHeight) / 2,
+              positionHeightHalf = positioner.offsetHeight / 2
         
-      var fromPoint = eval($('input[name=data-from]').val()),
-          toPoint = eval($('input[name=data-to]').val())
-
-      function init() {
-        let multiRoute = new ymaps.multiRouter.MultiRoute({
-          referencePoints: [
-						fromPoint,
-						toPoint
-					],
-          params: {
-            results: 1
+        if (dishesRect.top + positionHeightHalf <= wHeightHalf) {
+          if (dishesRect.top + dishesOver.offsetHeight - positionHeightHalf - wHeightHalf > 0) { 
+            positioner.style.top = Math.abs(dishesRect.top + positionHeightHalf - wHeightHalf) + 'px'
           }
-        }, {
-          boundsAutoApply: false
-        })
+        } else {
+          positioner.removeAttribute('style')
+        }
+      })
+      
+      const controller = new ScrollMagic.Controller()
 
-        const myMap = new ymaps.Map('iroad-map', {
-          center: [55.051641, 38.714763],
-          zoom: 9,
-          controls: []
-        })
-
-        myMap.controls.add('zoomControl');
-
-        myMap.geoObjects.add(multiRoute)
-        myMap.behaviors.disable('scrollZoom')
-      }
-
-      function wantInit() {
-        mapButton.addEventListener('click', () => {
-          mapAreaOver.classList.toggle('showmap')
-          init()
-        })
-        roadBack.addEventListener('click', () => {
-          mapAreaOver.classList.toggle('showmap')
-        })
-      }
-
-      ymaps.ready(wantInit)
+      // dishes scenes
+      const sceneDish1 = new ScrollMagic.Scene({
+        triggerElement: '.js-dishes-spacer[data-step="1"]',
+        duration: parseInt(positionHeight)
+      }).setTween('.iabout__dishes-dish[data-step="1"]', 1, {top: '-208px', ease: Linear.easeNone})
+      
+      const sceneDish2 = new ScrollMagic.Scene({
+        triggerElement: '.js-dishes-spacer[data-step="2"]',
+        duration: parseInt(positionHeight)
+      }).setTween('.iabout__dishes-dish[data-step="2"]', 1, {top: '0px', opacity: '1', ease: Linear.easeNone})
+      
+      const timelineDish3 = new TimelineMax()
+      const sceneDish3 = new ScrollMagic.Scene({
+        triggerElement: '.js-dishes-spacer[data-step="3"]',
+        duration: parseInt(positionHeight) * .7
+      })
+      timelineDish3.add([
+        TweenMax.to('.iabout__dishes-dish[data-step="1"]', 1, {top: "-290px", ease: Linear.easeNone}),
+        TweenMax.to('.iabout__dishes-dish[data-step="2"]', 1, {top: "-68px", ease: Linear.easeNone}),
+        TweenMax.to('.iabout__dishes-dish[data-step="3"]', 1, {top: '91px', opacity: '1', ease: Linear.easeNone})
+      ])
+      sceneDish3.setTween(timelineDish3)
+      
+      // features scenes
+      const timelineFeat1 = new TimelineMax()
+      const sceneFeat1 = new ScrollMagic.Scene({
+        triggerElement: '.js-dishes-spacer[data-step="1"]',
+        duration: parseInt(positionHeight) * .3,
+        offset: parseInt(positionHeight) * .7
+      })
+      timelineFeat1.add([
+        TweenMax.to('.iabout__verloni-value[data-step="1"]', 1, {opacity: 0, right: '20px', ease: Linear.easeNone}),
+        TweenMax.to('.iabout__text-type[data-step="1"]', 1, {opacity: 0, left: '-20px', display: 'none', ease: Linear.easeNone})
+      ])
+      sceneFeat1.setTween(timelineFeat1)
+      
+      const timelineFeat2 = new TimelineMax()
+      const sceneFeat2 = new ScrollMagic.Scene({
+        triggerElement: '.js-dishes-spacer[data-step="2"]',
+        duration: parseInt(positionHeight) * .3
+      })
+      timelineFeat2.add([
+        TweenMax.to('.iabout__verloni-value[data-step="2"]', 1, {opacity: 1, right: '0px', ease: Linear.easeNone}),
+        TweenMax.to('.iabout__text-type[data-step="2"]', 1, {opacity: 1, left: '0px', display: 'block', ease: Linear.easeNone})
+      ])
+      sceneFeat2.setTween(timelineFeat2)
+      
+      const timelineFeat2Fade = new TimelineMax()
+      const sceneFeat2Fade = new ScrollMagic.Scene({
+        triggerElement: '.js-dishes-spacer[data-step="2"]',
+        duration: parseInt(positionHeight) * .3,
+        offset: parseInt(positionHeight) * .7
+      })
+      timelineFeat2Fade.add([
+        TweenMax.to('.iabout__verloni-value[data-step="2"]', 1, {opacity: 0, right: '20px', ease: Linear.easeNone}),
+        TweenMax.to('.iabout__text-type[data-step="2"]', 1, {opacity: 0, left: '-20px', display: 'none', ease: Linear.easeNone})
+      ])
+      sceneFeat2Fade.setTween(timelineFeat2Fade)
+      
+      const timelineFeat3 = new TimelineMax()
+      const sceneFeat3 = new ScrollMagic.Scene({
+        triggerElement: '.js-dishes-spacer[data-step="3"]',
+        duration: parseInt(positionHeight) * .3
+      })
+      timelineFeat3.add([
+        TweenMax.to('.iabout__verloni-value[data-step="3"]', 1, {opacity: 1, right: '0px', ease: Linear.easeNone}),
+        TweenMax.to('.iabout__text-type[data-step="3"]', 1, {opacity: 1, left: '0px', display: 'block', ease: Linear.easeNone})
+      ])
+      sceneFeat3.setTween(timelineFeat3)
+      
+      controller.addScene([
+        sceneDish1,
+        sceneDish2,
+        sceneDish3,
+        sceneFeat1,
+        sceneFeat2,
+        sceneFeat2Fade,
+        sceneFeat3
+      ])
     },
 
     contactsMap: () => {
@@ -360,16 +377,7 @@
           controls: ['smallMapDefaultSet']
         })
 
-        $('input.points').each(function () {
-          var o = eval($(this).val())
-          var myPlacemark2 = new ymaps.Placemark(o, {}, {
-            preset: 'islands#redIcon',
-            iconColor: '#ff3f33'
-          })
-          myMap.geoObjects.add(myPlacemark2)
-        })
-        
-        /*let myPlacemark = new ymaps.Placemark([54.828410, 38.289115], {}, {
+        let myPlacemark = new ymaps.Placemark([54.828410, 38.289115], {}, {
           preset: 'islands#redIcon',
           iconColor: '#ff3f33'
         })
@@ -377,272 +385,15 @@
         let myPlacemark2 = new ymaps.Placemark([54.827684, 38.321429], {}, {
           preset: 'islands#redIcon',
           iconColor: '#ff3f33'
-        })*/
+        })
 
         myMap.behaviors.disable('scrollZoom')
-        /*myMap.geoObjects
+        myMap.geoObjects
           .add(myPlacemark)
-          .add(myPlacemark2)*/
+          .add(myPlacemark2)
       }
 
       ymaps.ready(init)
-    },
-
-    indexVegetables: () => {
-      const vegHrefs = document.querySelectorAll('.js-iveg-href'),
-        vegOver = document.querySelector('.iveg__over'),
-        backHrefs = document.querySelectorAll('.js-iveg-back')
-
-      let step = 0,
-        vegBlock, vegEl, startDot, endDot, startDistance,
-        clientX = 0,
-        vegWidth, vegFrames, vegFrameHeight,
-        startWatcher = false,
-        vegStepEnd = false
-
-      let vegToStart = (curSlide) => {
-        if (curSlide === 0) return
-        curSlide--
-        vegEl.style.backgroundPositionY = `-${curSlide * vegFrameHeight}px`
-        setTimeout(() => {
-          vegToStart(curSlide)
-        }, 10)
-      }
-
-      let dotListener = (event) => {
-        if (startWatcher) {
-          startDot.style.left = event.clientX - startDot.parentNode.offsetLeft - startDot.offsetWidth / 2 + 'px'
-          startDot.style.top = event.clientY - startDot.parentNode.offsetTop - startDot.offsetHeight / 2 + 'px'
-
-          let distance = Math.sqrt(Math.pow(endDot.offsetLeft - startDot.offsetLeft, 2) + Math.pow(endDot.offsetTop - startDot.offsetTop, 2))
-
-          let percent = Math.floor((startDistance - distance) * 100 / startDistance) + 5
-
-          if (percent < 0) {
-            percent = 0
-          }
-
-          if (percent > 100) {
-            percent = 100
-            vegStepEnd = true
-            startDot.style.left = endDot.offsetLeft + 'px'
-            startDot.style.top = endDot.offsetTop + 'px';
-            for (let e of ['mousemove', 'touchmove']) {
-              startDot.parentNode.removeEventListener(e, dotListener)
-            }
-          }
-
-          let newSlide = Math.floor(vegFrames * percent / 100)
-
-          vegEl.style.backgroundPositionY = `-${newSlide * vegFrameHeight}px`
-        }
-      }
-
-      let interactiveEnd = () => {
-        if (!vegStepEnd) {
-          vegToStart(Math.abs(parseInt(getComputedStyle(vegEl)['backgroundPositionY'])) / vegFrameHeight)
-          startDot.removeAttribute('style')
-        } else {
-          step++
-          vegBlock.classList.add('step2-starter')
-          setTimeout(() => {
-            vegBlock.classList.remove('step2-starter')
-            vegBlock.classList.add('step2')
-            setTimeout(() => {
-              startDot.removeAttribute('style')
-            }, 700)
-          }, 700)
-          docListenerRemove()
-        }
-        startWatcher = false
-      }
-
-      let watcherSetter = (e) => {
-        if (e.target.classList.contains('js-iveg-start')) {
-          startWatcher = true
-        }
-      }
-
-      let docListenerRemove = () => {
-        for (let e of ['mousedown', 'touchstart']) {
-          document.removeEventListener(e, watcherSetter)
-        }
-
-        for (let e of ['mousemove', 'touchmove']) {
-          startDot.parentNode.removeEventListener(e, dotListener)
-        }
-
-        for (let e of ['mouseup', 'touchend']) {
-          document.removeEventListener(e, interactiveEnd);
-        }
-      }
-
-      let docListener = () => {
-        for (let e of ['mousedown', 'touchstart']) {
-          document.addEventListener(e, watcherSetter)
-        }
-
-        for (let e of ['mousemove', 'touchmove']) {
-          startDot.parentNode.addEventListener(e, dotListener)
-        }
-
-        for (let e of ['mouseup', 'touchend']) {
-          document.addEventListener(e, interactiveEnd)
-        }
-      }
-
-      // && window.touch
-      if (!window.xs) {
-        for (let vegHref of vegHrefs) {
-          vegHref.addEventListener('click', (e) => {
-            const hrefType = vegHref.getAttribute('data-type')
-
-            vegBlock = document.querySelector(`.iveg__type[data-type="${hrefType}"]`)
-
-            vegEl = vegBlock.querySelector('.iveg__type-anim')
-            startDot = vegBlock.querySelector('.js-iveg-start')
-            endDot = vegBlock.querySelector('.js-iveg-end')
-            startDistance = Math.sqrt(Math.pow(endDot.offsetLeft - startDot.offsetLeft, 2) + Math.pow(endDot.offsetTop - startDot.offsetTop, 2))
-            vegWidth = vegEl.clientWidth
-            vegFrames = vegEl.getAttribute('data-frames')
-            vegFrameHeight = vegEl.getAttribute('data-frameheight')
-
-            docListener()
-
-            vegOver.classList.add('hide')
-            setTimeout(() => {
-              vegOver.classList.add('absolute')
-              vegBlock.classList.remove('absolute', 'hide')
-              step++
-            }, 700)
-            e.preventDefault()
-          })
-        }
-
-        for (let backHref of backHrefs) {
-          backHref.addEventListener('click', (e) => {
-            if (step === 1) {
-              vegBlock.classList.add('hide')
-              setTimeout(() => {
-                vegBlock.classList.add('absolute')
-                vegOver.classList.remove('absolute', 'hide');
-                docListenerRemove()
-                step--
-              }, 700)
-            }
-            if (step === 2) {
-              step--
-              vegBlock.classList.add('step1-starter');
-              setTimeout(() => {
-                vegBlock.classList.remove('step1-starter');
-                vegBlock.classList.remove('step2');
-              }, 700)
-              vegToStart(vegFrames)
-              docListener()
-              vegStepEnd = false
-            }
-          })
-        }
-      }
-
-    },
-
-    catalogCars: () => {
-      const catalogCars = document.querySelectorAll('.js-catalog-car'),
-        headerEl = document.querySelector('.header'),
-        bodyEl = document.querySelector('body'),
-        carElemCount = document.querySelector('.js-car .swiper-wrapper').children.length,
-        hrefToSlide = document.querySelectorAll('.js-catalog-toslide')
-
-      let bodyElColor = bodyEl.getAttribute('data-color')
-
-      for (let item of catalogCars) {
-        let parentSlide = item.closest('.swiper-slide'),
-          carElemCount = item.querySelector('.swiper-wrapper').children.length
-        let bannerSwiper = new Swiper(item, {
-          loop: carElemCount > 1 ? true : false,
-          speed: 800,
-          slidesPerView: 2,
-          spaceBetween: 42,
-          navigation: {
-            nextEl: parentSlide.querySelector('.swiper-button-next'),
-            prevEl: parentSlide.querySelector('.swiper-button-prev'),
-          },
-          breakpoints: {
-            960: {
-              slidesPerView: 1
-            }
-          },
-          allowTouchMove: window.xs && window.touch
-        })
-      }
-
-      const carVertSwiper = new Swiper('.js-car', {
-        speed: 1500,
-        direction: 'vertical',
-        slidesPerView: 1,
-        spaceBetween: -1,
-        mousewheel: {
-          releaseOnEdges: true
-        },
-        allowTouchMove: window.xs && window.touch
-      })
-
-      carVertSwiper.on('slideChangeTransitionStart', function () {
-        if (this.activeIndex) {
-          headerEl.classList.add('hidden')
-          window.agroculture.obj.progressUpdate(Math.floor((this.activeIndex + 1) * 100 / carElemCount))
-        } else {
-          headerEl.classList.remove('hidden')
-          window.agroculture.obj.progressUpdate(0)
-        }
-
-        let slideColor = this.slides[this.activeIndex].getAttribute('data-color')
-        if (slideColor != bodyElColor) {
-          bodyElColor = slideColor
-          bodyEl.setAttribute('data-color', slideColor)
-        }
-      })
-
-      for (let item of hrefToSlide) {
-        item.addEventListener('click', () => {
-          let type = item.getAttribute('data-type'),
-            slideIndex = $(`.js-car .swiper-slide[data-slide="${type}"]`).index()
-          carVertSwiper.slideTo(slideIndex, 1500)
-        })
-      }
-      
-      let hash = window.location.hash
-      if (hash) {
-        hash = hash.substr(1)
-        let slideIndex = $(`.js-car .swiper-slide[data-slide="${hash}"]`).index()
-        carVertSwiper.slideTo(slideIndex, 1500)
-      }
-
-    },
-
-    catalogVegetables: () => {
-      const hrefs = document.querySelectorAll('.js-catalog-toslide'),
-        vegs = document.querySelectorAll('.js-catalog-veg');
-
-      for (let href of hrefs) {
-        href.addEventListener('mouseover', () => {
-          let curType = href.getAttribute('data-type')
-          for (let item of vegs) {
-            item.classList.remove('hidden')
-          }
-          for (let item of vegs) {
-            if (item.getAttribute('data-type') !== curType) {
-              item.classList.add('hidden')
-            }
-          }
-        })
-        href.addEventListener('mouseout', () => {
-          for (let item of vegs) {
-            item.classList.remove('hidden')
-          }
-        })
-      }
     },
 
     resizeWatcher: () => {
@@ -671,95 +422,62 @@
 
     },
 
-    aboutCar: () => {
-      const personalSwiper = new Swiper('.js-about-car', {
-        loop: true,
-        speed: 800,
-        slidesPerView: 1,
-        spaceBetween: 0,
-        navigation: {
-          nextEl: '.js-about-car ~ .swiper-buttons .swiper-button-next',
-          prevEl: '.js-about-car ~ .swiper-buttons .swiper-button-prev',
-        },
-        breakpoints: {
-          960: {
-            autoHeight: true
-          }
-        }
-      })
-    },
-
-    aboutLines: () => {
-      const lines = document.querySelectorAll('.js-about-line'),
-        koef = .45
-
-      for (let line of lines) {
-        line.setAttribute('data-width', getComputedStyle(line)['background-position'].split('px ')[0])
-      }
-
-      window.addEventListener('scroll', () => {
-        for (let line of lines) {
-          let rect = line.getBoundingClientRect()
-          if (
-            rect.top + 258 >= 0 &&
-            rect.bottom - 258 <= (window.innerHeight || document.documentElement.clientHeight)
-          ) {
-            let diff = rect.bottom - 258 - (window.innerHeight || document.documentElement.clientHeight)
-
-            if (line.getAttribute('data-reverse')) {
-              line.style.backgroundPositionX = +line.getAttribute('data-width') - diff * koef + 'px'
-            } else {
-              line.style.backgroundPositionX = +line.getAttribute('data-width') + diff * koef + 'px'
-            }
-          }
-        }
-      })
-    },
-
-    aboutTheatre: () => {
-      const tabs = document.querySelectorAll('.js-about-tab'),
-        cars = document.querySelectorAll('.about__cars-truck')
-
-      for (let tab of tabs) {
-        tab.addEventListener('click', (e) => {
-          if (tab.classList.contains('active')) {
+    collections: () => {
+      const colItems = document.querySelectorAll('.js-icollections-btn')
+      
+      for (let colItem of colItems) {
+        colItem.addEventListener('click', (e) => {
+          if (colItem.classList.contains('active')) {
             e.preventDefault()
             return
           }
-
-          let curTab = document.querySelector('.js-about-tab.active'),
-            curTabYear = curTab.getAttribute('data-year'),
-            newTabYear = tab.getAttribute('data-year'),
-            curInfoTab = document.querySelector(`.about__cars-infotab[data-year="${curTabYear}"]`),
-            newInfoTab = document.querySelector(`.about__cars-infotab[data-year="${newTabYear}"]`)
-
-          for (let car of cars) {
-            let carYear = car.getAttribute('data-year')
-
-            if (+carYear > +newTabYear) {
-              window.animation.fadeOut(car, 200)
-            } else if (car.offsetParent === null) {
-              window.animation.fadeIn(car, 200)
-            }
-          }
-
-          window.animation.fadeOut(curInfoTab, 200, () => {
-            window.animation.fadeIn(newInfoTab, 200, () => {}, 'flex')
+          
+          const tabId = colItem.getAttribute('data-type'),
+                curTab = document.querySelector('.js-icollections-tab.active'),
+                newTab = document.querySelector(`.js-icollections-tab[data-type="${tabId}"]`)
+          
+          document.querySelector('.js-icollections-btn.active').classList.remove('active')
+          colItem.classList.add('active')
+          
+          window.animation.fadeOut(curTab, 200, () => {
+            curTab.classList.remove('active')
+            window.animation.fadeIn(newTab, 200, () => {
+              newTab.classList.add('active')
+            })
           })
-
-          curTab.classList.remove('active')
-          tab.classList.add('active')
-
+          
           e.preventDefault()
         })
       }
+      
     },
-
+    
+    asyncScroll: () => {
+      const featElems = document.querySelectorAll('.js-async-scroll')
+      
+      featElems.forEach(item => item.setAttribute('data-top', parseInt(getComputedStyle(item)['top'])))
+      
+      window.addEventListener('scroll', () => {
+        featElems.forEach(item => {
+          const rect = item.getBoundingClientRect(),
+                diff = rect.bottom - item.offsetHeight - (window.innerHeight || document.documentElement.clientHeight),
+                dataKoef = item.getAttribute('data-koef'),
+                dataTop = item.getAttribute('data-top')
+          
+          if (diff <= 0 && (rect.top + item.offsetHeight >= 0)) {
+            item.style.top = dataTop - diff * dataKoef + 'px'
+          }
+        })
+      })
+    },
+    
     init: function () {
 
       const burgerEl = document.querySelector('.js-burger'),
         html = document.querySelector('html'),
-        elemsToCheck = ['.news__grid_page .news__elem-imgover', '.js-scroll-imgover', '.about__steps-elem']
+        headerEl = document.querySelector('.header'),
+        toNext = document.querySelector('.js-tonext'),
+        elemsToCheck = ['.news__elem-imgover', '.js-scroll-imgover', '.about__steps-elem']
 
       burgerEl.addEventListener('click', (e) => {
         html.classList.toggle('burgeropen')
@@ -773,54 +491,30 @@
         }
         e.preventDefault()
       })
-
-      if (document.querySelector('.js-icar')) this.indexVertCarousel()
+      
+      if (toNext) {
+        toNext.addEventListener('click', (e) => {
+          window.animation.scrollTo(document.querySelector('.idishes').offsetTop, 1000)
+          e.preventDefault()
+        })
+      }
 
       if (document.querySelector('.js-ibanner')) this.indexBannerCarousel()
-
-      if (document.querySelector('.js-mapshower')) this.indexShowMap()
-
-      if (document.querySelector('.js-iveg-href')) this.indexVegetables()
-
-      if (!window.mobile && document.querySelector('.js-catalog-veg')) this.catalogVegetables()
-
-      if (document.querySelector('.js-catalog-car')) this.catalogCars()
+      
+      if (document.querySelector('.js-igal')) this.indexGalleryCarousel()
 
       if (document.querySelector('.js-contacts-map')) this.contactsMap()
 
-      if (document.querySelector('.js-about-car')) this.aboutCar()
-
-      if (document.querySelector('.js-about-line')) this.aboutLines()
-
-      if (document.querySelector('.js-about-tab')) this.aboutTheatre()
-
-      if (document.querySelector('.js-aside-sticky')) {
-        const sidebar = new StickySidebar('.js-aside-sticky', {
-          containerSelector: '.page__withside',
-          innerWrapperSelector: '.page__aside-sticky',
-          topSpacing: 20,
-          bottomSpacing: 0
-        });
-      }
-
-      if ((document.querySelector('.js-icar') || document.querySelector('.js-car')) && window.touch && window.xsHeight && window.innerHeight < window.innerWidth) {
-        document.querySelector('html').classList.add('lock')
-      }
-
+      if (document.querySelector('.js-async-scroll')) this.asyncScroll()
+      
+      if (document.querySelector('.js-icollections-btn')) this.collections()
+      
+      if (document.querySelector('.js-dishes')) this.indexDishes()
+      
       window.addEventListener('resize', () => {
         window.xs = window.innerWidth <= 960 ? true : false
         window.mobile = window.innerWidth <= 480 ? true : false
         window.xsHeight = window.innerHeight <= 540 ? true : false
-      })
-
-      window.addEventListener('orientationchange', () => {
-        setTimeout(function () {
-          if (document.querySelector('.js-icar') && window.touch && window.xsHeight && window.innerHeight < window.innerWidth) {
-            document.querySelector('html').classList.add('lock')
-          } else {
-            document.querySelector('html').classList.remove('lock')
-          }
-        }, 500);
       })
 
       window.addEventListener('scroll', () => {
@@ -868,12 +562,5 @@
       window.agroculture.obj.init()
     }, 200)
   })
-
-  if (window.mobile) {
-    let sels = document.querySelectorAll('.ibanner, .icar, .catalog, .catalog__hrefs, .catalog__car-over')
-    for (let sel of sels) {
-      sel.style.height = window.innerHeight + 'px'
-    }
-  }
   
 })();

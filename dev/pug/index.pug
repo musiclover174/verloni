@@ -2,27 +2,200 @@ doctype html
 html
   head(lang="ru")
     include layout/__head
-  body
+  body.index
     include layout/__header
     section.content
-      .swiper-container.ibanner.js-ibanner
-        .swiper-wrapper
-          .swiper-slide 
-            img(src="img/ibanner1.jpg", alt="").ibanner__bg
-            section.container
-              p.ibanner__title Собственная Италия
-              p.ibanner__subtitle на моей кухне
-          .swiper-slide 
-            img(src="img/ibanner1.jpg", alt="").ibanner__bg
-            section.container
-              .ibanner__maxwidth
-                p.ibanner__title Новый бренд в сфере выращивания овощных культур1
-                section.ibanner__content 
-                  p.ibanner__text Мы обеспечиваем стабильно высокий уровень сбора и качества урожая за счет применения самых современных технологий, экологических методов защиты растений, а также осуществления строгого санитарного контроля.12
-                  a(href="#").ibanner__more Подробнее
+      button(type="button").btn.ibanner__tonext.js-tonext
+      .ibanner__carover
+        .swiper-container.ibanner.js-ibanner
+          .swiper-wrapper
+            .swiper-slide 
+              img(src="img/ibanner1.jpg", alt="").ibanner__bg
+              section.container.ibanner__container
+                p.ibanner__title Собственная Италия
+                p.ibanner__subtitle на моей кухне
+            .swiper-slide 
+              img(src="img/ibanner1.jpg", alt="").ibanner__bg
+              section.container.ibanner__container
+                p.ibanner__title Собственная Венеция
+                p.ibanner__subtitle на кухне соседа
         .swiper-buttons
           .swiper-button-prev
           .swiper-button-next
-              
+      section.idishes
+        section.container
+          section.idishes__top
+            p.common__title Итальянская посуда
+            p.common__subtitle для итальянского настроения
+          section.idishes__cols
+            .idishes__col
+              span(data-koef=".04").tomato.tomato_elem1.js-async-scroll
+              span(data-koef="-.08").pasta.pasta_type1.pasta_elem1.js-async-scroll
+              p.idishes__brand Это молодой бренд, идея которого родилась у одаренного итальянского дизайнера кухонной мебели, когда он трудился над  созданием очередного креативного решения для мебельного каталога. 
+            .idishes__col
+              p Как часто бывает, жизнь преподнесла дизайнеру сюрприз, одним из заказчиков, с которым он лично общался, оказался владелец небольшого предприятия по изготовлению посуды. Его впечатлили эскизы, и на их основе была придумана  первая серия дизайнерской посуды. 
+              p Чтобы убедиться, что «дух прекрасного» сохранился при превращении идеи в технологичные высококачественные кастрюли и сковородки, дизайнер тестировал все продукты лично, и так увлекся, что сменил профессию, став кулинаром. Вначале, конечно, его специализацией была итальянская кухня, но спустя некоторое время он уехал из Италии, чтобы продолжить теперь уже интернациональную карьеру шеф-повара. 
+            .idishes__col
+              img(src="img/idishes.png" style="margin: 0 auto 45px; display: block;")
+              p В 2017 г. посуда Verloni впервые появилась в России и сразу влюбила в себя множество семей, ведь яркость цветов и итальянский шарм отлично сочетаются с русским гостеприимством и хлебосольством.
+              p Италия на любой вкус на вашей кухне.
+      section.icollections
+        .container
+          section.icollections__top
+            p.common__title Коллекции
+          section.icollections__btns
+            button(type="button", data-type="type1", data-text="Болонья").icollections__btn.js-icollections-btn.active Болонья
+            button(type="button", data-type="type2", data-text="Флоренция").icollections__btn.js-icollections-btn Флоренция
+            button(type="button", data-type="type3", data-text="Турин").icollections__btn.js-icollections-btn Турин
+            button(type="button", data-type="type4", data-text="Верона").icollections__btn.js-icollections-btn Верона
+            button(type="button", data-type="type5", data-text="Милан").icollections__btn.js-icollections-btn Милан
+            button(type="button", data-type="type6", data-text="Сицилия").icollections__btn.js-icollections-btn Сицилия
+            button(type="button", data-type="type7", data-text="Рим").icollections__btn.js-icollections-btn Рим
+            button(type="button", data-type="type8", data-text="Неаполь").icollections__btn.js-icollections-btn Неаполь
+            button(type="button", data-type="type9", data-text="Венеция").icollections__btn.js-icollections-btn Венеция
+          section.icollections__tabs
+            .icollections__tab(data-type="type1").icollections__tab.js-icollections-tab.active
+              .icollections__bgover
+                span(style="background-image: url(img/icol-type1.jpg)", data-koef="-.12").icollections__bg.js-async-scroll
+              img(src="img/icol-dish1.png", data-koef="-.12").icollections__dishes.icollections__dishes_elem1
+              img(src="img/icol-dish2.png", data-koef="-.08").icollections__dishes.icollections__dishes_elem2
+              img(src="img/icol-dish3.png", data-koef="-.15").icollections__dishes.icollections__dishes_elem3
+              .icollections__text
+                p Посуда с глубокими стенками, особенно удобна для приготовления рыбных блюд, которые требуют быстрого нагрева для сохранения нюансов вкуса.
+              img(src="img/icol-food.png").icollections__food
+              a(href="#").btn.icollections__href Открыть в каталоге
+            .icollections__tab(data-type="type2").icollections__tab.js-icollections-tab
+              .icollections__bgover
+                span(style="background-image: url(img/icol-type2.jpg)", data-koef="-.12").icollections__bg.js-async-scroll
+              img(src="img/icol-dish1.png", data-koef="-.12").icollections__dishes.icollections__dishes_elem1
+              img(src="img/icol-dish2.png", data-koef="-.08").icollections__dishes.icollections__dishes_elem2
+              img(src="img/icol-dish3.png", data-koef="-.15").icollections__dishes.icollections__dishes_elem3
+              .icollections__text
+                p Посуда с глубокими стенками, особенно удобна для приготовления рыбных блюд, которые требуют быстрого нагрева для сохранения нюансов вкуса.
+              img(src="img/icol-food.png").icollections__food
+              a(href="#").btn.icollections__href Открыть в каталоге
+            .icollections__tab(data-type="type3").icollections__tab.js-icollections-tab
+              .icollections__bgover
+                span(style="background-image: url(img/icol-type3.jpg)", data-koef="-.12").icollections__bg.js-async-scroll
+              img(src="img/icol-dish1.png", data-koef="-.12").icollections__dishes.icollections__dishes_elem1
+              img(src="img/icol-dish2.png", data-koef="-.08").icollections__dishes.icollections__dishes_elem2
+              img(src="img/icol-dish3.png", data-koef="-.15").icollections__dishes.icollections__dishes_elem3
+              .icollections__text
+                p Посуда с глубокими стенками, особенно удобна для приготовления рыбных блюд, которые требуют быстрого нагрева для сохранения нюансов вкуса.
+              img(src="img/icol-food.png").icollections__food
+              a(href="#").btn.icollections__href Открыть в каталоге
+            .icollections__tab(data-type="type4").icollections__tab.js-icollections-tab
+              .icollections__bgover
+                span(style="background-image: url(img/icol-type4.jpg)", data-koef="-.12").icollections__bg.js-async-scroll
+              img(src="img/icol-dish1.png", data-koef="-.12").icollections__dishes.icollections__dishes_elem1
+              img(src="img/icol-dish2.png", data-koef="-.08").icollections__dishes.icollections__dishes_elem2
+              img(src="img/icol-dish3.png", data-koef="-.15").icollections__dishes.icollections__dishes_elem3
+              .icollections__text
+                p Посуда с глубокими стенками, особенно удобна для приготовления рыбных блюд, которые требуют быстрого нагрева для сохранения нюансов вкуса.
+              img(src="img/icol-food.png").icollections__food
+              a(href="#").btn.icollections__href Открыть в каталоге
+            .icollections__tab(data-type="type5").icollections__tab.js-icollections-tab
+              .icollections__bgover
+                span(style="background-image: url(img/icol-type5.jpg)", data-koef="-.12").icollections__bg.js-async-scroll
+              img(src="img/icol-dish1.png", data-koef="-.12").icollections__dishes.icollections__dishes_elem1
+              img(src="img/icol-dish2.png", data-koef="-.08").icollections__dishes.icollections__dishes_elem2
+              img(src="img/icol-dish3.png", data-koef="-.15").icollections__dishes.icollections__dishes_elem3
+              .icollections__text
+                p Посуда с глубокими стенками, особенно удобна для приготовления рыбных блюд, которые требуют быстрого нагрева для сохранения нюансов вкуса.
+              img(src="img/icol-food.png").icollections__food
+              a(href="#").btn.icollections__href Открыть в каталоге
+            .icollections__tab(data-type="type6").icollections__tab.js-icollections-tab
+              .icollections__bgover
+                span(style="background-image: url(img/icol-type6.jpg)", data-koef="-.12").icollections__bg.js-async-scroll
+              img(src="img/icol-dish1.png", data-koef="-.12").icollections__dishes.icollections__dishes_elem1
+              img(src="img/icol-dish2.png", data-koef="-.08").icollections__dishes.icollections__dishes_elem2
+              img(src="img/icol-dish3.png", data-koef="-.15").icollections__dishes.icollections__dishes_elem3
+              .icollections__text
+                p Посуда с глубокими стенками, особенно удобна для приготовления рыбных блюд, которые требуют быстрого нагрева для сохранения нюансов вкуса.
+              img(src="img/icol-food.png").icollections__food
+              a(href="#").btn.icollections__href Открыть в каталоге
+            .icollections__tab(data-type="type7").icollections__tab.js-icollections-tab
+              .icollections__bgover
+                span(style="background-image: url(img/icol-type7.jpg)", data-koef="-.12").icollections__bg.js-async-scroll
+              img(src="img/icol-dish1.png", data-koef="-.12").icollections__dishes.icollections__dishes_elem1
+              img(src="img/icol-dish2.png", data-koef="-.08").icollections__dishes.icollections__dishes_elem2
+              img(src="img/icol-dish3.png", data-koef="-.15").icollections__dishes.icollections__dishes_elem3
+              .icollections__text
+                p Посуда с глубокими стенками, особенно удобна для приготовления рыбных блюд, которые требуют быстрого нагрева для сохранения нюансов вкуса.
+              img(src="img/icol-food.png").icollections__food
+              a(href="#").btn.icollections__href Открыть в каталоге
+            .icollections__tab(data-type="type8").icollections__tab.js-icollections-tab
+              .icollections__bgover
+                span(style="background-image: url(img/icol-type8.jpg)", data-koef="-.12").icollections__bg.js-async-scroll
+              img(src="img/icol-dish1.png", data-koef="-.12").icollections__dishes.icollections__dishes_elem1
+              img(src="img/icol-dish2.png", data-koef="-.08").icollections__dishes.icollections__dishes_elem2
+              img(src="img/icol-dish3.png", data-koef="-.15").icollections__dishes.icollections__dishes_elem3
+              .icollections__text
+                p Посуда с глубокими стенками, особенно удобна для приготовления рыбных блюд, которые требуют быстрого нагрева для сохранения нюансов вкуса.
+              img(src="img/icol-food.png").icollections__food
+              a(href="#").btn.icollections__href Открыть в каталоге
+            .icollections__tab(data-type="type9").icollections__tab.js-icollections-tab
+              .icollections__bgover
+                span(style="background-image: url(img/icol-type5.jpg)", data-koef="-.12").icollections__bg.js-async-scroll
+              img(src="img/icol-dish1.png", data-koef="-.12").icollections__dishes.icollections__dishes_elem1
+              img(src="img/icol-dish2.png", data-koef="-.08").icollections__dishes.icollections__dishes_elem2
+              img(src="img/icol-dish3.png", data-koef="-.15").icollections__dishes.icollections__dishes_elem3
+              .icollections__text
+                p Посуда с глубокими стенками, особенно удобна для приготовления рыбных блюд, которые требуют быстрого нагрева для сохранения нюансов вкуса.
+              img(src="img/icol-food.png").icollections__food
+              a(href="#").btn.icollections__href Открыть в каталоге
+      section.iabout
+        section.iabout__main.js-dishes
+          .iabout__spacer.js-dishes-spacer.s1(data-step="1")
+          .iabout__spacer.js-dishes-spacer.s2(data-step="2")
+          .iabout__spacer.js-dishes-spacer.s3(data-step="3")
+          section.iabout__positioner.js-dishes-positioner
+            section.iabout__styled
+              span(data-koef=".04").tomato.tomato_elem2
+              span(data-koef="-.08").pasta.pasta_type1.pasta_elem2
+              span(data-koef="-.04").veg.veg_type1.veg_elem1
+            .container
+              .iabout__content
+                aside.iabout__verloni
+                  p.iabout__verloni-title
+                    span Verloni
+                    |  – это
+                  .iabout__verloni-values
+                    p(data-step="1").iabout__verloni-value качество
+                    p(data-step="2").iabout__verloni-value уникальность
+                    p(data-step="3").iabout__verloni-value технологии
+                main.iabout__dishes
+                  img(src="img/iabout-dish1.png", data-step="1").iabout__dishes-dish
+                  img(src="img/iabout-dish2.png", data-step="2").iabout__dishes-dish
+                  img(src="img/iabout-dish3.png", data-step="3").iabout__dishes-dish
+                aside.iabout__text 
+                  .iabout__text-type(data-step="1")
+                    p При производстве нашей посуды используются  последние технологии работы со сталью и алюминием, мы применяем материалы только проверенных поставщиков.
+                  .iabout__text-type(data-step="2")
+                    p Покрытие, имитирующее камень, кожу, бархат и медь. Использование гравировки в декоре, сияющие перламутровые покрытия, шкала для масла в фитнес-моделях, сетка для спагетти и многое другое.
+                  .iabout__text-type(data-step="3")
+                    p Посуда из литого, прессованного и кованого алюминия и нержавеющей стали. Сковороды и кастрюли предназначены для приготовления любых блюд.
+      section.igal
+        .container
+          section.igal__top
+            p.common__title Проверено
+            p.common__subtitle на наших кухнях
+          p.igal__text Посуда Verloni прошла проверку российских шеф-поваров, чьи блюда поражают своей оригинальностью. Теперь ваша очередь поразить близких!
+        .swiper-container.igal__car.js-igal
+          .swiper-wrapper
+            .swiper-slide
+              img(src="img/igal1.jpg").igal__img
+            .swiper-slide
+              img(src="img/igal2.jpg").igal__img
+            .swiper-slide
+              img(src="img/igal3.jpg").igal__img
+            .swiper-slide
+              img(src="img/igal4.jpg").igal__img
+            .swiper-slide
+              img(src="img/igal5.jpg").igal__img
+            .swiper-slide
+              img(src="img/igal3.jpg").igal__img
+          .swiper-button-prev
+          .swiper-button-next
     include layout/__footer
     include layout/__scripts

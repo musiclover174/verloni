@@ -160,28 +160,24 @@
 .swiper-button-next 
   position: absolute;
   top: 50%;
-  width: 27px;
-  height: 27px;
-  margin-top: -23px;
+  width: 80px;
+  height: 170px;
+  margin-top: -85px;
   z-index: 10;
   cursor: pointer;
-  border-radius 50%
   bgc transparent
   outline none
-  background-repeat no-repeat
-  background-position: 0 -756px
-  transition .5s background
-  @media $desktopMax
-    top 0
-    mt 0
-
-.swiper-buttons
-  @media $desktopMax
+  background url('../i/arleft.png') no-repeat center
+  transition .7s opacity
+  &:before
+    content ""
     pos absolute
-    b 30px
-    l 30px
-    w 100px
-    h 27px
+    t 70px
+    size 12px 22px
+    background url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAWCAMAAADD5o0oAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAb1BMVEUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD///9tVJtUAAAAI3RSTlMA5X2Dhn6MAXmTc/6Ya58DZf2lX/yrBlqvVPm1CE6wmpSC2hLDrO0AAAABYktHRCS0BvmZAAAACXBIWXMAAAsSAAALEgHS3X78AAAAYElEQVQY023PRxKAIAwFUCwogl0EBcXC/e/ojvyFWf03k0lhWc6oiliCeKxqkogNSKoW1Kl+II3TDFr0akhWb6Dd+YN0Oo8Iv21WB/M3GpfiOVJd6VAR75TxuQfffjnlD/61Bbzz6VU7AAAAAElFTkSuQmCC") no-repeat center
+    transition .7s background
+  &:hover:before
+    background url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAWCAMAAADD5o0oAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAb1BMVEXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCX///8lgV07AAAAI3RSTlMA5X2Dhn6MAXmTc/6Ya58DZf2lX/yrBlqvVPm1CE6wmpSC2hLDrO0AAAABYktHRCS0BvmZAAAACXBIWXMAAAsSAAALEgHS3X78AAAAYElEQVQY023PRxKAIAwFUCwogl0EBcXC/e/ojvyFWf03k0lhWc6oiliCeKxqkogNSKoW1Kl+II3TDFr0akhWb6Dd+YN0Oo8Iv21WB/M3GpfiOVJd6VAR75TxuQfffjnlD/61Bbzz6VU7AAAAAElFTkSuQmCC") no-repeat center
 
 .swiper-button-prev_dark,
 .swiper-button-next_dark{
@@ -192,10 +188,6 @@
   bgc transparent
   filter: invert(100%)
 }
-.swiper-button-prev:hover,
-.swiper-button-next:hover{
-  animation arrAnimation 1s steps(28)
-}
 .swiper-button-prev.swiper-button-disabled,
 .swiper-button-next.swiper-button-disabled {
   opacity: 0.1;
@@ -203,16 +195,15 @@
   pointer-events: none;
 }
 .swiper-button-prev
-  background-image: url('../i/arleft_white.png')
-  l 20px
-  @media $desktopMax
-    l 0
+  transform scaleX(-1)
+  l 0
+  &:before
+    l 47px
 
 .swiper-button-next
-  background-image: url('../i/arright_white.png')
-  r 20px
-  @media $desktopMax
-    r 0
+  r 0
+  &:before
+    l 48px
 
 .swiper-button-next.swiper-button-next_dark,
 .swiper-button-prev.swiper-button-prev_dark,

@@ -35,19 +35,23 @@ body
   w 100%
   max-width 1600px
   margin 0 auto
+  &_center
+    text-align center
   @media $lDesktopMax
     max-width 1400px
   @media $lDesktopMedium
     max-width 1250px
   @media $lDesktopSmall
-    max-width 1136px
-  @media $desktopMax
     max-width 100%
+    padding 0 60px
+  @media $desktopMedium
     padding 0 30px
   @media $LandscapeMedium
     padding 0 20px
     
 .content
+  @media $LandscapeMax
+    pt 71px
   h1:not([class])
     color black
     fontify 72px 700 76px
@@ -110,7 +114,7 @@ body
   ol:not([class]) li
     pl 30px
     pos relative
-    fontify 18px 400 26px
+    fontify 18px 400 24px
     @media $lDesktopMedium
       fontify 15px 400 23px
   ol:not([class]) li + li
@@ -124,13 +128,13 @@ body
     w 30px
     pr 9px
     color $red
-    fontify 18px 400 26px
+    fontify 18px 400 24px
     @media $lDesktopMedium
       fontify 15px 400 23px
   p:not([class])
     color black
-    fontify 18px 400 26px
-    margin 23px 0
+    fontify 18px 400 24px
+    margin 21px 0
     @media $lDesktopMedium
       fontify 15px 400 23px
   a:not([class])
@@ -167,6 +171,9 @@ input::-moz-placeholder
 input:-ms-input-placeholder
   color alpha(white, .5)
 
+body:not(.index) .content
+  pt 150px
+  
 div[class\^="table-scroller"]
   overflow auto
   pos relative
@@ -175,7 +182,7 @@ div[class\^="table-scroller"]
 
 .btn
   ib()
-  bgc $red
+  bgc $green
   border 0
   border-radius 19px
   color white
@@ -187,9 +194,32 @@ div[class\^="table-scroller"]
   @media $lDesktopMedium
     fontify 16px 700 36px
   &:hover
-    bgc $green
+    bgc $red
     
 .common
+  &__title 
+    color black
+    fontify 90px 700 82px
+    @media $lDesktopSmall
+      fontify 60px 700 50px
+    @media $desktopMin
+      fontify 52px 700 50px
+    @media $LandscapeMedium
+      fontify 32px 700 32px
+  &__subtitle
+    color black
+    font-family $handy
+    fontify 90px 400 71px
+    text-align right
+    mt 2px
+    @media $lDesktopSmall
+      fontify 60px 400 43px
+    @media $desktopMin
+      fontify 52px 400 40px
+    @media $LandscapeMax
+      text-align inherit
+    @media $LandscapeMedium
+      fontify 32px 400 30px
   &__input
     w 100%
     h 48px
@@ -400,9 +430,11 @@ div[class\^="table-scroller"]
     opacity 1
       
 .breadcrumbs
-  mb 18px
+  mb 55px
   color $grey
   pos relative
+  mt -25px
+  pl 13px
   &__href
     color $grey
     fontify 14px 400 18px
@@ -436,3 +468,41 @@ textarea.warning
     color $dark
   .tippy-arrow
     border-top-color white
+    
+.tomato
+  position absolute
+  size 81px
+  background url('../i/tomato.png') no-repeat center
+  @media $desktopMedium
+    dn()
+  &_elem1
+    r 118px
+    b 41px
+  &_elem2
+    l -570px
+    t -100px
+
+.veg
+  position absolute
+  size 152px 184px
+  background url('../i/veg.png') no-repeat center
+  @media $desktopMedium
+    dn()
+  &_elem1
+    r -622px
+    t -96px
+    
+.pasta
+  position absolute
+  size 98px
+  background url('../i/pasta1.png') no-repeat center
+  @media $desktopMedium
+    dn()
+  &_elem1
+    r 311px
+    b -53px
+  &_elem2
+    background url('../i/pasta2.png') no-repeat center
+    size 85px 110px
+    l -828px
+    b -483px

@@ -1,4 +1,5 @@
 header.header
+  span.header__shadow
   a(href="#").header__logo
     img(src="img/logo.png", alt="").header__logo-img
   nav.header__menu
@@ -20,9 +21,6 @@ header.header
 section.burger__popup
   nav.burger__menu
     ul.burger__menu-list
-      li.burger__menu-item.burger__menu-item_mobile
-        a(href="#").burger__menu-logo
-          img(src="img/logo.png", alt="")
       li.burger__menu-item
         a(href="#").burger__menu-href.active Бренд
       li.burger__menu-item
@@ -33,5 +31,5 @@ section.burger__popup
         a(href="#").burger__menu-href Новости
       li.burger__menu-item
         a(href="#").burger__menu-href Контакты
-      li.header__menu-item
-        a(href="#").header__menu-href.header__menu-href_red Купить
+      li.burger__menu-item
+        a(href="#").burger__menu-href.burger__menu-href_red Купить

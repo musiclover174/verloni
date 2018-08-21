@@ -1,0 +1,40 @@
+doctype html
+html
+  head(lang="ru")
+    include layout/__head
+  body
+    include layout/__header
+    section.content
+      section.container.container_center
+        h1 Новости
+        section.breadcrumbs
+          a(href="#").breadcrumbs__href Главная
+          span.breadcrumbs__delim /
+      section.container
+        include blocks/news-elem
+
+        -var newsArray = []
+        -newsArray.push({img: 'img/news1.jpg', date: "24.05.2018", href: "Сковорода - гриль в подарок!", text: "При покупке сотейника со съемной ручкой Verloni Rome, вы получаете сковородку -гриль Verloni Venice 24 см в подарок! Сотейник Verloni Rome, несомненно, станет вашей любимой посудой на кухне."})
+        -newsArray.push({img: 'img/news2.jpg', date: "23.05.2018", href: "Новое поступление посуды серии «Сицилия»", text: "Рады сообщить Вам о новом поступлении сковородок и кастрюль серии «Сицилия»! Теперь весь ассортимент стильной коллекции Wilmax в наличии по доступным ценам. Наши цены Вас приятно удивят!"})
+        -newsArray.push({img: 'img/news3.jpg', date: "22.05.2018", href: "Новинка! Новогодние подарочные сертификаты", text: "Рады представить вашему вниманию новинку - подарочные сертификаты в новогоднем оформлении. Сертификат на покупку посуды станет отличным подарком для ваших близких."})
+        -newsArray.push({img: 'img/news4.jpg', date: "21.05.2018", href: "Готовим вместе с Вами на Красной 69", text: "В магазине «Посуда в дом» на Красной 69 проводится акция! При покупке набора посуды Verloni, мастер-класс в подарок!"})
+        -newsArray.push({img: 'img/news5.jpg', date: "20.05.2018", href: "Скидка на посуду серии «Рим»", text: "Во всех салонах сети действует скидка 10% на посуду!"})
+        -newsArray.push({img: 'img/news6.jpg', date: "18.05.2018", href: "Скидка 20% на весь ассортимент Verloni", text: "Только до конца октября проводится акция на продукцию компании Verloni. Скидка на весь ассортимент Verloni – 20%."})
+
+        section.news__list
+          for news in newsArray
+            +newsElem(news)
+
+        include blocks/pagination 
+
+        section.news__inner
+          button(type="button", aria-label="закрыть", title="закрыть").news__close
+          button(type="button", aria-label="Следующая новость", title="Следующая новость").news__tonext
+          button(type="button", aria-label="Предыдущая новость", title="Предыдущая новость").news__toprev
+          .news__inner-content
+            h2.news__inner-title 
+            p.news__inner-date 
+            p.news__inner-prevtext 
+            .news__inner-text 
+    include layout/__footer
+    include layout/__scripts

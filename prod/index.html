@@ -12,351 +12,221 @@
     <meta name="keywords" content="">
     <link rel="stylesheet" href="static/css/style.css">
   </head>
-  <body class="index" data-color="dark">
-    <header class="header"><a class="header__logo" href="#"><img class="header__logo-img" src="img/logo.png" alt=""></a>
-      <div class="header__edge header__edge_front">
-        <nav class="header__menu">
-          <ul class="header__menu-list">
-            <li class="header__menu-item"><a class="header__menu-href active" href="#">Компания</a></li>
-            <li class="header__menu-item"><a class="header__menu-href" href="#">Продукция</a></li>
-            <li class="header__menu-item"><a class="header__menu-href" href="#">Карьера</a></li>
-            <li class="header__menu-item"><a class="header__menu-href" href="#">Новости</a></li>
-            <li class="header__menu-item"><a class="header__menu-href" href="#">Контакты</a></li>
-          </ul>
-        </nav>
-        <div class="header__socials"><a class="header__socials-elem" href="#" target="_blank" data-type="inst"></a><a class="header__socials-elem" href="#" target="_blank" data-type="fb"></a></div>
-        <div class="header__phones"><a class="header__phones-elem" href="tel:+74991234004">(499) 123-40-01</a><a class="header__phones-elem" href="tel:+74956492000">(495) 649-20-00</a></div>
-      </div>
-      <div class="header__edge header__edge_rear">
-        <button class="burger__button js-burger" type="button" aria-label="открыть мобильное меню"><span class="burger__button-meat"></span></button>
-      </div>
+  <body class="index">
+    <header class="header"><span class="header__shadow"></span><a class="header__logo" href="#"><img class="header__logo-img" src="img/logo.png" alt=""></a>
+      <nav class="header__menu">
+        <ul class="header__menu-list">
+          <li class="header__menu-item"><a class="header__menu-href active" href="#">Бренд</a></li>
+          <li class="header__menu-item"><a class="header__menu-href" href="#">Коллекции</a></li>
+          <li class="header__menu-item"><a class="header__menu-href" href="#">Особенности</a></li>
+          <li class="header__menu-item"><a class="header__menu-href" href="#">Новости</a></li>
+          <li class="header__menu-item"><a class="header__menu-href" href="#">Контакты</a></li>
+          <li class="header__menu-item"><a class="header__menu-href header__menu-href_red" href="#">Купить</a></li>
+        </ul>
+      </nav>
+      <button class="burger__button js-burger" type="button" aria-label="открыть мобильное меню"><span class="burger__button-meat"></span></button>
     </header>
-    <section class="burger__popup"><img class="burger__bg" src="img/burger-bg.jpg">
-      <div class="burger__menu-inner">
-        <div class="burger__menu-col">
-          <nav class="burger__menu">
-            <ul class="burger__menu-list">
-              <li class="burger__menu-item burger__menu-item_mobile"><a class="burger__menu-logo" href="#"><img src="img/logo.png" alt=""></a></li>
-              <li class="burger__menu-item"><a class="burger__menu-href active" href="#">Компания</a></li>
-              <li class="burger__menu-item"><a class="burger__menu-href" href="#">Продукция</a></li>
-              <li class="burger__menu-item"><a class="burger__menu-href" href="#">Карьера</a></li>
-              <li class="burger__menu-item"><a class="burger__menu-href" href="#">Новости</a></li>
-              <li class="burger__menu-item"><a class="burger__menu-href" href="#">Контакты</a></li>
-            </ul>
-          </nav>
-        </div>
-        <div class="burger__menu-col">
-          <div class="burger__phones"><a class="burger__phones-elem" href="tel:+74991234004">(499) 123-40-01</a><a class="burger__phones-elem" href="tel:+74956492000">(495) 649-20-00</a></div>
-          <div class="burger__socials">Так же вся новая и актуальная информация публикуется в наш паблик в <a class="burger__socials-elem" href="#" target="_blank" data-type="fb">Facebook </a>и ленту <a class="burger__socials-elem" href="#" target="_blank" data-type="inst">Instagram</a>. Подписывайтесь.</div>
-        </div>
-      </div>
+    <section class="burger__popup">
+      <nav class="burger__menu">
+        <ul class="burger__menu-list">
+          <li class="burger__menu-item"><a class="burger__menu-href active" href="#">Бренд</a></li>
+          <li class="burger__menu-item"><a class="burger__menu-href" href="#">Коллекции</a></li>
+          <li class="burger__menu-item"><a class="burger__menu-href" href="#">Особенности</a></li>
+          <li class="burger__menu-item"><a class="burger__menu-href" href="#">Новости</a></li>
+          <li class="burger__menu-item"><a class="burger__menu-href" href="#">Контакты</a></li>
+          <li class="burger__menu-item"><a class="burger__menu-href burger__menu-href_red" href="#">Купить</a></li>
+        </ul>
+      </nav>
     </section>
     <section class="content">
-      <div class="swiper-container icar js-icar">
-        <div class="swiper-wrapper">
-          <div class="swiper-slide" data-color="dark"> 
-            <div class="swiper-container ibanner js-ibanner">
-              <div class="swiper-wrapper">
-                <div class="swiper-slide"> 
-                  <!--video(autoplay, loop, poster="img/ibanner1.jpg").ibanner__bgsource(src="video/video.mp4", type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"')
-                  --><img class="ibanner__bg" src="img/ibanner1.jpg" alt="">
-                  <section class="container">
-                    <div class="ibanner__maxwidth">
-                      <p class="ibanner__title">Новый бренд в сфере выращивания овощных культур</p>
-                      <section class="ibanner__content"> 
-                        <p class="ibanner__text">Мы обеспечиваем стабильно высокий уровень сбора и качества урожая за счет применения самых современных технологий, экологических методов защиты растений, а также осуществления строгого санитарного контроля.</p><a class="ibanner__more" href="#">Подробнее</a>
-                      </section>
-                    </div>
-                  </section>
-                </div>
-                <div class="swiper-slide"> <img class="ibanner__bg" src="img/ibanner1.jpg" alt="">
-                  <section class="container">
-                    <div class="ibanner__maxwidth">
-                      <p class="ibanner__title">Новый бренд в сфере выращивания овощных культур1</p>
-                      <section class="ibanner__content"> 
-                        <p class="ibanner__text">Мы обеспечиваем стабильно высокий уровень сбора и качества урожая за счет применения самых современных технологий, экологических методов защиты растений, а также осуществления строгого санитарного контроля.12</p><a class="ibanner__more" href="#">Подробнее</a>
-                      </section>
-                    </div>
-                  </section>
-                </div>
-              </div>
-              <div class="swiper-buttons">
-                <div class="swiper-button-prev"></div>
-                <div class="swiper-button-next"></div>
-              </div>
+      <button class="btn ibanner__tonext js-tonext" type="button"></button>
+      <div class="ibanner__carover">
+        <div class="swiper-container ibanner js-ibanner">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide"> <img class="ibanner__bg" src="img/ibanner1.jpg" alt="">
+              <section class="container ibanner__container">
+                <p class="ibanner__title">Собственная Италия</p>
+                <p class="ibanner__subtitle">на моей кухне</p>
+              </section>
+            </div>
+            <div class="swiper-slide"> <img class="ibanner__bg" src="img/ibanner1.jpg" alt="">
+              <section class="container ibanner__container">
+                <p class="ibanner__title">Собственная Венеция</p>
+                <p class="ibanner__subtitle">на кухне соседа</p>
+              </section>
             </div>
           </div>
-          <div class="swiper-slide" data-color="dark"><img class="icar__bg" src="img/iarea.jpg" alt="">
-            <section class="container">
-              <section class="icar__area-over js-area-over">
-                <button class="icar__area-back js-area-toggler" type="button"></button>
-                <section class="icar__area icar__area_start">
-                  <div class="icar__area__maxwidth">
-                    <p class="icar__area-title" data-default="52 Га" data-change="2014 год"></p>
-                    <p class="icar__area-text" data-default="теплиц уже введены в эксплуатацию, дополнительные 28 Га будут построены к концу 2018 года." data-change="год основания компании и начала строительства первых тепличных комплексов."> </p>
-                    <button class="icar__area-href js-area-toggler" type="button">План развития комплекса</button>
-                  </div>
-                </section>
-                <section class="icar__area icar__area_more">
-                  <div class="icar__area-stages">
-                    <div class="icar__area-stage icar__area-stage_first">
-                      <div class="icar__area-col">
-                        <p class="icar__area-square">9 Га</p><img class="icar__area-img" src="img/area1.png" alt="">
-                        <p class="icar__area-year">2015 год</p>
-                      </div>
-                      <div class="icar__area-col">
-                        <p class="icar__area-square">22 Га</p><img class="icar__area-img" src="img/area1.png" alt="">
-                        <p class="icar__area-year">2016 год</p>
-                      </div>
-                      <p class="icar__area-queue">1 + 2 очередь строительства</p>
-                    </div>
-                    <div class="icar__area-stage icar__area-stage_second">
-                      <p class="icar__area-square">52 Га</p><img class="icar__area-img" src="img/area2.png" alt="">
-                      <p class="icar__area-year">2017 год</p>
-                      <p class="icar__area-queue">1 + 2 + 3 очередь строительства</p>
-                    </div>
-                    <div class="icar__area-stage icar__area-stage_third">
-                      <p class="icar__area-square">80 Га</p><img class="icar__area-img" src="img/area3.png" alt="">
-                      <p class="icar__area-year">Запуск в 4 квартале 2018 года</p>
-                      <p class="icar__area-queue">1 + 2 + 3 + 4 очередь строительства</p>
-                    </div>
-                  </div>
-                </section>
-              </section>
-            </section>
-          </div>
-          <div class="swiper-slide" data-color="light">
-            <section class="container">
-              <section class="iveg__over"><img class="iveg__icon" src="img/iveg-logo.png">
-                <p class="iveg__title">Под брендом «Зелёный стандарт» продаются наши свежие</p>
-                <div class="iveg__hrefover"><a class="iveg__href js-iveg-href" href="#" data-type="tomato">томаты</a>, <a class="iveg__href js-iveg-href" href="#" data-type="cucumber">огурцы</a>, <a class="iveg__href js-iveg-href" href="#" data-type="peppers">перцы</a>, <a class="iveg__href js-iveg-href" href="#" data-type="eggplant">баклажаны</a>.</div>
-                <section class="iveg__bottom">
-                  <div class="iveg__content">
-                    <p class="iveg__text">Все наши овощи выращиваются в закрытом грунте с соблюдением всех норм и конечно же проходят строгий саниторный контроль.</p>
-                  </div>
-                  <aside class="iveg__catover"><a class="iveg__tocat" href="#">Весь каталог включает<br>более 20 сортов овощей</a></aside>
-                </section>
-              </section>
-              <section class="iveg__type hide absolute" data-type="tomato">
-                <button class="iveg__back js-iveg-back" type="button"></button><span class="iveg__type-anim" data-frames="17" data-frameheight="944" data-type="tomato"></span>
-                <div class="iveg__type-dots"><span class="iveg__type-start js-iveg-start"></span><span class="iveg__type-end js-iveg-end"></span></div>
-                <div class="h-step1">
-                  <p class="iveg__type-title">Томаты</p>
-                </div>
-                <div class="iveg__type-cols">
-                  <div class="iveg__type-col">
-                    <div class="h-step1">
-                      <p class="iveg__type-square">28 Га</p>
-                      <p class="iveg__type-square-sub">уже выделено в нашем комплексе под выращивание томатов. </p>
-                      <p class="iveg__type-hint">Переместите зеленый маркер в круг</p>
-                    </div>
-                    <div class="h-step2">
-                      <p class="iveg__type-mainfeat">Свежий, сладкий вкус</p>
-                      <p class="iveg__type-future">Наши томаты идеально подходят для различных салатов, соков и томатных паст, а так же для потребления в свежем виде. И конечно они очень полезны из-за повышенной концентрации ликопина в мякоти. </p>
-                    </div>
-                  </div>
-                  <div class="iveg__type-col iveg__type-col_spacer">
-                    <!--.h-step1p.iveg__type-hint Зажмите левую клавишу мыши и проведите по изображению, как показано на примере.
-                    -->
-                    <!--.h-step2p.iveg__type-name Томат<br>«Мерлис»
-                    -->
-                  </div>
-                  <div class="iveg__type-col">
-                    <div class="h-step1">
-                      <p class="iveg__type-text">В этом году мы вырастим и поставим на прилавки 21000 тонн томатов </p>
-                      <p class="iveg__type-future">В 2019 году объем выращенных томатов составит 40600 тонн, а в 2020 году – 60200 тонн.</p>
-                    </div>
-                    <div class="h-step2">
-                      <p class="iveg__type-square">7 сортов</p>
-                      <p class="iveg__type-square-sub">Мерлис, Т-34, Тореро, Таганка, Розарио, Органза, Атракси</p><a class="iveg__type-tocat" href="#">Перейти в каталог</a>
-                    </div>
-                  </div>
-                </div>
-              </section>
-              <section class="iveg__type hide absolute" data-type="cucumber">
-                <button class="iveg__back js-iveg-back" type="button"></button><span class="iveg__type-anim" data-frames="17" data-frameheight="944" data-type="cucumber"></span>
-                <div class="iveg__type-dots"><span class="iveg__type-start js-iveg-start"></span><span class="iveg__type-end js-iveg-end"></span></div>
-                <div class="h-step1">
-                  <p class="iveg__type-title">Огурцы</p>
-                </div>
-                <div class="iveg__type-cols">
-                  <div class="iveg__type-col">
-                    <div class="h-step1">
-                      <p class="iveg__type-square">28 Га</p>
-                      <p class="iveg__type-square-sub">уже выделено в нашем комплексе под выращивание томатов. </p>
-                      <p class="iveg__type-hint">Переместите зеленый маркер в круг</p>
-                    </div>
-                    <div class="h-step2">
-                      <p class="iveg__type-mainfeat">Свежий, сладкий вкус</p>
-                      <p class="iveg__type-future">Наши томаты идеально подходят для различных салатов, соков и томатных паст, а так же для потребления в свежем виде. И конечно они очень полезны из-за повышенной концентрации ликопина в мякоти. </p>
-                    </div>
-                  </div>
-                  <div class="iveg__type-col iveg__type-col_spacer">
-                    <!--.h-step1p.iveg__type-hint Зажмите левую клавишу мыши и проведите по изображению, как показано на примере.
-                    -->
-                    <!--.h-step2p.iveg__type-name Томат<br>«Мерлис»
-                    -->
-                  </div>
-                  <div class="iveg__type-col">
-                    <div class="h-step1">
-                      <p class="iveg__type-text">В этом году мы вырастим и поставим на прилавки 21000 тонн томатов </p>
-                      <p class="iveg__type-future">В 2019 году объем выращенных томатов составит 40600 тонн, а в 2020 году – 60200 тонн.</p>
-                    </div>
-                    <div class="h-step2">
-                      <p class="iveg__type-square">7 сортов</p>
-                      <p class="iveg__type-square-sub">Мерлис, Т-34, Тореро, Таганка, Розарио, Органза, Атракси</p><a class="iveg__type-tocat" href="#">Перейти в каталог</a>
-                    </div>
-                  </div>
-                </div>
-              </section>
-              <section class="iveg__type hide absolute" data-type="peppers">
-                <button class="iveg__back js-iveg-back" type="button"></button><span class="iveg__type-anim" data-frames="17" data-frameheight="944" data-type="peppers"></span>
-                <div class="iveg__type-dots"><span class="iveg__type-start js-iveg-start"></span><span class="iveg__type-end js-iveg-end"></span></div>
-                <div class="h-step1">
-                  <p class="iveg__type-title">Перцы</p>
-                </div>
-                <div class="iveg__type-cols">
-                  <div class="iveg__type-col">
-                    <div class="h-step1">
-                      <p class="iveg__type-square">28 Га</p>
-                      <p class="iveg__type-square-sub">уже выделено в нашем комплексе под выращивание томатов. </p>
-                      <p class="iveg__type-hint">Переместите зеленый маркер в круг</p>
-                    </div>
-                    <div class="h-step2">
-                      <p class="iveg__type-mainfeat">Свежий, сладкий вкус</p>
-                      <p class="iveg__type-future">Наши томаты идеально подходят для различных салатов, соков и томатных паст, а так же для потребления в свежем виде. И конечно они очень полезны из-за повышенной концентрации ликопина в мякоти. </p>
-                    </div>
-                  </div>
-                  <div class="iveg__type-col iveg__type-col_spacer">
-                    <!--.h-step1p.iveg__type-hint Зажмите левую клавишу мыши и проведите по изображению, как показано на примере.
-                    -->
-                    <!--.h-step2p.iveg__type-name Томат<br>«Мерлис»
-                    -->
-                  </div>
-                  <div class="iveg__type-col">
-                    <div class="h-step1">
-                      <p class="iveg__type-text">В этом году мы вырастим и поставим на прилавки 21000 тонн томатов </p>
-                      <p class="iveg__type-future">В 2019 году объем выращенных томатов составит 40600 тонн, а в 2020 году – 60200 тонн.</p>
-                    </div>
-                    <div class="h-step2">
-                      <p class="iveg__type-square">7 сортов</p>
-                      <p class="iveg__type-square-sub">Мерлис, Т-34, Тореро, Таганка, Розарио, Органза, Атракси</p><a class="iveg__type-tocat" href="#">Перейти в каталог</a>
-                    </div>
-                  </div>
-                </div>
-              </section>
-              <section class="iveg__type hide absolute" data-type="eggplant">
-                <button class="iveg__back js-iveg-back" type="button"></button><span class="iveg__type-anim" data-frames="17" data-frameheight="944" data-type="eggplant"></span>
-                <div class="iveg__type-dots"><span class="iveg__type-start js-iveg-start"></span><span class="iveg__type-end js-iveg-end"></span></div>
-                <div class="h-step1">
-                  <p class="iveg__type-title">Баклажаны</p>
-                </div>
-                <div class="iveg__type-cols">
-                  <div class="iveg__type-col">
-                    <div class="h-step1">
-                      <p class="iveg__type-square">28 Га</p>
-                      <p class="iveg__type-square-sub">уже выделено в нашем комплексе под выращивание томатов. </p>
-                      <p class="iveg__type-hint">Переместите зеленый маркер в круг</p>
-                    </div>
-                    <div class="h-step2">
-                      <p class="iveg__type-mainfeat">Свежий, сладкий вкус</p>
-                      <p class="iveg__type-future">Наши томаты идеально подходят для различных салатов, соков и томатных паст, а так же для потребления в свежем виде. И конечно они очень полезны из-за повышенной концентрации ликопина в мякоти. </p>
-                    </div>
-                  </div>
-                  <div class="iveg__type-col iveg__type-col_spacer">
-                    <!--.h-step1p.iveg__type-hint Зажмите левую клавишу мыши и проведите по изображению, как показано на примере.
-                    -->
-                    <!--.h-step2p.iveg__type-name Томат<br>«Мерлис»
-                    -->
-                  </div>
-                  <div class="iveg__type-col">
-                    <div class="h-step1">
-                      <p class="iveg__type-text">В этом году мы вырастим и поставим на прилавки 21000 тонн томатов </p>
-                      <p class="iveg__type-future">В 2019 году объем выращенных томатов составит 40600 тонн, а в 2020 году – 60200 тонн.</p>
-                    </div>
-                    <div class="h-step2">
-                      <p class="iveg__type-square">7 сортов</p>
-                      <p class="iveg__type-square-sub">Мерлис, Т-34, Тореро, Таганка, Розарио, Органза, Атракси</p><a class="iveg__type-tocat" href="#">Перейти в каталог</a>
-                    </div>
-                  </div>
-                </div>
-              </section>
-            </section>
-          </div>
-          <div class="swiper-slide swiper-no-swiping js-slide-mapper" data-color="dark">
-            <button class="iroad__back js-iroad-back" type="button"></button>
-            <section class="iroad__mapover">
-              <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU"></script>
-              <div class="iroad__map" id="iroad-map"></div>
-            </section><img class="icar__bg" src="img/iroad.jpg" alt="">
-            <section class="container">
-              <p class="iroad__title">3 часа</p>
-              <div class="common__row">
-                <div class="common__col common__col_iroad">
-                  <p class="iroad__feat">– транспортировка овощей от грядки до прилавка.</p><a class="iroad__where" href="#">Где купить продукцию</a>
-                </div>
-                <div class="common__col common__col_iroad">
-                  <p class="iroad__feat">Комплекс расположен в Каширском районе Московской области</p>
-                  <section class="iroad__content">
-                    <p class="iroad__text">Тепличный комплекс ООО «Агрокультура групп» расположен в 130 километрах от центра Москвы, что позволяет в течение 3 часов доставлять товар конечному потребителю.</p>
-                  </section>
-                </div>
-              </div>
-              <section class="iroad__btn-over">
-                <button class="btn iroad__btn js-mapshower" type="button">Показать маршрут</button>
-              </section>
-            </section>
-          </div>
-          <div class="swiper-slide" data-color="dark"><img class="icar__bg" src="img/iemp-bg.jpg" alt="">
-            <section class="container">
-              <p class="iemp__title">Более 800 сотрудников</p>
-              <p class="iemp__subtitle">работают на тепличном комплексе</p>
-              <section class="iemp__content">
-                <p class="iemp__text">Основной руководящий состав и штат специалистов сформирован из профессионалов, имеющих профильное высшее образование и релевантный опыт работы. Коллектив хозяйства включает преимущественно местное население.</p>
-                <div class="iemp__hrefs"><a class="iemp__more" href="#">Подробнее о сотрудниках</a></div>
-              </section>
-              <section class="iemp__btn-over"><a class="btn iemp__btn" href="#">Смотреть вакансии</a></section>
-            </section>
-          </div>
-          <div class="swiper-slide" data-color="light">
-            <section class="container">
-              <p class="news__title">Пресс-центр</p>
-              <section class="news__grid">
-                              <article class="news__elem news__elem_wide">
-                                <aside class="news__elem-side"><a class="news__elem-imgover" href="#"><img class="news__elem-img" src="img/inews1.jpg" alt=""></a></aside>
-                                <div class="news__elem-content">
-                                  <p class="news__elem-date">15 мая 2018</p><a class="news__elem-href" href="#"> <span>«Агрокультура Групп» – это максимально эффективная адаптация к изменениям</span></a>
-                                </div>
-                              </article>
-                              <article class="news__elem">
-                                <aside class="news__elem-side"><a class="news__elem-imgover" href="#"><img class="news__elem-img" src="img/inews2.jpg" alt=""></a></aside>
-                                <div class="news__elem-content">
-                                  <p class="news__elem-date">12 января 2018</p><a class="news__elem-href" href="#"> <span>«Агрокультура Групп» запустил третью очередь теплиц</span></a>
-                                </div>
-                              </article>
-                              <article class="news__elem">
-                                <aside class="news__elem-side"><a class="news__elem-imgover" href="#"><img class="news__elem-img" src="img/inews3.jpg" alt=""></a></aside>
-                                <div class="news__elem-content">
-                                  <p class="news__elem-date">6 декабря 2017</p><a class="news__elem-href" href="#"> <span>Бренд «Зелёный Стандарт» стал лауреатом премии «Здоровое питание»</span></a>
-                                </div>
-                              </article><a class="news__href" href="#">Все новости</a>
-              </section>
-            </section>
-          </div>
+        </div>
+        <div class="swiper-buttons">
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-button-next"></div>
         </div>
       </div>
+      <section class="idishes">
+        <section class="container">
+          <section class="idishes__top">
+            <p class="common__title">Итальянская посуда</p>
+            <p class="common__subtitle">для итальянского настроения</p>
+          </section>
+          <section class="idishes__cols">
+            <div class="idishes__col"><span class="tomato tomato_elem1 js-async-scroll" data-koef=".04"></span><span class="pasta pasta_type1 pasta_elem1 js-async-scroll" data-koef="-.08"></span>
+              <p class="idishes__brand">Это молодой бренд, идея которого родилась у одаренного итальянского дизайнера кухонной мебели, когда он трудился над  созданием очередного креативного решения для мебельного каталога. </p>
+            </div>
+            <div class="idishes__col">
+              <p>Как часто бывает, жизнь преподнесла дизайнеру сюрприз, одним из заказчиков, с которым он лично общался, оказался владелец небольшого предприятия по изготовлению посуды. Его впечатлили эскизы, и на их основе была придумана  первая серия дизайнерской посуды. </p>
+              <p>Чтобы убедиться, что «дух прекрасного» сохранился при превращении идеи в технологичные высококачественные кастрюли и сковородки, дизайнер тестировал все продукты лично, и так увлекся, что сменил профессию, став кулинаром. Вначале, конечно, его специализацией была итальянская кухня, но спустя некоторое время он уехал из Италии, чтобы продолжить теперь уже интернациональную карьеру шеф-повара. </p>
+            </div>
+            <div class="idishes__col"><img src="img/idishes.png" style="margin: 0 auto 45px; display: block;">
+              <p>В 2017 г. посуда Verloni впервые появилась в России и сразу влюбила в себя множество семей, ведь яркость цветов и итальянский шарм отлично сочетаются с русским гостеприимством и хлебосольством.</p>
+              <p>Италия на любой вкус на вашей кухне.</p>
+            </div>
+          </section>
+        </section>
+      </section>
+      <section class="icollections">
+        <div class="container">
+          <section class="icollections__top">
+            <p class="common__title">Коллекции</p>
+          </section>
+          <section class="icollections__btns">
+            <button class="icollections__btn js-icollections-btn active" type="button" data-type="type1" data-text="Болонья">Болонья</button>
+            <button class="icollections__btn js-icollections-btn" type="button" data-type="type2" data-text="Флоренция">Флоренция</button>
+            <button class="icollections__btn js-icollections-btn" type="button" data-type="type3" data-text="Турин">Турин</button>
+            <button class="icollections__btn js-icollections-btn" type="button" data-type="type4" data-text="Верона">Верона</button>
+            <button class="icollections__btn js-icollections-btn" type="button" data-type="type5" data-text="Милан">Милан</button>
+            <button class="icollections__btn js-icollections-btn" type="button" data-type="type6" data-text="Сицилия">Сицилия</button>
+            <button class="icollections__btn js-icollections-btn" type="button" data-type="type7" data-text="Рим">Рим</button>
+            <button class="icollections__btn js-icollections-btn" type="button" data-type="type8" data-text="Неаполь">Неаполь</button>
+            <button class="icollections__btn js-icollections-btn" type="button" data-type="type9" data-text="Венеция">Венеция</button>
+          </section>
+          <section class="icollections__tabs">
+            <div class="icollections__tab icollections__tab js-icollections-tab active" data-type="type1">
+              <div class="icollections__bgover"><span class="icollections__bg js-async-scroll" style="background-image: url(img/icol-type1.jpg)" data-koef="-.12"></span></div><img class="icollections__dishes icollections__dishes_elem1" src="img/icol-dish1.png" data-koef="-.12"><img class="icollections__dishes icollections__dishes_elem2" src="img/icol-dish2.png" data-koef="-.08"><img class="icollections__dishes icollections__dishes_elem3" src="img/icol-dish3.png" data-koef="-.15">
+              <div class="icollections__text">
+                <p>Посуда с глубокими стенками, особенно удобна для приготовления рыбных блюд, которые требуют быстрого нагрева для сохранения нюансов вкуса.</p>
+              </div><img class="icollections__food" src="img/icol-food.png"><a class="btn icollections__href" href="#">Открыть в каталоге</a>
+            </div>
+            <div class="icollections__tab icollections__tab js-icollections-tab" data-type="type2">
+              <div class="icollections__bgover"><span class="icollections__bg js-async-scroll" style="background-image: url(img/icol-type2.jpg)" data-koef="-.12"></span></div><img class="icollections__dishes icollections__dishes_elem1" src="img/icol-dish1.png" data-koef="-.12"><img class="icollections__dishes icollections__dishes_elem2" src="img/icol-dish2.png" data-koef="-.08"><img class="icollections__dishes icollections__dishes_elem3" src="img/icol-dish3.png" data-koef="-.15">
+              <div class="icollections__text">
+                <p>Посуда с глубокими стенками, особенно удобна для приготовления рыбных блюд, которые требуют быстрого нагрева для сохранения нюансов вкуса.</p>
+              </div><img class="icollections__food" src="img/icol-food.png"><a class="btn icollections__href" href="#">Открыть в каталоге</a>
+            </div>
+            <div class="icollections__tab icollections__tab js-icollections-tab" data-type="type3">
+              <div class="icollections__bgover"><span class="icollections__bg js-async-scroll" style="background-image: url(img/icol-type3.jpg)" data-koef="-.12"></span></div><img class="icollections__dishes icollections__dishes_elem1" src="img/icol-dish1.png" data-koef="-.12"><img class="icollections__dishes icollections__dishes_elem2" src="img/icol-dish2.png" data-koef="-.08"><img class="icollections__dishes icollections__dishes_elem3" src="img/icol-dish3.png" data-koef="-.15">
+              <div class="icollections__text">
+                <p>Посуда с глубокими стенками, особенно удобна для приготовления рыбных блюд, которые требуют быстрого нагрева для сохранения нюансов вкуса.</p>
+              </div><img class="icollections__food" src="img/icol-food.png"><a class="btn icollections__href" href="#">Открыть в каталоге</a>
+            </div>
+            <div class="icollections__tab icollections__tab js-icollections-tab" data-type="type4">
+              <div class="icollections__bgover"><span class="icollections__bg js-async-scroll" style="background-image: url(img/icol-type4.jpg)" data-koef="-.12"></span></div><img class="icollections__dishes icollections__dishes_elem1" src="img/icol-dish1.png" data-koef="-.12"><img class="icollections__dishes icollections__dishes_elem2" src="img/icol-dish2.png" data-koef="-.08"><img class="icollections__dishes icollections__dishes_elem3" src="img/icol-dish3.png" data-koef="-.15">
+              <div class="icollections__text">
+                <p>Посуда с глубокими стенками, особенно удобна для приготовления рыбных блюд, которые требуют быстрого нагрева для сохранения нюансов вкуса.</p>
+              </div><img class="icollections__food" src="img/icol-food.png"><a class="btn icollections__href" href="#">Открыть в каталоге</a>
+            </div>
+            <div class="icollections__tab icollections__tab js-icollections-tab" data-type="type5">
+              <div class="icollections__bgover"><span class="icollections__bg js-async-scroll" style="background-image: url(img/icol-type5.jpg)" data-koef="-.12"></span></div><img class="icollections__dishes icollections__dishes_elem1" src="img/icol-dish1.png" data-koef="-.12"><img class="icollections__dishes icollections__dishes_elem2" src="img/icol-dish2.png" data-koef="-.08"><img class="icollections__dishes icollections__dishes_elem3" src="img/icol-dish3.png" data-koef="-.15">
+              <div class="icollections__text">
+                <p>Посуда с глубокими стенками, особенно удобна для приготовления рыбных блюд, которые требуют быстрого нагрева для сохранения нюансов вкуса.</p>
+              </div><img class="icollections__food" src="img/icol-food.png"><a class="btn icollections__href" href="#">Открыть в каталоге</a>
+            </div>
+            <div class="icollections__tab icollections__tab js-icollections-tab" data-type="type6">
+              <div class="icollections__bgover"><span class="icollections__bg js-async-scroll" style="background-image: url(img/icol-type6.jpg)" data-koef="-.12"></span></div><img class="icollections__dishes icollections__dishes_elem1" src="img/icol-dish1.png" data-koef="-.12"><img class="icollections__dishes icollections__dishes_elem2" src="img/icol-dish2.png" data-koef="-.08"><img class="icollections__dishes icollections__dishes_elem3" src="img/icol-dish3.png" data-koef="-.15">
+              <div class="icollections__text">
+                <p>Посуда с глубокими стенками, особенно удобна для приготовления рыбных блюд, которые требуют быстрого нагрева для сохранения нюансов вкуса.</p>
+              </div><img class="icollections__food" src="img/icol-food.png"><a class="btn icollections__href" href="#">Открыть в каталоге</a>
+            </div>
+            <div class="icollections__tab icollections__tab js-icollections-tab" data-type="type7">
+              <div class="icollections__bgover"><span class="icollections__bg js-async-scroll" style="background-image: url(img/icol-type7.jpg)" data-koef="-.12"></span></div><img class="icollections__dishes icollections__dishes_elem1" src="img/icol-dish1.png" data-koef="-.12"><img class="icollections__dishes icollections__dishes_elem2" src="img/icol-dish2.png" data-koef="-.08"><img class="icollections__dishes icollections__dishes_elem3" src="img/icol-dish3.png" data-koef="-.15">
+              <div class="icollections__text">
+                <p>Посуда с глубокими стенками, особенно удобна для приготовления рыбных блюд, которые требуют быстрого нагрева для сохранения нюансов вкуса.</p>
+              </div><img class="icollections__food" src="img/icol-food.png"><a class="btn icollections__href" href="#">Открыть в каталоге</a>
+            </div>
+            <div class="icollections__tab icollections__tab js-icollections-tab" data-type="type8">
+              <div class="icollections__bgover"><span class="icollections__bg js-async-scroll" style="background-image: url(img/icol-type8.jpg)" data-koef="-.12"></span></div><img class="icollections__dishes icollections__dishes_elem1" src="img/icol-dish1.png" data-koef="-.12"><img class="icollections__dishes icollections__dishes_elem2" src="img/icol-dish2.png" data-koef="-.08"><img class="icollections__dishes icollections__dishes_elem3" src="img/icol-dish3.png" data-koef="-.15">
+              <div class="icollections__text">
+                <p>Посуда с глубокими стенками, особенно удобна для приготовления рыбных блюд, которые требуют быстрого нагрева для сохранения нюансов вкуса.</p>
+              </div><img class="icollections__food" src="img/icol-food.png"><a class="btn icollections__href" href="#">Открыть в каталоге</a>
+            </div>
+            <div class="icollections__tab icollections__tab js-icollections-tab" data-type="type9">
+              <div class="icollections__bgover"><span class="icollections__bg js-async-scroll" style="background-image: url(img/icol-type5.jpg)" data-koef="-.12"></span></div><img class="icollections__dishes icollections__dishes_elem1" src="img/icol-dish1.png" data-koef="-.12"><img class="icollections__dishes icollections__dishes_elem2" src="img/icol-dish2.png" data-koef="-.08"><img class="icollections__dishes icollections__dishes_elem3" src="img/icol-dish3.png" data-koef="-.15">
+              <div class="icollections__text">
+                <p>Посуда с глубокими стенками, особенно удобна для приготовления рыбных блюд, которые требуют быстрого нагрева для сохранения нюансов вкуса.</p>
+              </div><img class="icollections__food" src="img/icol-food.png"><a class="btn icollections__href" href="#">Открыть в каталоге</a>
+            </div>
+          </section>
+        </div>
+      </section>
+      <section class="iabout">
+        <section class="iabout__main js-dishes">
+          <div class="iabout__spacer js-dishes-spacer s1" data-step="1"></div>
+          <div class="iabout__spacer js-dishes-spacer s2" data-step="2"></div>
+          <div class="iabout__spacer js-dishes-spacer s3" data-step="3"></div>
+          <section class="iabout__positioner js-dishes-positioner">
+            <section class="iabout__styled"><span class="tomato tomato_elem2" data-koef=".04"></span><span class="pasta pasta_type1 pasta_elem2" data-koef="-.08"></span><span class="veg veg_type1 veg_elem1" data-koef="-.04"></span></section>
+            <div class="container">
+              <div class="iabout__content">
+                <aside class="iabout__verloni">
+                  <p class="iabout__verloni-title"><span>Verloni</span> – это</p>
+                  <div class="iabout__verloni-values">
+                    <p class="iabout__verloni-value" data-step="1">качество</p>
+                    <p class="iabout__verloni-value" data-step="2">уникальность</p>
+                    <p class="iabout__verloni-value" data-step="3">технологии</p>
+                  </div>
+                </aside>
+                <main class="iabout__dishes"><img class="iabout__dishes-dish" src="img/iabout-dish1.png" data-step="1"><img class="iabout__dishes-dish" src="img/iabout-dish2.png" data-step="2"><img class="iabout__dishes-dish" src="img/iabout-dish3.png" data-step="3"></main>
+                <aside class="iabout__text"> 
+                  <div class="iabout__text-type" data-step="1">
+                    <p>При производстве нашей посуды используются  последние технологии работы со сталью и алюминием, мы применяем материалы только проверенных поставщиков.</p>
+                  </div>
+                  <div class="iabout__text-type" data-step="2">
+                    <p>Покрытие, имитирующее камень, кожу, бархат и медь. Использование гравировки в декоре, сияющие перламутровые покрытия, шкала для масла в фитнес-моделях, сетка для спагетти и многое другое.</p>
+                  </div>
+                  <div class="iabout__text-type" data-step="3">
+                    <p>Посуда из литого, прессованного и кованого алюминия и нержавеющей стали. Сковороды и кастрюли предназначены для приготовления любых блюд.</p>
+                  </div>
+                </aside>
+              </div>
+            </div>
+          </section>
+        </section>
+      </section>
+      <section class="igal">
+        <div class="container">
+          <section class="igal__top">
+            <p class="common__title">Проверено</p>
+            <p class="common__subtitle">на наших кухнях</p>
+          </section>
+          <p class="igal__text">Посуда Verloni прошла проверку российских шеф-поваров, чьи блюда поражают своей оригинальностью. Теперь ваша очередь поразить близких!</p>
+        </div>
+        <div class="swiper-container igal__car js-igal">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide"><img class="igal__img" src="img/igal1.jpg"></div>
+            <div class="swiper-slide"><img class="igal__img" src="img/igal2.jpg"></div>
+            <div class="swiper-slide"><img class="igal__img" src="img/igal3.jpg"></div>
+            <div class="swiper-slide"><img class="igal__img" src="img/igal4.jpg"></div>
+            <div class="swiper-slide"><img class="igal__img" src="img/igal5.jpg"></div>
+            <div class="swiper-slide"><img class="igal__img" src="img/igal3.jpg"></div>
+          </div>
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-button-next"></div>
+        </div>
+      </section>
     </section>
-        <footer class="footer">
-          <p class="footer__copy">© ООО «Агрокультура Групп»</p><a class="footer__dextra" href="https://www.dextra.ru/" target="_blank"><span>dextra</span>Разработка<br>сайта</a>
-        </footer><span class="progress js-progress"></span>
-    <div class="locker"><img class="locker__img" src="img/locker.png" alt="">
-      <p class="locker__text">Переверните телефон</p>
-    </div>
-    <script>
-      paceOptions = {
-        minTime: 2000
-      }
-    </script>
+    <footer class="footer">
+      <section class="container">
+        <div class="footer__main">
+          <p class="footer__copy">© 2010—2018 ООО «Верлони»</p>
+          <ul class="footer__socials">
+            <li class="footer__socials-item"><a class="footer__socials-href" href="#" data-type="fb"></a></li>
+            <li class="footer__socials-item"><a class="footer__socials-href" href="#" data-type="yt"></a></li>
+            <li class="footer__socials-item"><a class="footer__socials-href" href="#" data-type="inst"></a></li>
+            <li class="footer__socials-item"><a class="footer__socials-href" href="#" data-type="vk"></a></li>
+            <li class="footer__socials-item"><a class="footer__socials-href" href="#" data-type="od"></a></li>
+          </ul>
+        </div><a class="footer__dev" href="https://www.dextra.ru/" target="blank">Разработка сайта: <span>Интернет-агентство Dextra</span></a>
+      </section>
+    </footer>
     <script type="text/javascript" src="static/js/vendor.js"></script>
     <script type="text/javascript" src="static/js/script.js"></script>
     <script type="text/javascript" src="static/js/dev.js"></script>

@@ -1,46 +1,80 @@
 .footer
   margin 20px
+  color black
   display flex
-  justify-content space-between
   align-items center
+  min-height 110px
+  background url('../i/board-bg.jpg') no-repeat repeat center
+  @media $LandscapeMin
+    padding 20px 0
+  & > .container
+    display flex
+    justify-content space-between
+    @media $desktopMin
+      flex-wrap wrap
+  &__main
+    display flex
+    @media $desktopMin
+      w 100%
+    @media $LandscapeMin
+      flex-direction column
   &__copy
-    color inherit
-    fontify 12px 700 21px
-  &__dextra
-    color silver
-    font-family Verdana, Geneva, sans-serif
-    fontify 9px 400 14px
-    text-transform uppercase
-    letter-spacing .18em
-    pos relative
-    @media $PortraitMedium
-      ml 85px
-      mt 10px
+    fontify 15px 400 26px
+  &__dev
+    color black
+    fontify 15px 400 26px
+    @media $desktopMin
+      mt 8px
+    @media $LandscapeMin
+      mt 18px
     span
-      pos absolute
-      t 2px
-      r calc(100% + 10px)
-      bgc rgba(0, 0, 0, .2)
-      color white
-      font-family Arial
-      fontify 12px 900 21px
-      text-transform uppercase
-      letter-spacing .1em
-      padding 0 6px
-      border-radius 3px
-      transition .7s background
+      border-bottom 2px solid $red
+      transition .7s border
     &:hover span
-      bgc $green
-  
-.progress
-  h 6px
-  pos fixed
-  z-index 12
-  t 0
-  l 0
-  w 0
-  bgc $green
-  transition .5s width
+      border-color transparent
+  &__socials
+    display flex
+    align-items center
+    ml 50px
+    @media $LandscapeMin
+      ml 0
+      mt 15px
+    &-item
+      & + &
+        ml 26px
+    &-href
+      db()
+      transition .7s background
+      &[data-type="inst"]
+        size 12px
+        background url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMCAMAAABhq6zVAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAARVBMVEX////rHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCX///9yDg/aAAAAFXRSTlMAA37ree2Qg4+O+W4SEedvd3aBguEd27wjAAAAAWJLR0QAiAUdSAAAAAlwSFlzAAALEgAACxIB0t1+/AAAAFRJREFUCNdtzUESgCAIBdCPRqVoWcn9r5poTZvY8B/DAMh57eUnghtReeYFz1xXBEbrUVKWLbAadrQqLRiSIf2hrx0PouQs0fCetlc4P1wgV0eshW5cRAhCsG4LJgAAAABJRU5ErkJggg==") no-repeat center
+        &:hover
+          background url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMCAMAAABhq6zVAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAARVBMVEX///87okc7okc7okc7okc7okc7okc7okc7okc7okc7okc7okc7okc7okc7okc7okc7okc7okc7okc7okc7okc7okf///8ZNv52AAAAFXRSTlMAA37ree2Qg4+O+W4SEedvd3aBguEd27wjAAAAAWJLR0QAiAUdSAAAAAlwSFlzAAALEgAACxIB0t1+/AAAAFRJREFUCNdtzUESgCAIBdCPRqVoWcn9r5poTZvY8B/DAMh57eUnghtReeYFz1xXBEbrUVKWLbAadrQqLRiSIf2hrx0PouQs0fCetlc4P1wgV0eshW5cRAhCsG4LJgAAAABJRU5ErkJggg==") no-repeat center
+      &[data-type="yt"]
+        size 14px 10px
+        background url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAKCAMAAACzB5/1AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAZlBMVEX////rHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCX///+lHc5wAAAAIHRSTlMAOXmhxNnyLkqwr+IzlfD7CV/CD2zUm/RQSTd1wNfz2vGQTjYAAAABYktHRACIBR1IAAAACXBIWXMAAAsSAAALEgHS3X78AAAAVElEQVQI112OSQ6AIAADyyqKiivuyv9fKaAmxF4mkzRNAUIZF1IKzmgGKJdEIU+1gA4oqzqqhgkAmrbzNJ/2wxj1KdvpLf+m5lQXYN3sfsjz8jcIboE1DKC0YLl8AAAAAElFTkSuQmCC") no-repeat center
+        &:hover
+          background url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAKCAMAAACzB5/1AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAZlBMVEX///87okc7okc7okc7okc7okc7okc7okc7okc7okc7okc7okc7okc7okc7okc7okc7okc7okc7okc7okc7okc7okc7okc7okc7okc7okc7okc7okc7okc7okc7okc7okc7okf///8/fzpFAAAAIHRSTlMAOXmhxNnyLkqwr+IzlfD7CV/CD2zUm/RQSTd1wNfz2vGQTjYAAAABYktHRACIBR1IAAAACXBIWXMAAAsSAAALEgHS3X78AAAAVElEQVQI112OSQ6AIAADyyqKiivuyv9fKaAmxF4mkzRNAUIZF1IKzmgGKJdEIU+1gA4oqzqqhgkAmrbzNJ/2wxj1KdvpLf+m5lQXYN3sfsjz8jcIboE1DKC0YLl8AAAAAElFTkSuQmCC") no-repeat center
+      &[data-type="vk"]
+        size 15px 8px
+        background url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAAICAMAAAARDVXAAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAkFBMVEX////rHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCX///8VVMLvAAAALnRSTlMAqruzGaBpppaUKbQR7532+S0eldsPg9Nc0mf+9QjXoTD6WUXtPNr8HZnh/RzHt8Mg9QAAAAFiS0dEAIgFHUgAAAAJcEhZcwAACxIAAAsSAdLdfvwAAABhSURBVAjXNYhHFoJAAMX+jIAFRQYbKqIizZb7H0+QR1ZJZOzEkwFfCqydagZzLSDUcgWRvDWxS/rewHYn7eGQwvF0JnOSLjkjV/XcsrHvxX88ys7LqoZmGO3z9Tb6fKH+Aa7xDEblP/tKAAAAAElFTkSuQmCC") no-repeat center
+        &:hover
+          background url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAAICAMAAAARDVXAAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAkFBMVEX///87okc7okc7okc7okc7okc7okc7okc7okc7okc7okc7okc7okc7okc7okc7okc7okc7okc7okc7okc7okc7okc7okc7okc7okc7okc7okc7okc7okc7okc7okc7okc7okc7okc7okc7okc7okc7okc7okc7okc7okc7okc7okc7okc7okc7okc7okf////pMhvTAAAALnRSTlMAqruzGaBpppaUKbQR7532+S0eldsPg9Nc0mf+9QjXoTD6WUXtPNr8HZnh/RzHt8Mg9QAAAAFiS0dEAIgFHUgAAAAJcEhZcwAACxIAAAsSAdLdfvwAAABhSURBVAjXNYhHFoJAAMX+jIAFRQYbKqIizZb7H0+QR1ZJZOzEkwFfCqydagZzLSDUcgWRvDWxS/rewHYn7eGQwvF0JnOSLjkjV/XcsrHvxX88ys7LqoZmGO3z9Tb6fKH+Aa7xDEblP/tKAAAAAElFTkSuQmCC") no-repeat center
+      &[data-type="od"]
+        size 8px 13px
+        background url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAANCAMAAACjHN8KAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAbFBMVEX////rHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCX///8sBG85AAAAInRSTlMAJ8r0GeaK4jGwloDqTQjTBimU1tzkc0z7DmXuS/Z6q8f1M/7M4gAAAAFiS0dEAIgFHUgAAAAJcEhZcwAACxIAAAsSAdLdfvwAAABeSURBVAjXFcpXAkAwAAXBRZToJUQv7/6HxHwPBGEUhQGYWJ/YkCjNslQJVjnkshQqq6pUQd38p6lpu34Y+q7FjZP30+hw0jxLjmXdpG1dYD+kY4dTui7p5H4s2Od+AY2ACBENNb26AAAAAElFTkSuQmCC") no-repeat center
+        &:hover
+          background url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAANCAMAAACjHN8KAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAbFBMVEX///87okc7okc7okc7okc7okc7okc7okc7okc7okc7okc7okc7okc7okc7okc7okc7okc7okc7okc7okc7okc7okc7okc7okc7okc7okc7okc7okc7okc7okc7okc7okc7okc7okc7okf///9DGECmAAAAInRSTlMAJ8r0GeaK4jGwloDqTQjTBimU1tzkc0z7DmXuS/Z6q8f1M/7M4gAAAAFiS0dEAIgFHUgAAAAJcEhZcwAACxIAAAsSAdLdfvwAAABeSURBVAjXFcpXAkAwAAXBRZToJUQv7/6HxHwPBGEUhQGYWJ/YkCjNslQJVjnkshQqq6pUQd38p6lpu34Y+q7FjZP30+hw0jxLjmXdpG1dYD+kY4dTui7p5H4s2Od+AY2ACBENNb26AAAAAElFTkSuQmCC") no-repeat center
+      &[data-type="fb"]
+        size 6px 12px
+        background url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAMCAMAAAB2iTwcAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAQlBMVEX////rHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCX////8J38lAAAAFHRSTlMAPM347gfrMfYZ4Zmx84fHiKTxXTb1CgIAAAABYktHRACIBR1IAAAACXBIWXMAAAsSAAALEgHS3X78AAAAN0lEQVQI12NgYGBkYmZhYGBlExERYWBgF+HgZACKiXABSW4eEV5uPgYREOBnEBAUERIQhsnhoQBp5QJm4PsGIgAAAABJRU5ErkJggg==") no-repeat center
+        &:hover
+          background url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAMCAMAAAB2iTwcAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAQlBMVEX///87okc7okc7okc7okc7okc7okc7okc7okc7okc7okc7okc7okc7okc7okc7okc7okc7okc7okc7okc7okf///8PrG1PAAAAFHRSTlMAPM347gfrMfYZ4Zmx84fHiKTxXTb1CgIAAAABYktHRACIBR1IAAAACXBIWXMAAAsSAAALEgHS3X78AAAAN0lEQVQI12NgYGBkYmZhYGBlExERYWBgF+HgZACKiXABSW4eEV5uPgYREOBnEBAUERIQhsnhoQBp5QJm4PsGIgAAAABJRU5ErkJggg==") no-repeat center
+      
+      
+
+body:not(.index) .footer
+  mt 115px
 
 .locker
   dn()
