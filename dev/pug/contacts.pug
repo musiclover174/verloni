@@ -1,0 +1,60 @@
+doctype html
+html
+  head(lang="ru")
+    include layout/__head
+  body
+    include layout/__header
+    section.content
+      section.container.container_center
+        h1 Контактная информация
+        section.breadcrumbs
+          a(href="#").breadcrumbs__href Главная
+          span.breadcrumbs__delim /
+      section.container
+        section.contacts__variants
+          .contacts__variant
+            p.contacts__variant-title Телефоны
+            a(href="tel:+74957378203").contacts__variant-phone +7 (495) 737 82 03 (708)
+            a(href="tel:+79262085263").contacts__variant-phone +7 (926) 208 52 63
+          .contacts__variant
+            p.contacts__variant-title Адрес
+            p.contacts__variant-adress 123423, Москва, Карамышевская набережная, дом 44
+          .contacts__variant
+            p.contacts__variant-title Электронная почта
+            a(href="mailto:mail@verloni.ru").contacts__variant-mail mail@verloni.ru
+        section.contacts__map.js-contacts-map(data-coords="55.772905,37.4630044")
+        script(src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCDTIKzsSt-JWBYMGIXaK0Q6vMhJeoYanc", type="text/javascript")
+        p.contacts__managers-title Наши менеджеры
+        section.contacts__managers
+          .contacts__manager
+            main.contacts__manager-main
+              p.contacts__manager-pos Руководитель направления «Посуда»
+              p.contacts__manager-name Борисова Светлана
+              .contacts__manager-phones
+                a(href="tel:+74957378203").contacts__manager-phone +7 (495) 737 82 03 (708)
+                a(href="tel:+79262085263").contacts__manager-phone +7 (926) 208 52 63
+              a(href="mailto:borisova.s@scarlett.ru").contacts__manager-mail borisova.s@scarlett.ru
+            aside.contacts__manager-imgover
+              img(src="img/manager.png").contacts__manager-img
+          .contacts__manager
+            main.contacts__manager-main
+              p.contacts__manager-pos Руководитель направления «Посуда»
+              p.contacts__manager-name Борисова Светлана
+              .contacts__manager-phones
+                a(href="tel:+74957378203").contacts__manager-phone +7 (495) 737 82 03
+                a(href="tel:+79262085263").contacts__manager-phone +7 (926) 208 52 63
+              a(href="mailto:borisova.s@scarlett.ru").contacts__manager-mail borisova.s@scarlett.ru
+            aside.contacts__manager-imgover
+              img(src="img/manager.png").contacts__manager-img
+          .contacts__manager
+            main.contacts__manager-main
+              p.contacts__manager-pos Руководитель направления «Посуда»
+              p.contacts__manager-name Борисова Светлана
+              .contacts__manager-phones
+                a(href="tel:+74957378203").contacts__manager-phone +7 (495) 737 82 03
+                a(href="tel:+79262085263").contacts__manager-phone +7 (926) 208 52 63
+              a(href="mailto:borisova.s@scarlett.ru").contacts__manager-mail borisova.s@scarlett.ru
+            aside.contacts__manager-imgover
+              img(src="img/manager.png").contacts__manager-img
+    include layout/__footer
+    include layout/__scripts

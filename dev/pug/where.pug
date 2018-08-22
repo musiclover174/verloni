@@ -1,0 +1,115 @@
+doctype html
+html
+  head(lang="ru")
+    include layout/__head
+  body
+    include layout/__header
+    section.content
+      section.container.container_center
+        h1 Где купить
+        section.breadcrumbs
+          a(href="#").breadcrumbs__href Главная
+          span.breadcrumbs__delim /
+      section.container
+        p.where__subtitle Нашу продукцию можно найти на прилавках магазинов известных торговых сетей.
+        ul.where__logo-list
+          li.where__logo-item
+            img(src="img/where_logo1.png").where__logo-img
+          li.where__logo-item
+            img(src="img/where_logo2.png").where__logo-img
+          li.where__logo-item
+            img(src="img/where_logo3.png").where__logo-img
+          li.where__logo-item
+            img(src="img/where_logo4.png").where__logo-img
+          li.where__logo-item
+            img(src="img/where_logo5.png").where__logo-img
+          li.where__logo-item
+            img(src="img/where_logo6.png").where__logo-img
+        p.where__adresses-title Адреса магазинов
+        section.where__adresses-cols
+          .where__adresses-col
+            p.where__adresses-town Челябинск
+            .where__magazines
+              p.where__magazines-name Эльдорадо
+              ul.where__magazines-list
+                li.where__magazines-item ул. Дарвина, 18А
+                li.where__magazines-item ул. Братьев Кашириных, 99А
+                li.where__magazines-item ул. Салютная, 27
+                li.where__magazines-item ул. Молдавская, 14
+            .where__magazines
+              p.where__magazines-name Техносила
+              ul.where__magazines-list
+                li.where__magazines-item ул. Братьев Кашириных, 99А
+                li.where__magazines-item у. Российская, 194
+            .where__magazines
+              p.where__magazines-name М. Видео
+              ul.where__magazines-list
+                li.where__magazines-item ул. Степана Разина, 4
+                li.where__magazines-item ул. Каслинская, 64
+                li.where__magazines-item ул. Труда, 203
+                li.where__magazines-item Копейской шоссе, 64
+                li.where__magazines-item ул. Молдавская, 16
+          .where__adresses-col
+            p.where__adresses-town Москва
+            .where__magazines
+              p.where__magazines-name Медиа Маркт
+              ul.where__magazines-list
+                li.where__magazines-item ул. Труда, 203
+                li.where__magazines-item Копейской шоссе, 64
+                li.where__magazines-item ул. Молдавская, 16
+            .where__magazines
+              p.where__magazines-name Эксперт
+              ul.where__magazines-list
+                li.where__magazines-item ул. Степана Разина, 4
+                li.where__magazines-item ул. Каслинская, 64
+                li.where__magazines-item ул. Труда, 203
+                li.where__magazines-item Копейской шоссе, 64
+                li.where__magazines-item ул. Молдавская, 16
+          .where__adresses-col
+            p.where__adresses-town Санкт-Петербург
+            .where__magazines
+              p.where__magazines-name НОРД
+              ul.where__magazines-list
+                li.where__magazines-item ул. Дарвина, 18А
+                li.where__magazines-item ул. Братьев Кашириных, 99А
+                li.where__magazines-item ул. Салютная, 27
+                li.where__magazines-item ул. Молдавская, 14
+                li.where__magazines-item ул. Каслинская, 64
+                li.where__magazines-item ул. Труда, 203
+            .where__magazines
+              p.where__magazines-name Техносила
+              ul.where__magazines-list
+                li.where__magazines-item ул. Братьев Кашириных, 99А
+                li.where__magazines-item у. Российская, 194
+                li.where__magazines-item Копейской шоссе, 64
+                li.where__magazines-item ул. Молдавская, 16
+            .where__magazines
+              p.where__magazines-name М. Видео
+              ul.where__magazines-list
+                li.where__magazines-item ул. Степана Разина, 4
+          .where__adresses-col.hidden
+            p.where__adresses-town Нижний Нью-Йорк
+            .where__magazines
+              p.where__magazines-name Эльдорадо
+              ul.where__magazines-list
+                li.where__magazines-item ул. Дарвина, 18А
+                li.where__magazines-item ул. Братьев Кашириных, 99А
+                li.where__magazines-item ул. Салютная, 27
+                li.where__magazines-item ул. Молдавская, 14
+            .where__magazines
+              p.where__magazines-name Техносила
+              ul.where__magazines-list
+                li.where__magazines-item ул. Братьев Кашириных, 99А
+                li.where__magazines-item у. Российская, 194
+            .where__magazines
+              p.where__magazines-name М. Видео
+              ul.where__magazines-list
+                li.where__magazines-item ул. Степана Разина, 4
+                li.where__magazines-item ул. Каслинская, 64
+                li.where__magazines-item ул. Труда, 203
+                li.where__magazines-item Копейской шоссе, 64
+                li.where__magazines-item ул. Молдавская, 16
+        .where__adresses-more
+          button(type="button").btn.js-where-more Показать еще
+    include layout/__footer
+    include layout/__scripts

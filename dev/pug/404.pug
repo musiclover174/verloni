@@ -1,0 +1,17 @@
+doctype html
+html
+  head(lang="ru")
+    include layout/__head
+  body
+    include layout/__header
+    section.content
+      section.page404
+        p.page404__title 404
+        p.page404__subtitle Страница не найдена
+        .page404__text
+          p Вы неправильно набрали адрес. Возможно такой страницы больше не существует. <br>Воспользуйтесь главным меню, чтобы перейти на другую страницу.
+          p Вы также можете вернуться на 
+            a(href="#") главную страницу
+            |  сайта.
+    include layout/__footer
+    include layout/__scripts

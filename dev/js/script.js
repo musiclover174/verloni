@@ -368,32 +368,21 @@
     },
 
     contactsMap: () => {
+      const coords = document.querySelector('.js-contacts-map').getAttribute('data-coords').split(','),
+            myLatlng = new google.maps.LatLng(+coords[0],+coords[1]), mapOptions = {
+              zoom: 17,
+              center: myLatlng,
+              disableDefaultUI: true
+            }
 
-      function init() {
+      const map = new google.maps.Map(document.querySelector('.js-contacts-map'), mapOptions)
 
-        const myMap = new ymaps.Map('contacts-map', {
-          center: [54.830497, 38.306856],
-          zoom: window.innerWidth <= 1000 ? 13 : 15,
-          controls: ['smallMapDefaultSet']
-        })
+      const marker = new google.maps.Marker({
+        position: myLatlng,
+        icon: 'static/i/pin.png'
+      })
 
-        let myPlacemark = new ymaps.Placemark([54.828410, 38.289115], {}, {
-          preset: 'islands#redIcon',
-          iconColor: '#ff3f33'
-        })
-
-        let myPlacemark2 = new ymaps.Placemark([54.827684, 38.321429], {}, {
-          preset: 'islands#redIcon',
-          iconColor: '#ff3f33'
-        })
-
-        myMap.behaviors.disable('scrollZoom')
-        myMap.geoObjects
-          .add(myPlacemark)
-          .add(myPlacemark2)
-      }
-
-      ymaps.ready(init)
+      marker.setMap(map)
     },
 
     resizeWatcher: () => {
@@ -471,6 +460,20 @@
       })
     },
     
+    whereList: () => {
+      const btn = document.querySelector('.js-where-more'),
+            hiddenCols = document.querySelectorAll('.where__adresses-col.hidden')
+      
+      btn.addEventListener('click', (e) => {
+        for(let hiddenCol of hiddenCols) {
+          window.animation.fadeIn(hiddenCol, 400)
+        }
+        
+        window.animation.fadeOut(btn, 400)
+        e.preventDefault()
+      })
+    },
+    
     init: function () {
 
       const burgerEl = document.querySelector('.js-burger'),
@@ -510,6 +513,8 @@
       if (document.querySelector('.js-icollections-btn')) this.collections()
       
       if (document.querySelector('.js-dishes')) this.indexDishes()
+      
+      if (document.querySelector('.js-where-more')) this.whereList()
       
       window.addEventListener('resize', () => {
         window.xs = window.innerWidth <= 960 ? true : false

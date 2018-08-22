@@ -1,0 +1,237 @@
+.where
+  &__subtitle
+    fontify 30px 400 38px
+    max-width 620px
+    text-align center
+    margin -17px auto 40px
+    @media $lDesktopSmall
+      fontify 21px 400 29px
+      max-width 540px
+      mt -20px
+    @media $PortraitMax
+      fontify 15px 400 23px
+  &__logo
+    &-list
+      ml -20px
+      w calc(100% + 20px)
+      display flex
+      flex-wrap wrap
+      mb 71px
+    &-item
+      pos relative
+      display flex
+      justify-content center
+      align-items center
+      w calc(25% - 20px)
+      ml 20px
+      mb 20px
+      pt calc(25% - 22px)
+      border 1px solid alpha(black, .05)
+      @media $desktopMax
+        w calc(100% / 3 - 20px)
+        pt calc(100% / 3 - 22px)
+      @media $LandscapeMax
+        w calc(50% - 20px)
+        pt calc(50% - 22px)
+      @media $LandscapeMin
+        w calc(100% - 20px)
+        pt calc(100% - 22px)
+    &-img
+      imgCenteringMax90()
+  &__adresses
+    &-title
+      fontify 48px 700 54px
+      mb 42px
+      text-align center
+      @media $lDesktopMedium
+        fontify 39px 700 44px
+      @media $lDesktopSmall
+        mb 34px
+      @media $LandscapeMedium
+        fontify 30px 700 34px
+    &-cols
+      display flex
+      flex-wrap wrap
+      ml -60px
+      w calc(100% + 60px)
+    &-col
+      w calc(100% / 3 - 60px)
+      ml 60px
+      mb 90px
+      //@media $LandscapeMax
+      @media $LandscapeMin
+        w calc(100% - 60px)
+      &.hidden
+        dn()
+    &-town
+      fontify 24px 700 28px
+      pb 13px
+      border-bottom 1px solid alpha(black, .05)
+      mb 34px
+      @media $lDesktopSmall
+        fontify 21px 700 23px
+        pb 16px
+    &-more
+      text-align center
+      mt -48px
+      mb 20px
+  &__magazines
+    & + &
+      mt 26px
+      @media $lDesktopMedium
+        mt 28px
+    &-name
+      fontify 18px 700 26px
+      mb 11px
+      @media $lDesktopMedium
+        fontify 15px 700 23px
+    &-item
+      db()
+      pos relative
+      pl 27px
+      fontify 18px 400 26px
+      @media $lDesktopMedium
+        fontify 15px 400 23px
+      &:before
+        content ""
+        pos absolute
+        l 0
+        t 6px
+        size 12px 14px
+        background url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAOCAMAAAAsYw3eAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAclBMVEXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCX////8scGEAAAAJHRSTlMAAmDD8g+9vgG2T/luEhFQsW93tO3p+uZ25KqlQjyZBZtLqRSjiG85AAAAAWJLR0QlwwHJDwAAAAlwSFlzAAALEgAACxIB0t1+/AAAAG5JREFUCNdFjFkWgkAQA8MmIAy4o6gsUvc/o9M4av108l66JEVxkqZJHMmTbVjJM6koCZSFtlDVrqkraLWDva0PcNQJnBUHZ/EvF3VhdoWbehM0q+CuBz+e0vDNgx+P0ydPo71q9pJuVsC9+sXuG25TDTRiSDyQAAAAAElFTkSuQmCC") no-repeat center
+      & + &
+        mt 12px
+    
+.contacts
+  &__variants
+    display flex
+    flex-wrap wrap
+    ml -60px
+    w calc(100% + 60px)
+    mt -5px
+    @media $lDesktopSmall
+      mt -20px
+    @media $desktopMin
+      flex-direction column
+      ml 0
+      w 100%
+  &__variant
+    display flex
+    flex-direction column
+    align-items flex-start
+    w calc(100% / 3 - 60px)
+    ml 60px
+    mb 50px
+    @media $lDesktopSmall
+      mb 40px
+    @media $desktopMin
+      w 100%
+      ml 0
+    &-title
+      fontify 30px 700 34px
+      mb 8px
+      @media $lDesktopSmall
+        fontify 21px 700 29px
+        mb 6px
+    &-phone
+      color black
+      fontify 30px 400 38px
+      @media $lDesktopSmall
+        fontify 21px 400 29px
+    &-adress
+      fontify 30px 400 38px
+      @media $lDesktopSmall
+        fontify 21px 400 29px
+    &-mail
+      mt 3px
+      color black
+      fontify 30px 400 30px
+      border-bottom 1px solid
+      transition .7s border
+      @media $lDesktopSmall
+        fontify 21px 400 21px
+      &:hover
+        border-color transparent
+  &__map
+    pos relative
+    h 80vh
+    max-height 500px
+    bgc black
+    w 100vw
+    l 50%
+    ml -50vw
+    mb 90px
+    @media $lDesktopSmall
+      mb 95px
+  &__managers
+    display flex
+    flex-wrap wrap
+    ml -60px
+    w calc(100% + 60px)
+    mb -60px
+    &-title
+      fontify 48px 700 54px
+      mb 38px
+      text-align center
+      @media $lDesktopMedium
+        fontify 39px 700 44px
+      @media $lDesktopSmall
+        mb 34px
+      @media $LandscapeMedium
+        fontify 30px 700 34px
+  &__manager
+    w calc(50% - 60px)
+    ml 60px
+    mb 60px
+    border 1px solid alpha(black, .05)
+    padding 44px 58px 61px
+    display flex
+    align-items flex-start
+    justify-content space-between
+    @media $desktopMedium
+      w calc(100% - 60px)
+    @media$LandscapeMin
+      flex-direction column-reverse
+      padding 24px 38px 41px
+    &-imgover
+      w 180px
+      mt 3px
+      @media$LandscapeMin
+        mt 0
+        mb 30px
+    &-img
+      max-width 100%
+    &-content
+      w calc(100% - 240px)
+      @media $LandscapeMin
+        w 100%
+    &-pos
+      fontify 18px 400 26px
+      mb 13px
+      @media $lDesktopMedium
+        fontify 15px 400 23px
+    &-name
+      fontify 48px 400 37px
+      font-family $handy
+      mb 20px
+      @media $lDesktopSmall
+        fontify 39px 400 37px
+    &-phones
+      margin 30px 0 20px
+      display flex
+      flex-direction column
+    &-phone
+      color black
+      fontify 18px 400 26px
+      @media $lDesktopMedium
+        fontify 15px 400 23px
+    &-mail
+      ib()
+      color black
+      fontify 18px 400 18px
+      border-bottom 1px solid
+      transition .7s border
+      &:hover
+        border-color transparent
+      @media $lDesktopMedium
+        fontify 15px 400 18px

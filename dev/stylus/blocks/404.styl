@@ -1,0 +1,26 @@
+.page404
+  max-width 760px
+  margin 0 auto
+  text-align center
+  min-height calc(100vh - 395px)
+  display flex
+  padding 20px 30px 0
+  flex-direction column
+  justify-content center
+  &__title
+    fontify 250px 700 200px
+    mb 20px
+    @media $desktopMin
+      fontify 180px 700 130px
+    @media $LandscapeMin
+      fontify 140px 700 100px
+  &__subtitle
+    font-family $handy
+    fontify 48px 400 52px
+    mb 45px
+    @media $LandscapeMin
+      fontify 32px 400 29px
+  &__text
+    br
+      @media $LandscapeMin
+        dn()

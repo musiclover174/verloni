@@ -10,9 +10,12 @@
     mr 50px
     mt 6px
     border-bottom 1px solid black
-    transition .5s left, .5s opacity, .5s border
-    &:hover
+    transition .5s left, .5s opacity, .5s border, .5s color
+    &:not(.disabled):hover
       border-color transparent
+      color $red
+      &:before
+        background url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAMCAMAAABoQAyvAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAV1BMVEXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCX///96AcaUAAAAG3RSTlMAgOUBjYIDmXgEpP5qBrD8X7P5VLQHpXaPf9ow85dSAAAAAWJLR0QcnARBBwAAAAlwSFlzAAALEgAACxIB0t1+/AAAAEVJREFUCNdjYAABRiZmEMXMIs0KotnYpTlANCcXNw+I5uXjFwCrExQSBtMMIjCGKEyKgVMMohisXRzCYpaQZoSwGCSlmAFwQQJVo5L3WQAAAABJRU5ErkJggg==") no-repeat center
     @media $lDesktopMedium
       fontify 15px 400 15px
     @media $LandscapeMax
@@ -25,6 +28,7 @@
       t 3px
       size 8px 12px
       background url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAMCAMAAABoQAyvAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAV1BMVEUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD///8OKbV/AAAAG3RSTlMAgOUBjYIDmXgEpP5qBrD8X7P5VLQHpXaPf9ow85dSAAAAAWJLR0QcnARBBwAAAAlwSFlzAAALEgAACxIB0t1+/AAAAEVJREFUCNdjYAABRiZmEMXMIs0KotnYpTlANCcXNw+I5uXjFwCrExQSBtMMIjCGKEyKgVMMohisXRzCYpaQZoSwGCSlmAFwQQJVo5L3WQAAAABJRU5ErkJggg==") no-repeat center
+      transition .7s background
     @media $desktopMin
       mr 30px
     &.disabled
@@ -38,9 +42,12 @@
     ml 50px
     mt 6px
     border-bottom 1px solid black
-    transition .5s left, .5s opacity, .5s border
-    &:hover
+    transition .5s left, .5s opacity, .5s border, .5s color
+    &:not(.disabled):hover
       border-color transparent
+      color $red
+      &:before
+        background url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAMCAMAAABoQAyvAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAV1BMVEXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCX///96AcaUAAAAG3RSTlMAgOUBjYIDmXgEpP5qBrD8X7P5VLQHpXaPf9ow85dSAAAAAWJLR0QcnARBBwAAAAlwSFlzAAALEgAACxIB0t1+/AAAAEVJREFUCNdjYAABRiZmEMXMIs0KotnYpTlANCcXNw+I5uXjFwCrExQSBtMMIjCGKEyKgVMMohisXRzCYpaQZoSwGCSlmAFwQQJVo5L3WQAAAABJRU5ErkJggg==") no-repeat center
     @media $lDesktopMedium
       fontify 15px 400 15px
     @media $LandscapeMax
@@ -54,6 +61,7 @@
       size 8px 12px
       background url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAMCAMAAABoQAyvAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAV1BMVEUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD///8OKbV/AAAAG3RSTlMAgOUBjYIDmXgEpP5qBrD8X7P5VLQHpXaPf9ow85dSAAAAAWJLR0QcnARBBwAAAAlwSFlzAAALEgAACxIB0t1+/AAAAEVJREFUCNdjYAABRiZmEMXMIs0KotnYpTlANCcXNw+I5uXjFwCrExQSBtMMIjCGKEyKgVMMohisXRzCYpaQZoSwGCSlmAFwQQJVo5L3WQAAAABJRU5ErkJggg==") no-repeat center
       transform scaleX(-1)
+      transition .7s background
     &.disabled
       opacity .25
       border-bottom transparent
@@ -77,10 +85,14 @@
       fontify 24px 700 19px
       transition .7s border
       border-bottom 1px solid alpha(black, 1)
+      transition .5s color, .5s border
       @media $lDesktopMedium
         fontify 21px 700 19px
       &:not(a):after
-        border-bottom transparent
+        border-color transparent
+      &:hover
+        color $red
+        border-color transparent
       ^[-1].active &
         color $red
-        border-bottom transparent
+        border-color transparent

@@ -1,0 +1,79 @@
+doctype html
+html
+  head(lang="ru")
+    include layout/__head
+  body
+    include layout/__header
+    section.content
+      section.container.container_center
+        h1 Особенности
+        section.breadcrumbs
+          a(href="#").breadcrumbs__href Главная
+          span.breadcrumbs__delim /
+      section.container
+        p.feats__subtitle Неважно, где Вы родились и как живете. Если Италия всегда в Вашем сердце – время и границы не имеют значения. 
+        section.feats__async-imgs
+          img(src="img/feat1.jpg", data-koef=".04").feats__async-img.img1.js-async-scroll
+          img(src="img/feat2.jpg", data-koef="-.12").feats__async-img.img2.js-async-scroll
+          img(src="img/feat3.jpg", data-koef="-.02").feats__async-img.img3.js-async-scroll
+        section.feats__serias
+          .common__row
+            .common__col
+              .feats__serias-nameover
+                p.feats__serias-name Рим
+                p.feats__serias-name Сицилия
+                p.feats__serias-name Милан
+                p.feats__serias-name Верона
+                p.feats__serias-name Венеция
+                p.feats__serias-name Турин
+                p.feats__serias-name Флоренция
+                p.feats__serias-name Болонья
+            .common__col
+              p Выберите серию, которая созвучна Вашим вкусам – и творите шедевры, удивляя домашних и радуя свою душу ежедневным погружением в атмосферу любимой страны. А великолепное качество нашей посуды сделает каждое Ваше блюдо именно таким, как вы его задумали.
+      section.feats__about
+        .container
+          img(src="img/feat-dish1.png").feats__about-dish1
+          img(src="img/feat-dish2.png").feats__about-dish2
+          .feats__about-top
+            p Вся наша посуда производится из литого, прессованного и кованного алюминия и нержавеющей стали. Предназначена для приготовления любых видов блюд.
+          .feats__about-bottom
+            p Узнаваемый стильный «Итальянский» дизайн и технологии. Покрытия, имитирующие камень, кожу, бархат и медь, а также уникальные внешние цветные прозрачное покрытия, которые не тускнеют при мытье, особо устойчивы к абразивным материалам и не выгорают со временем.
+            p Использование гравировки в декоре, сияющие перламутровые покрытия.
+      section.container
+        section.feats__sizes
+          p.feats__sizes-text Мы выпускаем наши сковороды и кастрюли в трех разных диаметрах, для всех видов плит. Сковороды диаметром 24, 26 и 28, кастрюли диаметром 18, 21 и 24.
+          .common__row
+            .common__col
+              ul.feats__sizes-list
+                li.feats__sizes-item.feats__sizes-item_size24 24 см
+                li.feats__sizes-item.feats__sizes-item_size26 26 см
+                  span.feats__sizes-types Сковороды
+                li.feats__sizes-item.feats__sizes-item_size28 28 см
+            .common__col
+              ul.feats__sizes-list
+                li.feats__sizes-item.feats__sizes-item_size18 18 см
+                li.feats__sizes-item.feats__sizes-item_size21 21 см
+                  span.feats__sizes-types Кастрюли
+                li.feats__sizes-item.feats__sizes-item_size24 24 см
+      section.igal
+        p.feats__gal-text В 2017 году посуда Verloni впервые появилась в России и сразу влюбила в себя множество семей, ведь яркость цветов и итальянский шарм отлично сочетаются с русским гостеприимством и хлебосольством. <br>Италия на любой вкус на вашей кухне. 
+        .swiper-container.igal__car.js-igal
+          .swiper-wrapper
+            .swiper-slide
+              img(src="img/igal1.jpg").igal__img
+            .swiper-slide
+              img(src="img/igal2.jpg").igal__img
+            .swiper-slide
+              img(src="img/igal3.jpg").igal__img
+            .swiper-slide
+              img(src="img/igal4.jpg").igal__img
+            .swiper-slide
+              img(src="img/igal5.jpg").igal__img
+            .swiper-slide
+              img(src="img/igal3.jpg").igal__img
+          .swiper-button-prev
+          .swiper-button-next
+      section.feats__where
+        a(href="#").btn Где купить
+    include layout/__footer
+    include layout/__scripts

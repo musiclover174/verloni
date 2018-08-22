@@ -1,0 +1,305 @@
+.feats
+  &__subtitle
+    fontify 30px 400 38px
+    max-width 850px
+    text-align center
+    margin -17px auto 90px
+    @media $lDesktopSmall
+      fontify 21px 400 29px
+      max-width 530px
+      mt -20px
+      mb 75px
+    @media $PortraitMax
+      fontify 15px 400 23px
+  &__async
+    &-imgs
+      pos relative
+      pt 290px
+      @media $lDesktopSmall
+        pt 250px
+    &-img
+      &.img1
+        pos absolute
+        t 0
+        l 0
+        max-width 40%
+      &.img3
+        pos absolute
+        r 0
+        t 90px
+        max-width 37%
+      &.img2
+        db()
+        pos relative
+        margin 0 auto
+        t 0
+        z-index 1
+        max-width 31%
+        @media $PortraitMax
+          max-width 45%
+  &__serias
+    mt 90px
+    @media $lDesktopSmall
+      mt 77px
+    @media $LandscapeMedium
+      mt 47px
+    .common__col:first-child
+      text-align center
+      @media $LandscapeMedium
+        dn()
+    .common__col:last-child
+      display flex
+      align-items center
+      pb 11px
+      @media $LandscapeMedium
+        mt 0
+      p:not([class])
+        fontify 30px 400 38px
+        max-width 715px
+        margin 28px 0
+        @media $lDesktopSmall
+          fontify 21px 400 29px
+          max-width 440px
+        @media $LandscapeMedium
+          max-width none
+        @media $PortraitMax
+          fontify 15px 400 23px
+    &-name
+      font-family $handy
+      fontify 72px 400 84px
+      @media $lDesktopSmall
+        fontify 60px 400 72px
+      &over
+        ib()
+        text-align left
+  &__about
+    pos relative
+    mt 171px
+    z-index 1
+    overflow hidden
+    @media $PortraitMedium
+      mt 90px
+    .container
+      pos relative
+      pt 100px
+      pb 230px
+      @media $lDesktopSmall
+        pb 250px
+      @media $LandscapeMedium
+        pb 90px
+        pt 50px
+      @media $PortraitMax
+        pb 60px
+    &-dish1,
+    &-dish2
+      pos absolute
+      z-index -1
+    &-dish1
+      l 590px
+      t 0
+      @media $lDesktopSmall
+        l 400px
+      @media $desktopMax
+        l 350px
+      @media $desktopMin
+        w 780px
+      @media $LandscapeMedium
+        l 290px
+        w 580px
+        t 50px
+      @media $PortraitMax
+        l 170px
+        w 380px
+      @media $PortraitMedium
+        l 50%
+        w 320px
+        ml -160px
+        t 190px
+    &-dish2
+      b 0
+      r 890px
+      @media $lDesktopSmall
+        r 640px
+      @media $desktopMax
+        r 500px
+      @media $desktopMin
+        r 460px
+        w 520px
+      @media $LandscapeMedium
+        r 360px
+        w 380px
+      @media $PortraitMax
+        r 287px
+        w 260px
+      @media $PortraitMedium
+        dn()
+    &-top,
+    &-bottom
+      p:not([class])
+        fontify 30px 400 38px
+        margin 28px 0
+        @media $lDesktopSmall
+          fontify 21px 400 29px
+        @media $PortraitMax
+          fontify 15px 400 23px
+    &-top
+      max-width 585px
+      @media $lDesktopSmall
+        max-width 420px
+      @media $LandscapeMedium
+        max-width 360px
+      @media $PortraitMax
+        max-width 200px
+      @media $PortraitMedium
+        max-width none
+    &-bottom
+      margin 972px 0 0 auto
+      max-width 772px
+      @media $lDesktopSmall
+        max-width 380px
+      @media $desktopMin
+        mt 480px
+      @media $LandscapeMedium
+        max-width 300px
+      @media $PortraitMax
+        max-width 230px
+      @media $PortraitMax
+        mt 230px
+      @media $PortraitMedium
+        max-width none
+        mt 360px
+  &__sizes
+    mt 195px
+    pb 98px
+    @media $lDesktopSmall
+      mt 213px
+      pb 168px
+    @media $desktopMax
+      pb 100px
+      .common__row
+        flex-direction column
+    @media $LandscapeMedium
+      .common__row
+        dn()
+    @media $PortraitMedium
+      mt 93px
+      pb 60px
+    &-text
+      fontify 30px 400 38px
+      max-width 880px
+      text-align center
+      margin 0 auto 90px
+      @media $lDesktopSmall
+        fontify 21px 400 29px
+        max-width 540px
+        mt -20px
+      @media $LandscapeMedium
+        mb 0
+      @media $PortraitMax
+        fontify 15px 400 23px
+    .common__col
+      text-align center
+      @media $desktopMax
+        w 100%
+        & + .common__col
+          mt 70px
+      &:last-child
+        pt 33px
+        @media $lDesktopMedium
+          pt 28px
+    &-list
+      display flex
+      align-items flex-end
+      justify-content center
+    &-item
+      pos relative
+      z-index 1
+      display flex
+      align-items center
+      justify-content center
+      fontify 30px 400 38px
+      border 2px solid #3ba247
+      border-radius 50%
+      @media $lDesktopMedium
+        fontify 21px 400 29px
+      @media $PortraitMax
+        fontify 15px 400 23px
+      &:before
+        content ""
+        pos absolute
+        t 50%
+        l 50%
+        border 1px solid #3ba247
+        transform translate(-50%, -50%)
+        border-radius 50%
+      & + &
+        ml 40px
+        @media $lDesktopSmall
+          ml 25px
+      &_size18
+        size 142px
+        @media $lDesktopMedium
+          size 114px
+        &:before
+          size 106px
+          @media $lDesktopMedium
+            size 86px
+      &_size21
+        size 164px
+        @media $lDesktopMedium
+          size 132px
+        &:before
+          size 128px
+          @media $lDesktopMedium
+            size 104px
+      &_size24
+        size 188px
+        @media $lDesktopMedium
+          size 152px
+        &:before
+          size 128px
+          @media $lDesktopMedium
+            size 124px
+      &_size26
+        size 206px
+        @media $lDesktopMedium
+          size 166px
+        &:before
+          size 146px
+          @media $lDesktopMedium
+            size 118px
+      &_size28
+        size 220px
+        @media $lDesktopMedium
+          size 178px
+        &:before
+          size 160px
+          @media $lDesktopMedium
+            size 130px
+    &-types
+      pos absolute
+      b -70px
+      l 0
+      r 0
+      text-align center
+      color $green
+      fontify 30px 400 38px
+      mt 32px
+      @media $lDesktopSmall
+        fontify 21px 400 29px
+        b -64px
+  &__gal
+    &-text
+      max-width 1100px
+      fontify 30px 400 38px
+      margin 0 auto 40px
+      text-align center
+      padding 0 30px
+      @media $lDesktopSmall
+        fontify 21px 400 29px
+        max-width 800px
+      @media $PortraitMax
+        fontify 15px 400 23px
+  &__where
+    text-align center
+    mt 50px
