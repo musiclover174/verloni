@@ -226,11 +226,13 @@
   &__btn
     color white
     cursor pointer
-    overflow hidden
+    //overflow hidden
     pos relative
     fontify 18px 400 55px
     @media $lDesktopSmall
       fontify 15px 400 45px
+    @media $desktopMin
+      overflow hidden
     @media $LandscapeMax
       ib()
     & + &

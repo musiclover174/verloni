@@ -81,9 +81,9 @@
     )
   }
 
-  window.agroculture = {}
+  window.verloni = {}
 
-  window.agroculture.form = ({
+  window.verloni.form = ({
 
     init: function () {
 
@@ -92,9 +92,9 @@
         forms = document.querySelectorAll('form'),
         selectors = document.querySelectorAll('.js-select'),
         choicesArr = [],
-        digitsInput = document.querySelectorAll('.js-digits');
+        digitsInput = document.querySelectorAll('.js-digits')
 
-      $('.js-phone').mask('+7(999) 999-9999');
+      $('.js-phone').mask('+7(999) 999-9999')
 
       function emptyCheck(event) {
         event.target.value.trim() === '' ?
@@ -152,7 +152,7 @@
 
       for (let digitInput of digitsInput) {
         digitInput.addEventListener('keydown', (e) => {
-          let validArr = [46, 8, 9, 27, 13, 110, 190];
+          let validArr = [46, 8, 9, 27, 13, 110, 190]
           if (validArr.indexOf(e.keyCode) !== -1 ||
             (e.keyCode == 65 && (e.ctrlKey === true || e.metaKey === true)) ||
             (e.keyCode == 67 && (e.ctrlKey === true || e.metaKey === true)) ||
@@ -161,7 +161,7 @@
             return;
           }
           if ((e.shiftKey || (e.keyCode < 48 || e.keyCode > 57)) && (e.keyCode < 96 || e.keyCode > 105)) {
-            e.preventDefault();
+            e.preventDefault()
           }
         });
       }
@@ -223,7 +223,7 @@
 
   }).init()
 
-  window.agroculture.obj = ({
+  window.verloni.obj = ({
 
     indexBannerCarousel: () => {
       const bannerSwiper = new Swiper('.js-ibanner', {
@@ -411,6 +411,56 @@
 
     },
 
+    progressUpdate: (val) => {
+      const progressEl = document.querySelector('.js-progress')
+
+      progressEl.style.height = val + '%'
+    },
+    
+    collectionsCars: () => {
+      const headerEl = document.querySelector('.header'),
+        bodyEl = document.querySelector('body'),
+        carElemCount = document.querySelector('.js-collections .swiper-wrapper').children.length,
+        hrefToSlide = document.querySelectorAll('.js-icollections-toslide')
+
+      const carVertSwiper = new Swiper('.js-collections', {
+        speed: 1500,
+        direction: 'vertical',
+        slidesPerView: 1,
+        spaceBetween: -1,
+        mousewheel: {
+          releaseOnEdges: true
+        },
+        allowTouchMove: window.xs && window.touch
+      })
+
+      carVertSwiper.on('slideChangeTransitionStart', function () {
+        if (this.activeIndex) {
+          headerEl.classList.add('hidden')
+          window.verloni.obj.progressUpdate(Math.floor((this.activeIndex + 1) * 100 / carElemCount))
+        } else {
+          headerEl.classList.remove('hidden')
+          window.verloni.obj.progressUpdate(0)
+        }
+      })
+
+      for (let item of hrefToSlide) {
+        item.addEventListener('click', () => {
+          let type = item.getAttribute('data-type'),
+            slideIndex = $(`.js-collections .swiper-slide[data-slide="${type}"]`).index()
+          carVertSwiper.slideTo(slideIndex, 1500)
+        })
+      }
+      
+      let hash = window.location.hash
+      if (hash) {
+        hash = hash.substr(1)
+        let slideIndex = $(`.js-collections .swiper-slide[data-slide="${hash}"]`).index()
+        carVertSwiper.slideTo(slideIndex, 1500)
+      }
+
+    },
+    
     collections: () => {
       const colItems = document.querySelectorAll('.js-icollections-btn')
       
@@ -516,6 +566,8 @@
       
       if (document.querySelector('.js-where-more')) this.whereList()
       
+      if (document.querySelector('.js-collections')) this.collectionsCars()
+      
       window.addEventListener('resize', () => {
         window.xs = window.innerWidth <= 960 ? true : false
         window.mobile = window.innerWidth <= 480 ? true : false
@@ -564,7 +616,7 @@
 
   Pace.on('hide', () => {
     setTimeout(() => {
-      window.agroculture.obj.init()
+      window.verloni.obj.init()
     }, 200)
   })
   

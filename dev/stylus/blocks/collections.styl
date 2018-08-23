@@ -1,0 +1,233 @@
+.progress
+  w 6px
+  h 0
+  pos fixed
+  z-index 12
+  t 0
+  l 0
+  bgc $red
+  transition .7s height
+
+.collections
+  h 100vh
+  .breadcrumbs
+    pl 0
+    @media $desktopMin
+      mb 30px
+    @media $LandscapeMax
+      mb 50px
+  &__subtitle
+    fontify 30px 700 38px
+    max-width 1190px
+    mb 52px
+    @media $lDesktopMedium
+      fontify 20px 700 28px
+      max-width 920px
+    @media $desktopMin
+      fontify 15px 700 23px
+      mb 30px
+    @media $LandscapeMax
+      fontify 20px 700 28px
+      max-width 80%
+  &__feats
+    display flex
+    justify-content space-between
+    @media $desktopMin
+      &:not(&_vertical)
+        ml -40px
+        w calc(100% + 40px)
+        justify-content flex-start
+        flex-wrap wrap
+        & ^[0]__feat
+          w calc(50% - 40px)
+          ml 40px
+          mb 30px
+    @media $LandscapeMax
+      dn()
+    &_vertical
+      flex-direction column
+      @media $LandscapeMax
+        dn()
+      & ^[0]__feat
+        w 100%
+        mb 43px
+        max-width 450px
+  &__feat
+    pos relative
+    pt 72px
+    w 17%
+    fontify 18px 400 26px
+    @media $lDesktopMedium
+      fontify 15px 400 23px
+    @media $desktopMedium
+      pt 0
+    &:before
+      content ""
+      pos absolute
+      t 0
+      l 0
+      size 78px 48px
+      background url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAE4AAAAwCAMAAACIXLyeAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAC2VBMVEUEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwcEBwf///+/uIJNAAAA8XRSTlMAEj6FzuN/AwQ2lef27si+jRBbyvntq1Icj/UYb9/61GtV9Bl86bxGB64Vd+r4rzoaOKVwD3Hl8zQ7ecHw4G1Q0rEXZZJUFjCoTQ1s5CIGKEd4gIR0ZlM3FNCzCkKk2fvv4tXW2+brgU+gIJ/NQIjXzK1YDEXomk4IKkxR3vF7CcWdYCWLE26Yuy1WwmcLWt2ZKcehyVcBRLC/L0k99wUroqqOdanaLtPYkB2n7D8kShFjtP1hg7YnfoobQyEswNExObKHdlxInsYClJwjy2IyDnq4Nfwel4byH3Joaresmya9pkt9kV+5lrWjz+GM3ILE8IigagAAAAFiS0dE8tu2jngAAAAJcEhZcwAACxIAAAsSAdLdfvwAAASJSURBVEjHrZb7X1NlGMDfaQNkCMJAibGBCMhlCJNbsCGINzRg0BYqyHUMGaCgMkAuMUEUwxx3UgQDBDFJ0WVCUDNKExGFaSWY2kXMLlbPf9DZRvZJebej8PxwzvN+nu++O+d5z3veg9DcBGXe/NeoBoZz4jJaYEwzWWhqBovmQGZuQbe0WrzEGqHXbWYtY9gyWXb21pp8qcMsZcscnSydl7tMj1yps5K5ubM9VnhOD7w4K8F7FjIfXz//lW9o84BALs8maNUsbMEhsJqjyULXcGEhd+269a8u2xAG9I2abNOb4WDqHoElI/lRFvbRbwkEBsK3YzZvmQnZFGjp5B6pSTduhdjlOFXcNu/4hERgJSUnpIhSxf4Aac7b0xnPUYRCkqHJrDMhKxgn27EzG3g5uwS7ORFb4iIj9zD4ud4SbjhI8/IL/qP2xkNWoTYtKi55pxRzj2tkIN5XVv5Cwa1ovwhCAiu0I4qghHZAq/A5CJWHMFf2Lh2qDnthiu8diQW5t3qB59tBtfY+UU0tOEbOzDPqoL6hUddUNr0PRzejvSWV/z62x5hpzRj2eEKL77PutJ5Y57j2gzZX1zZJu/eO0GdQQ5BDx0kImx5xpJ1dGFuMRwpnOuV3tJ3yALDqzpHJslJLAKRmp6OMtLUPzwAY93A18/wRr/MsxnYOnLVN6z1/wUohyvMtOrRe05RSL87HFz/hsbJ2XtLUG/s8+pt76j9FaMBh6yDG9pnD53vU57iOIFDaX3Z5vm6dvtgjSaKd8TKY3yWuQl+00EMxNiNZzzL1eUAJQwMuMzM1X7YkGWia+xUsvQLt/qbY9bkKGtT3YaDovqpjYvlfw7UadZJpUgVwAXdtqLS4kjgO74PrFKQz0tnsKOLkI4ftzUZYygKKiOMIHED64sZoonp53oRbOqCT1DGExkm9R93MErchZKhUDeOZrDqEbsMICRuxXlNoRNMuQjkeCe9DiGtVQUqHNrDyEPJsyccTPCG6TKJx0xENAchNHIgH/KNR/51vyOp62ZkoLuhbPOD0HVLRG8nq0MhdCmJK8PXRWGRaTdqGlkAzohnj62d4fJmAvG6i5LC5zSS+fg++v99OXjfGtA2GXHydIR3NeUBeZy6ffAhndQB5oMg2J637QRyf9qORDuD2XUg8TlpnwfKHGJ3EdYCfSOseAtj16iS8UkBxlZwM3aABlOlhfr4DogxyumoA1wJ90COA2gVkbJMK6BzUj00RG6CwVR8VUUd8Ac0j8a+GiwDAuVAnMyZMIPbfc+SaEtgCiT2xu3tx9Ut9piYKsGsiZyP2bhHrlFyaMOX54iPdmvH4l2RaSLFl2wRZG/HJ8ITNjP+V6cdcbRswWFGgfmcNF1Amblk8UVKTlZn30+T39Hb3f9HkLBUdHP/td2q4H7VYKeNeC5FTxdTwVNX+aNUf1KmIl5IRYZg7JGUefXr+sbBfskJVqdpV9zT65pXxB9niP/8qf1mZJvgddCdqZ31Yu6NwsuNRe/zfIiatOLOZ8koydQxHFAqGapWi7u5sUUi96vSRLh/yP/4Hn5SE8vmyLLYAAAAASUVORK5CYII=") no-repeat center
+      @media $desktopMedium
+        dn()
+  &__categories
+    pos absolute
+    l 0
+    r 0
+    t 100px
+    opacity 0
+    transition .7s opacity, .7s top
+    @media $desktopMin
+      padding 0 30px
+    @media $LandscapeMax
+      t 80px
+    .icollections__btn
+      fontify 15px 400 45px
+      & + &
+        ml 18px
+      &:before
+        content attr(data-text)
+        color rgba(black, .5)
+        pos absolute
+        t 0
+        l 0
+        opacity 1
+        fontify 15px 400 20px
+        transition .7s color, .7s opacity, .7s top
+      &:after
+        content attr(data-text)
+        pos absolute
+        t 25px
+        l 0
+        bgc white
+        color rgba(black, 1)
+        opacity 0
+        font-family $handy
+        fontify 39px 400 45px
+        transition .7s opacity, .7s top
+      &:hover
+        &:before
+          color black
+      &.active
+        font-family $handy
+        fontify 39px 400 45px
+        mt -19px
+        &:after
+          t 0
+          opacity 1
+        &:before
+          t -25px
+          opacity 0
+  .swiper-slide
+    h 100%
+    &:first-child .content
+      pt 150px
+      @media $LandscapeMax
+        pt 110px
+    .content
+      h 100%
+      pos relative
+      z-index 1
+      overflow hidden
+      pt 250px
+      pb 100px
+      @media $lDesktopMedium
+        pt 225px
+        pb 50px
+      @media $desktopMin
+        pt 175px
+      @media $LandscapeMax
+        pb 30px
+      .container,
+      .collections__item
+        h 100%
+    &-active
+      & ^[0]
+        &__dish
+          t calc(50% + 100px)
+          opacity 1
+          transition-delay 1s
+          @media $LandscapeMax
+            t calc(50% + 70px)
+        &__bg
+          opacity 1
+          transition-delay 1.5s
+        &__col
+          opacity 1
+          b 0
+          transition-delay 1.2s
+        &__col:last-child
+          transition-delay 1.4s
+        &__categories
+          t 120px
+          opacity 1
+          transition-delay 1.4s
+          @media $LandscapeMax
+            t 100px
+  &__item
+    display flex
+    justify-content space-between
+    @media $LandscapeMax
+      flex-direction column
+    &-name
+      fontify 48px 700 54px
+      mb 30px
+      @media $lDesktopMedium
+        fontify 39px 700 45px  
+      @media $LandscapeMax
+        fontify 30px 700 34px
+        text-align center
+    &-about
+      fontify 18px 400 26px
+      max-width 390px
+      @media $lDesktopMedium
+        fontify 15px 400 23px
+      @media $LandscapeMax
+        dn()
+    &-pager
+      fontify 31px 400 39px
+      @media $LandscapeMax
+        dn()
+      span
+        font-size 39px
+  &__col
+    pos relative
+    b -20px
+    opacity 0
+    w calc(100% / 3 - 41px)
+    display flex
+    flex-direction column
+    align-items flex-start
+    transition .7s opacity, .7s bottom
+    justify-content space-between
+    @media $LandscapeMax
+      flex-direction row
+      justify-content center
+      w 100%
+    &:last-child
+      justify-content flex-end
+      @media $LandscapeMax
+        justify-content center
+  &__bg
+    pos absolute
+    z-index -1
+    b 0
+    l 0
+    opacity 0
+    transition .7s opacity
+    max-width 66%
+    @media $LandscapeMax
+      dn()
+  &__dish
+    pos absolute
+    z-index 1
+    l 50%
+    t calc(50% + 120px)
+    transform translate(-50%, -50%)
+    opacity 0
+    transition .7s opacity, .7s top
+    max-height 45vh
+    @media $LandscapeMax
+      t calc(50% + 90px)
+    @media $PortraitMedium
+      max-height 35vh
