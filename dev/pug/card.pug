@@ -1,0 +1,178 @@
+doctype html
+html
+  head(lang="ru")
+    include layout/__head
+  body
+    include layout/__header
+    section.content.content_bgfixed(style="background-image: url('img/card-rome.jpg')")
+      a(href="#", title="").card__toprev
+      a(href="#", title="").card__tonext
+      section.card
+        p.card__name Rome
+        section.card__top-over
+          .card__top
+            .container
+              .card__top-row
+                .card__top-col
+                  h1 Сковорода
+                  section.breadcrumbs
+                    a(href="#").breadcrumbs__href Главная
+                    span.breadcrumbs__delim / 
+                    a(href="#").breadcrumbs__href Каталог
+                    span.breadcrumbs__delim / 
+                    a(href="#").breadcrumbs__href Сковороды
+                    span.breadcrumbs__delim / 
+                  p.card__top-text Классическая незаменимая сковорода. Предназначена для всех видов плит, включая индукционные. Антипригарное покрытие, бакелитовая ручка, сотовидное дно.
+                .card__top-col
+                  img(src="img/card-dish.png").card__top-img.js-info-img
+                  p.card__top-handy Если Вы убеждены, что умение готовить – врожденный дар, который всегда при ней. Вкус блюда зависит от мастерства хозяйки.
+                .card__top-col
+                  .card__info
+                    .card__info-row
+                      p.card__info-title Серия
+                      .card__info-val
+                        .card__info-series
+                          span.card__info-series-current Рим
+                          .card__info-series-hover
+                            .card__info-series-row
+                              a(href="#", data-value="Сицилия").card__info-series-href 
+                            .card__info-series-row
+                              a(href="#", data-value="Милан").card__info-series-href 
+                            .card__info-series-row
+                              a(href="#", data-value="Верона").card__info-series-href 
+                            .card__info-series-row
+                              a(href="#", data-value="Венеция").card__info-series-href 
+                            .card__info-series-row
+                              a(href="#", data-value="Турин").card__info-series-href 
+                            .card__info-series-row
+                              a(href="#", data-value="Флоренция").card__info-series-href 
+                            .card__info-series-row
+                              a(href="#", data-value="Болонья").card__info-series-href 
+                    .card__info-row
+                      .card__info-col
+                        p.card__info-title Размерный ряд (см):
+                        .card__info-val 24-28
+                      .card__info-col
+                        p.card__info-title На сколько порций:
+                        .card__info-val 3-5
+                    .card__info-row
+                      p.card__info-title Варианты расцветки: 
+                      .card__info-val.card__info-colors
+                        button(type="button", data-src="img/card-dish.png").card__info-color.js-info-color.active
+                          span(style="background-color:#e2e2e2").card__info-color-circle 
+                          |  Белый
+                        button(type="button", data-src="img/card-dish_green.png").card__info-color.js-info-color 
+                          span(style="background-color:#3ba247").card__info-color-circle 
+                          |  Зеленый
+                        button(type="button", data-src="img/card-dish_red.png").card__info-color.js-info-color 
+                          span(style="background-color:#eb1c25").card__info-color-circle
+                          |  Красный
+        section.card__tasty
+          section.card__tasty-styled
+            span(data-koef="-.08").pasta.pasta_type1.pasta_elem3.js-async-scroll
+            span(data-koef="-.04").veg.veg_type1.veg_elem2.js-async-scroll
+          .card__tasty-container
+            .card__tasty-info
+              p.card__tasty-title Получится вкусно!
+              p.card__tasty-text Если Вы убеждены, что умение готовить – врожденный дар, который всегда при ней. Вкус блюда зависит от мастерства хозяйки.
+            aside.card__tasty-imgover
+              img(src="img/card-tasty.png").card__tasty-img
+        section.card__chars-over
+          aside.card__chars
+            span(data-koef="-.04").tomato.tomato_type1.tomato_elem3.js-async-scroll
+            p.card__chars-title Характеристики
+            .card__chars-rows
+              .card__chars-row
+                span.card__chars-row-title Размерный ряд:
+                span.card__chars-row-value 24 - 28 сантиметров
+              .card__chars-row
+                span.card__chars-row-title Вес:
+                span.card__chars-row-value 300 грамм
+              .card__chars-row
+                span.card__chars-row-title Объем:
+                span.card__chars-row-value 2 литра
+              .card__chars-row
+                span.card__chars-row-title Толщина стенок:
+                span.card__chars-row-value 3 милиметра
+              .card__chars-row
+                span.card__chars-row-title Материал корпуса:
+                span.card__chars-row-value аллюминий
+              .card__chars-row
+                span.card__chars-row-title Срок службы:
+                span.card__chars-row-value 3 года
+              .card__chars-row
+                span.card__chars-row-title Материал ручки:
+                span.card__chars-row-value Бакелит
+              .card__chars-row
+                span.card__chars-row-title Дно:
+                span.card__chars-row-value Сотовидное
+              .card__chars-row
+                span.card__chars-row-title На сколько порций:
+                span.card__chars-row-value 3-5 порций
+          main.card__gallery
+            img(src="img/card-gallery1.png").card__gallery-mainimg.js-card-mainimg
+            .card__gallery-thumbs
+              button(type="button", data-src="img/card-gallery1.png", style="background-image: url('img/card-thumb1.jpg')").card__gallery-thumb.active.js-card-thumb
+              button(type="button", data-src="img/icol-dish3.png", style="background-image: url('img/card-thumb2.jpg')").card__gallery-thumb.js-card-thumb
+              button(type="button", data-src="img/icol-dish3.png", style="background-image: url('img/card-thumb3.jpg')").card__gallery-thumb.js-card-thumb
+              button(type="button", data-src="img/icol-dish3.png", style="background-image: url('img/card-thumb4.jpg')").card__gallery-thumb.js-card-thumb
+              button(type="button", data-src="img/icol-dish3.png", style="background-image: url('img/card-thumb5.jpg')").card__gallery-thumb.js-card-thumb
+        .card__spacer
+        section.card__feats-over
+          .container
+            p.card__feats-title Особенности сковороды
+            .card__feats-row
+              .card__feats-col
+                p Особенность бакелитовой ручки в том, что она не нагревается и не скользит, обеспечивая удобный хват. Выдерживает нагрев до 150°С. Можно использовать в духовке до 180°С или даже до 200°С.
+                p Выдерживает нагрев до 150°С. Можно использовать в духовке до 180°С или даже до 200°С. Особенность бакелитовой ручки в том, что она не нагревается и не скользит, обеспечивая удобный хват. 
+              .card__feats-col
+                p Именно они создают ощущение настоящего гостеприимного дома, вкусного, уютного, куда хочется возвращаться. Они придают неповторимый шарм рабочему месту хозяйки, создают настроение праздника и подчеркивают ее индивидуальность. 
+                p Итальянцы как никто разбираются в кухне и домашнем уюте. Поэтому такие мысли приходили к нему каждый раз, когда он садился за работу, и на его эскизах все чаще появлялись невероятные по красоте кухонные принадлежности.
+              .card__feats-col
+                p В 2017 г. посуда Verloni впервые появилась в России и сразу влюбила в себя множество семей, ведь яркость цветов и итальянский шарм отлично сочетаются с русским гостеприимством и хлебосольством.
+                p Италия на любой вкус на вашей кухне. 
+        section.card__itbe
+          .container
+            section.card__itbe-styled
+              span(data-koef="-.08").pasta.pasta_type1.pasta_elem4.js-async-scroll
+              span(data-koef="-.04").veg.veg_type1.veg_elem3.js-async-scroll
+            .card__itbe-row
+              .card__itbe-col.card__itbe-col_col2
+                section.card__itbe-info
+                  img(src="img/rome.png").card__itbe-img
+                  .common__row
+                    .common__col
+                      p.card__itbe-title Это была сковорода серии «Рим»
+                    .common__col
+                      p.card__itbe-text Классическая незаменимая сковорода. Предназначена для всех видов плит, включая индукционные. Антипригарное покрытие, бакелитовая ручка, сотовидное дно.
+              .card__itbe-col
+                img(src="img/card-itbe.png").card__itbe-sideimg
+        section.card__others
+          section.card__others-styled
+            span(data-koef="-.08").pasta.pasta_type1.pasta_elem5.js-async-scroll
+          .container
+            p.card__others-title Обратите внимание на наши сковороды других серий
+            .card__others-row
+              .card__others-col
+                a(href="#").card__others-imgover
+                  img(src="img/card-other1.png").card__others-img
+                a(href="#").card__others-href Флоренция
+                p.card__others-subtitle Для всех видов плит
+              .card__others-col
+                a(href="#").card__others-imgover
+                  img(src="img/card-other1.png").card__others-img
+                a(href="#").card__others-href Турин
+                p.card__others-subtitle Только для индукционных плит
+              .card__others-col
+                a(href="#").card__others-imgover
+                  img(src="img/card-other1.png").card__others-img
+                a(href="#").card__others-href Верона
+                p.card__others-subtitle Только для индукционных плит
+        .card__toall-over
+          a(href="#").card__toall 
+            span.card__toall-text Весь каталог
+            span.card__toall-dish1
+            span.card__toall-dish2
+            span.card__toall-dish3
+    include layout/__footer
+    include layout/__scripts

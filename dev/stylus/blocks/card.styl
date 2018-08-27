@@ -1,0 +1,622 @@
+.card
+  pt 9%
+  @media $desktopMax
+    pt 5%
+  @media $desktopMedium
+    pt 0
+  &__tonext,
+  &__toprev 
+    pos absolute
+    t 50vh
+    size 80px 170px
+    mt -85px
+    z-index 10
+    cursor pointer
+    bgc transparent
+    outline none
+    background url('../i/arleft.png') no-repeat center
+    transition .7s opacity
+    @media $LandscapeMax
+      dn()
+    &:before
+      content ""
+      pos absolute
+      t 70px
+      size 12px 22px
+      background url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAWCAMAAADD5o0oAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAb1BMVEUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD///9tVJtUAAAAI3RSTlMA5X2Dhn6MAXmTc/6Ya58DZf2lX/yrBlqvVPm1CE6wmpSC2hLDrO0AAAABYktHRCS0BvmZAAAACXBIWXMAAAsSAAALEgHS3X78AAAAYElEQVQY023PRxKAIAwFUCwogl0EBcXC/e/ojvyFWf03k0lhWc6oiliCeKxqkogNSKoW1Kl+II3TDFr0akhWb6Dd+YN0Oo8Iv21WB/M3GpfiOVJd6VAR75TxuQfffjnlD/61Bbzz6VU7AAAAAElFTkSuQmCC") no-repeat center
+      transition .7s background
+    &:hover:before
+      background url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAWCAMAAADD5o0oAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAb1BMVEXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCX///8lgV07AAAAI3RSTlMA5X2Dhn6MAXmTc/6Ya58DZf2lX/yrBlqvVPm1CE6wmpSC2hLDrO0AAAABYktHRCS0BvmZAAAACXBIWXMAAAsSAAALEgHS3X78AAAAYElEQVQY023PRxKAIAwFUCwogl0EBcXC/e/ojvyFWf03k0lhWc6oiliCeKxqkogNSKoW1Kl+II3TDFr0akhWb6Dd+YN0Oo8Iv21WB/M3GpfiOVJd6VAR75TxuQfffjnlD/61Bbzz6VU7AAAAAElFTkSuQmCC") no-repeat center
+    &.disabled
+      opacity .1 !important
+  &__toprev
+    transform scaleX(-1)
+    l 0
+    transition .7s opacity
+    &:before
+      l 47px
+  &__tonext
+    r 0
+    transition .7s opacity
+    &:before
+      l 48px
+  &__name
+    color white
+    font-family RaleighBT
+    text-align center
+    fontify 300px 700 208px
+    @media $lDesktopMedium
+      fontify 200px 700 139px
+    @media $desktopMedium
+      dn()
+  &__top
+    background url("../i/board-bg.jpg") repeat top left
+    padding 48px 0 107px
+    @media $desktopMedium
+      background none
+    @media $desktopMedium
+      pt 0
+      pb 80px
+    @media $LandscapeMin
+      pb 50px
+    &-over
+      padding 20px
+      bgc white
+      @media $desktopMedium
+        padding 0
+    &-row
+      display flex
+      justify-content space-between
+      @media $desktopMedium
+        flex-wrap wrap
+    &-col
+      w calc(100% / 3 - 41px)
+      pos relative
+      @media $desktopMedium
+        w calc(50% - 20px)
+      @media $LandscapeMedium
+        w 100%
+      & + &
+        @media $LandscapeMedium
+          mt 50px
+      &:first-child
+        @media $desktopMedium
+          w 100%
+          text-align center
+        @media $LandscapeMedium
+          mb -50px
+    &-text
+      fontify 18px 400 26px
+      max-width 465px
+      mt -5px
+      @media $lDesktopMedium
+        fontify 15px 400 23px
+      @media $desktopMedium
+        dn()
+    &-handy
+      font-family $handy
+      fontify 18px 400 26px
+      max-width 300px
+      margin-right 0
+      margin-left auto
+      transform rotate(-15deg)
+      margin 188px 46px 0 auto
+      @media $desktopMax
+        mt 10px
+        mr 0
+      @media $desktopMedium
+        dn()
+    &-img
+      pos absolute
+      t -143%
+      l 50%
+      max-width 120%
+      transform translate(-50%)
+      @media $lDesktopMax
+        t -120%
+      @media $lDesktopMedium
+        t -95%
+      @media $desktopMax
+        t 0
+        l 0
+        transform none
+        max-width 100%
+        pos relative
+        margin-top -130px
+      @media $desktopMedium
+        db()
+        max-width 80%
+        margin 0 auto
+  &__info
+    pt 9px
+    flex-direction column
+    &-title
+      fontify 15px 400 17px
+      mb 10px
+      @media $lDesktopMedium
+        fontify 13px 400 17px
+    &-val
+      fontify 36px 400 36px
+      @media $lDesktopMedium
+        fontify 30px 400 36px
+    &-row
+      & + &
+        mt 27px
+    &-col
+      ib()
+      & + &
+        ml 30px
+    &-series
+      pos relative
+      ib()
+      &-current
+        ib()
+        cursor pointer
+        color $red
+        fontify 36px 400 29px
+        border-bottom 1px dotted
+        transition .7s border, .7s color
+        @media $lDesktopMedium
+          fontify 30px 400 26px
+        &:hover
+          border-color transparent
+          color $green
+      &-hover
+        pos absolute
+        z-index 1
+        l calc(100% + 10px)
+        t -30px
+        box-shadow 2.5px 4.3px 35px rgba(0, 0, 0, 0.25)
+        bgc white
+        w 235px
+        display flex
+        flex-direction column
+        padding 30px 40px
+        visibility hidden
+        opacity 0
+        transition .7s visibility, .7s opacity, .7s left
+        @media $lDesktopMedium
+          t -35px
+        &:before
+          content ""
+          pos absolute
+          h 100%
+          l -30px
+          w 30px
+          t 0
+      &:hover &-hover
+        l calc(100% + 30px)
+        visibility visible
+        opacity 1
+      &-row
+        overflow hidden
+        pos relative
+      &-href
+        color black
+        fontify 24px 400 40px
+        pos relative
+        @media $lDesktopMedium
+          fontify 20px 400 40px
+        &:before
+          content attr(data-value)
+          ib()
+          pos relative
+          l 0
+          opacity 1
+          transition .7s opacity, .7s left
+        &:after
+          content attr(data-value)
+          ib()
+          pos absolute
+          l 100%
+          fontify 39px 400 40px
+          font-family $handy
+          color $green
+          opacity 0
+          transition .7s opacity, .7s left
+          @media $lDesktopMedium
+            fontify 30px 400 40px
+        &:hover
+          &:before
+            pos absolute
+            l -100%
+            opacity 0
+          &:after
+            pos relative
+            l 0
+            opacity 1
+    &-colors
+      ml -13px
+      pt 5px
+    &-color
+      ib()
+      cursor pointer
+      ml 39px
+      pos relative
+      fontify 15px 400 15px
+      border-bottom 1px dotted
+      transition .7s border
+      @media $lDesktopMedium
+        fontify 13px 400 15px
+      &:hover
+        border-color transparent
+      &.active
+        color #888
+        border-color transparent
+      &-circle
+        ib()
+        pos absolute
+        l -26px
+        t 0
+        t -3px
+        size 20px
+        border-radius 50%
+  &__tasty
+    bgc white
+    padding 73px 0 26px
+    @media $desktopMedium
+      dn()
+    &-styled
+      pos relative
+      z-index 1
+      size 0
+      margin 0 auto
+    &-container
+      max-width 1230px
+      padding 0 30px
+      margin 0 auto
+      display flex
+      @media $lDesktopMedium
+        max-width 868px
+    &-info
+      width 580px
+      mr 80px
+      pt 26px
+      @media $lDesktopMedium
+        w 430px
+        mr 0
+        pr 100px
+    &-imgover
+      w calc(100% - 660px)
+      @media $lDesktopMedium
+        w calc(100% - 430px)
+    &-img
+      max-width 100%
+    &-title
+      fontify 48px 700 37px
+      mb 40px
+      @media $lDesktopMedium
+        fontify 31px 700 37px
+        mb 24px
+    &-text
+      fontify 18px 400 26px
+      @media $lDesktopMedium
+        fontify 15px 400 23px
+  &__chars
+    w 36%
+    padding 108px 60px 293px 135px
+    background url("../i/board-bg.jpg") repeat top left
+    pos relative
+    @media $lDesktopMedium
+      padding 108px 60px 293px 73px
+    @media $lDesktopSmall
+      padding 108px 60px 293px 60px
+    @media $desktopMax
+      padding 70px 60px
+    @media $desktopMin
+      w 100%
+      pb 40px
+    @media $LandscapeMin
+      background none
+      padding 0
+    &-over
+      bgc white
+      padding 20px
+      display flex
+      @media $desktopMin
+        flex-direction column
+    &-title
+      fontify 48px 700 60px
+      mb 28px
+      @media $lDesktopMedium
+        fontify 31px 700 37px
+    &-rows
+      @media $desktopMin
+        display flex
+        flex-wrap wrap
+        ml -20px
+        w calc(100% + 20px)
+    &-row
+      display flex
+      @media $desktopMax
+        flex-direction column
+      @media $desktopMin
+        ml 20px
+        w calc(25% - 20px)
+        mb 25px
+      @media $LandscapeMax
+        w calc(50% - 20px)
+      & + &
+        mt 18px
+        @media $desktopMin
+          mt 0
+      &-title
+        w 180px
+        fontify 18px 400 26px
+        color #888
+        @media $lDesktopMedium
+          fontify 15px 400 23px
+        @media $desktopMax
+          w 100%
+      &-value
+        w calc(100% - 180px)
+        fontify 18px 400 26px
+        @media $lDesktopMedium
+          fontify 15px 400 23px
+        @media $desktopMax
+          w 100%
+  &__gallery
+    display flex
+    align-items center
+    justify-content center
+    pos relative
+    w calc(64% - 20px)
+    ml 20px
+    border 1px solid alpha(black, .05)
+    pr 210px
+    pl 75px
+    @media $desktopMedium
+      padding 45px 45px 210px 45px
+    @media $desktopMin
+      w 100%
+      mt 20px
+      ml 0
+    &-thumbs
+      pos absolute
+      r 51px
+      t 50%
+      display flex
+      flex-direction column
+      transform translateY(-50%)
+      @media $desktopMedium
+        t auto
+        b 50px
+        r auto
+        l 50%
+        transform translateX(-50%)
+        flex-direction row
+    &-mainimg
+      max-width 100%
+    &-thumb
+      cursor pointer
+      size 74px
+      border-radius 50%
+      background-repeat no-repeat
+      background-size cover
+      background-position center
+      transition .7s transform, .7s box-shadow
+      will-change transform
+      @media $LandscapeMin
+        size 44px
+      @media $PortraitMedium
+        size 34px
+      &.active
+        box-shadow 0 5px 35px rgba(0, 0, 0, 0.25)
+      &:hover
+        transform scale(1.2)
+      & + &
+        mt 12px
+        @media $desktopMedium
+          ml 12px
+          mt 0
+  &__spacer
+    h 41vh
+    @media $desktopMedium
+      dn()
+  &__feats
+    &-over
+      bgc white
+      pt 107px
+      @media $desktopMin
+        pt 77px
+    &-title
+      fontify 48px 700 60px
+      text-align center
+      mb 30px
+      @media $lDesktopMedium
+        fontify 39px 700 42px
+      @media $desktopMin
+        text-align left
+      @media $LandscapeMedium
+        fontify 31px 700 37px
+    &-row
+      display flex
+      justify-content space-between
+      @media $desktopMin
+        flex-direction column
+        justify-content flex-start
+    &-col
+      w calc(100% / 3 - 41px)
+      @media $desktopMedium
+        w calc(100% / 3 - 20px)
+      @media $desktopMin
+        w 100%
+  &__itbe
+    bgc white
+    pt 112px
+    &-styled
+      pos relative
+      z-index 1
+      size 0
+      margin 0 auto
+    &-row
+      display flex
+      ml -62px
+      w calc(100% + 62px)
+    &-col
+      ml 62px
+      w calc(100% / 3)
+      &_col2
+        w calc(200% / 3)
+        @media $desktopMin
+          w 100%
+      &:not(&_col2)
+        @media $desktopMin
+          dn()
+    &-sideimg
+      max-width 100%
+      margin 32px auto 0
+    &-info
+      display flex
+      flex-direction column
+      align-items flex-start
+      .common__row
+        @media $desktopMedium
+          flex-direction column
+      .common__col
+        @media $desktopMedium
+          w 100%
+    &-img
+      max-width 100%
+      mb 38px
+      @media $desktopMedium
+        max-width 90%
+    &-title
+      fontify 48px 700 54px
+      mt -2px
+      @media $lDesktopMedium
+        fontify 31px 700 37px
+      @media $desktopMedium
+        mt 0
+        mb 10px
+      @media $LandscapeMedium
+        fontify 26px 700 30px
+        mb 0
+    &-text
+      fontify 17px 400 26px
+      max-width 390px
+      @media $lDesktopMedium
+        fontify 15px 400 23px
+      @media $desktopMedium
+        max-width none
+  &__others
+    bgc white
+    pt 131px
+    &-title
+      fontify 48px 700 54px
+      text-align center
+      mb 37px
+      @media $lDesktopMedium
+        fontify 39px 700 42px
+      @media $desktopMedium
+        max-width 800px
+        margin 0 auto 37px
+      @media $LandscapeMedium
+        fontify 31px 700 37px
+    &-styled
+      pos relative
+      z-index 1
+      size 0
+      margin 0 auto
+    &-row
+      display flex
+      ml -62px
+      w calc(100% + 62px)
+      @media $LandscapeMedium
+        flex-direction column
+    &-col
+      w calc(100% / 3 - 62px)
+      ml 62px
+      text-align center
+      display flex
+      flex-direction column
+      align-items center
+      @media $LandscapeMedium
+        w calc(100% - 62px)
+      & + &
+        @media $LandscapeMedium
+          mt 50px
+    &-img
+      max-width 90%
+      margin 0 auto 48px
+    &-href
+      color $red
+      fontify 24px 700 19px
+      border-bottom 1px solid
+      transition .7s border
+      @media $lDesktopMedium
+        fontify 21px 700 19px
+      &:hover
+        border-color transparent
+    &-subtitle
+      fontify 18px 400 26px
+      mt 15px
+      @media $lDesktopMedium
+        fontofu 15px 400 23px
+  &__toall
+    bgc $green
+    size 100% 116px
+    display flex
+    align-items center
+    justify-content center
+    pos relative
+    overflow hidden
+    @media $desktopMin
+      h 80px
+    &-over
+      padding 20px
+      pt 112px
+      bgc white
+    &-text
+      color white
+      fontify 24px 700 19px
+      border-bottom 1px solid
+      transition .7s border
+      @media $lDesktopMedium
+        fontify 21px 700 19px
+    &:hover &-text
+      border-color transparent
+    &-dish1
+      pos absolute
+      b -50px
+      l -30px
+      z-index 1
+      background url('../i/toall-dish1.png') no-repeat center
+      size 163px 118px
+      opacity 0
+      transition .7s opacity, .7s bottom
+      @media $PortraitMax
+        dn()
+    &-dish2
+      pos absolute
+      t -68px
+      r 105px
+      z-index 1
+      background url('../i/toall-dish2.png') no-repeat center
+      size 158px 137px
+      opacity 0
+      transition .7s opacity, .7s top
+      @media $desktopMedium
+        r -30px
+      @media $PortraitMax
+        dn()
+    &-dish3
+      pos absolute
+      t -84px
+      l 25%
+      z-index 1
+      background url('../i/toall-dish3.png') no-repeat center
+      size 195px 191px
+      opacity 0
+      transition .7s opacity, .7s top
+      @media $desktopMedium
+        dn()
+    &:hover &-dish1
+      b -30px
+      opacity 1
+    &:hover &-dish2
+      t -48px
+      opacity 1
+    &:hover &-dish3
+      t -64px
+      opacity 1

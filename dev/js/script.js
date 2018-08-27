@@ -524,6 +524,43 @@
       })
     },
     
+    changerFunction: (elem, newsrc) => {
+      window.animation.fadeOut(elem, 300, () => {
+        elem.setAttribute('src', newsrc)
+        window.animation.fadeIn(elem, 300)
+      })
+    },
+    
+    changeImageSrc: () => {
+      const colorChangers = document.querySelectorAll('.js-info-color'),
+            cardChangers = document.querySelectorAll('.js-card-thumb'),
+            colorImg = document.querySelector('.js-info-img'),
+            cardImg = document.querySelector('.js-card-mainimg')
+      
+      for (let colorChanger of colorChangers) {
+        colorChanger.addEventListener('click', () => {
+          if (!colorChanger.classList.contains('active')) {
+            window.verloni.obj.changerFunction(colorImg, colorChanger.getAttribute('data-src'))
+            
+            for (let temp of colorChangers) temp.classList.remove('active')
+            colorChanger.classList.add('active')
+          }
+        })
+      }
+      
+      for (let cardChanger of cardChangers) {
+        cardChanger.addEventListener('click', () => {
+          if (!cardChanger.classList.contains('active')) {
+            window.verloni.obj.changerFunction(cardImg, cardChanger.getAttribute('data-src'))
+            
+            for (let temp of cardChangers) temp.classList.remove('active')
+            cardChanger.classList.add('active')
+          }
+        })
+      }
+      
+    },
+    
     init: function () {
 
       const burgerEl = document.querySelector('.js-burger'),
@@ -567,6 +604,41 @@
       if (document.querySelector('.js-where-more')) this.whereList()
       
       if (document.querySelector('.js-collections')) this.collectionsCars()
+      
+      if (document.querySelectorAll('.js-info-color').length || document.querySelectorAll('.js-card-thumb').length) this.changeImageSrc()
+      
+      if (document.querySelectorAll('.js-text-fixed').length) {
+        for (let fixElem of document.querySelectorAll('.js-text-fixed')) {
+          fixElem.setAttribute('data-left', fixElem.getBoundingClientRect().left)
+          fixElem.setAttribute('data-top', fixElem.getBoundingClientRect().top)
+        }
+        window.addEventListener('mousemove', (event) => {
+          const centerX = Math.round(window.innerWidth / 2),
+              centerY = Math.round(window.innerHeight / 2),
+              diffX = - (event.clientX - centerX) / centerX,
+              diffY = - (event.clientY - centerY) / centerY 
+          
+          for (let fixElem of document.querySelectorAll('.js-text-fixed')) {
+            TweenMax.to(
+              fixElem, 
+              1, 
+              {
+                'left': fixElem.getAttribute('data-left') - Math.round(fixElem.getAttribute('data-round') * diffX),
+                'top': fixElem.getAttribute('data-top') - Math.round(fixElem.getAttribute('data-round') * diffY), 
+                ease:Expo.easeOut
+              }
+            )
+          }
+        })
+        window.addEventListener('resize', () => {
+          for (let fixElem of document.querySelectorAll('.js-text-fixed')) {
+            fixElem.removeAttribute('style')
+            fixElem.setAttribute('data-left', fixElem.getBoundingClientRect().left)
+            fixElem.setAttribute('data-top', fixElem.getBoundingClientRect().top)
+          }
+        })
+      }
+      
       
       window.addEventListener('resize', () => {
         window.xs = window.innerWidth <= 960 ? true : false

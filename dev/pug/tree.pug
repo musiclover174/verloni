@@ -1,0 +1,34 @@
+doctype html
+html
+  head(lang="ru")
+    include layout/__head
+  body
+    include layout/__header
+    section.content
+      section.container.container_text
+        h1 Очень большой заголовок
+        section.breadcrumbs
+          a(href="#").breadcrumbs__href Главная
+          span.breadcrumbs__delim / 
+        .text
+          ul
+            li
+              a(href="index") Главная
+            li
+              a(href="404") 404
+            li
+              a(href="card") Карточка товара
+            li
+              a(href="collections") Коллекции
+            li
+              a(href="contacts") Контакты
+            li
+              a(href="features") Особенности
+            li
+              a(href="news") Новости
+            li
+              a(href="where") Где купить
+            li
+              a(href="text") Типовая текстовая
+    include layout/__footer
+    include layout/__scripts

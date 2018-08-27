@@ -48,8 +48,19 @@ body
     padding 0 30px
   @media $LandscapeMedium
     padding 0 20px
+  &_text
+    max-width 800px
     
 .content
+  &_bgfixed
+    background-attachment fixed
+    background-repeat no-repeat
+    background-size cover
+    background-position center
+    @media $desktopMedium
+      background white !important
+    & + .footer
+      margin-top 0 !important
   @media $LandscapeMax
     pt 71px
   h1:not([class])
@@ -106,7 +117,7 @@ body
     l 0
     t 13px
     size 14px 1px
-    bgc black
+    bgc $green
   ol:not([class])
     list-style none
     margin 23px 0
@@ -127,7 +138,7 @@ body
     t 0
     w 30px
     pr 9px
-    color $red
+    color $green
     fontify 18px 400 24px
     @media $lDesktopMedium
       fontify 15px 400 23px
@@ -138,7 +149,7 @@ body
     @media $lDesktopMedium
       fontify 15px 400 23px
   a:not([class])
-    color red
+    color $red
     border-bottom 1px solid currentColor
     transition .5s border
     &:hover
@@ -151,7 +162,7 @@ body
 
   table
     margin 30px 0
-    border 2px solid $red
+    border 2px solid $green
   table th
     text-align left
     padding 16px 24px
@@ -477,6 +488,15 @@ textarea.warning
   &_elem2
     l -570px
     t -100px
+  &_elem3
+    l 100px
+    b 100px
+    @media $desktopMax
+      dn()
+  &_fixed
+    pos fixed
+    l 70px
+    t 20vh
 
 .veg
   position absolute
@@ -487,6 +507,18 @@ textarea.warning
   &_elem1
     r -622px
     t -96px
+  &_elem2
+    t 0
+    l -860px
+    @media $lDesktopMedium
+      l -660px
+  &_elem3
+    t -31px
+    l 60px
+  &_fixed
+    pos fixed
+    r 70px
+    t 40vh
     
 .pasta
   position absolute
@@ -502,3 +534,25 @@ textarea.warning
     size 85px 110px
     l -828px
     b -483px
+  &_elem3
+    background url('../i/pasta2.png') no-repeat center
+    size 85px 110px
+    r -750px
+    t 120px
+    @media $lDesktopMedium
+      r -550px
+  &_elem4
+    background url('../i/pasta2.png') no-repeat center
+    size 85px 110px
+    r -844px
+    t -90px
+    transform scaleX(-1)
+  &_elem5
+    background url('../i/pasta2.png') no-repeat center
+    size 85px 110px
+    l -830px
+    t 78px
+  &_fixed
+    pos fixed
+    l 180px
+    t 80vh
