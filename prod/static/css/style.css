@@ -222,7 +222,8 @@ body:not(.pace-done) {
 body .header,
 body .content,
 body .footer,
-body .swiper-buttons {
+body .swiper-buttons,
+body .ibanner__tonext {
   opacity: 0;
   -webkit-transition: 0.7s opacity;
   transition: 0.7s opacity;
@@ -242,7 +243,8 @@ body .swiper-buttons {
 body.pace-done .header,
 body.pace-done .content,
 body.pace-done .footer,
-body.pace-done .swiper-buttons {
+body.pace-done .swiper-buttons,
+body.pace-done .ibanner__tonext {
   opacity: 1;
 }
 body.pace-done .content {

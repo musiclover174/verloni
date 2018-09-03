@@ -421,7 +421,8 @@
       const headerEl = document.querySelector('.header'),
         bodyEl = document.querySelector('body'),
         carElemCount = document.querySelector('.js-collections .swiper-wrapper').children.length,
-        hrefToSlide = document.querySelectorAll('.js-icollections-toslide')
+        hrefToSlide = document.querySelectorAll('.js-icollections-toslide'),
+        toNextCollection = document.querySelector('.js-coltonext')
 
       const carVertSwiper = new Swiper('.js-collections', {
         speed: 1500,
@@ -435,6 +436,7 @@
       })
 
       carVertSwiper.on('slideChangeTransitionStart', function () {
+        toNextCollection.parentNode.removeChild(toNextCollection)
         if (this.activeIndex) {
           headerEl.classList.add('hidden')
           window.verloni.obj.progressUpdate(Math.floor((this.activeIndex + 1) * 100 / carElemCount))
