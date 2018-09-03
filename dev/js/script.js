@@ -227,7 +227,7 @@
 
     indexBannerCarousel: () => {
       const bannerSwiper = new Swiper('.js-ibanner', {
-        loop: false,
+        loop: true,
         speed: 800,
         slidesPerView: 1,
         spaceBetween: 0,
@@ -249,7 +249,7 @@
         centeredSlides: true,
         speed: 800,
         slidesPerView: 'auto',
-        spaceBetween: 0,
+        spaceBetween: window.innerWidth <= 960 ? -1 : 0,
         navigation: {
           nextEl: '.js-igal .swiper-button-next',
           prevEl: '.js-igal .swiper-button-prev',
@@ -263,10 +263,10 @@
       const spacers = document.querySelectorAll('.js-dishes-spacer'),
             positioner = document.querySelector('.js-dishes-positioner'),
             dishesOver = document.querySelector('.js-dishes'),
-            positionHeight = getComputedStyle(positioner)['height']
+            positionHeight = parseInt(getComputedStyle(positioner)['height']) * 2
       
       for (let spacer of spacers) {
-        spacer.style.height = positionHeight
+        spacer.style.height = positionHeight + 'px'
       }
       
       window.addEventListener('scroll', () => {
@@ -289,18 +289,18 @@
       // dishes scenes
       const sceneDish1 = new ScrollMagic.Scene({
         triggerElement: '.js-dishes-spacer[data-step="1"]',
-        duration: parseInt(positionHeight)
+        duration: positionHeight
       }).setTween('.iabout__dishes-dish[data-step="1"]', 1, {top: '-208px', ease: Linear.easeNone})
       
       const sceneDish2 = new ScrollMagic.Scene({
         triggerElement: '.js-dishes-spacer[data-step="2"]',
-        duration: parseInt(positionHeight)
+        duration: positionHeight
       }).setTween('.iabout__dishes-dish[data-step="2"]', 1, {top: '0px', opacity: '1', ease: Linear.easeNone})
       
       const timelineDish3 = new TimelineMax()
       const sceneDish3 = new ScrollMagic.Scene({
         triggerElement: '.js-dishes-spacer[data-step="3"]',
-        duration: parseInt(positionHeight) * .7
+        duration: positionHeight * .7
       })
       timelineDish3.add([
         TweenMax.to('.iabout__dishes-dish[data-step="1"]', 1, {top: "-290px", ease: Linear.easeNone}),
@@ -313,8 +313,8 @@
       const timelineFeat1 = new TimelineMax()
       const sceneFeat1 = new ScrollMagic.Scene({
         triggerElement: '.js-dishes-spacer[data-step="1"]',
-        duration: parseInt(positionHeight) * .3,
-        offset: parseInt(positionHeight) * .7
+        duration: positionHeight * .25,
+        offset: positionHeight * .75
       })
       timelineFeat1.add([
         TweenMax.to('.iabout__verloni-value[data-step="1"]', 1, {opacity: 0, right: '20px', ease: Linear.easeNone}),
@@ -325,7 +325,7 @@
       const timelineFeat2 = new TimelineMax()
       const sceneFeat2 = new ScrollMagic.Scene({
         triggerElement: '.js-dishes-spacer[data-step="2"]',
-        duration: parseInt(positionHeight) * .3
+        duration: positionHeight * .25
       })
       timelineFeat2.add([
         TweenMax.to('.iabout__verloni-value[data-step="2"]', 1, {opacity: 1, right: '0px', ease: Linear.easeNone}),
@@ -336,8 +336,8 @@
       const timelineFeat2Fade = new TimelineMax()
       const sceneFeat2Fade = new ScrollMagic.Scene({
         triggerElement: '.js-dishes-spacer[data-step="2"]',
-        duration: parseInt(positionHeight) * .3,
-        offset: parseInt(positionHeight) * .7
+        duration: positionHeight * .25,
+        offset: positionHeight * .75
       })
       timelineFeat2Fade.add([
         TweenMax.to('.iabout__verloni-value[data-step="2"]', 1, {opacity: 0, right: '20px', ease: Linear.easeNone}),
@@ -348,7 +348,7 @@
       const timelineFeat3 = new TimelineMax()
       const sceneFeat3 = new ScrollMagic.Scene({
         triggerElement: '.js-dishes-spacer[data-step="3"]',
-        duration: parseInt(positionHeight) * .3
+        duration: positionHeight * .25
       })
       timelineFeat3.add([
         TweenMax.to('.iabout__verloni-value[data-step="3"]', 1, {opacity: 1, right: '0px', ease: Linear.easeNone}),
@@ -492,6 +492,8 @@
     },
     
     asyncScroll: () => {
+      if (window.mobile) return false
+      
       const featElems = document.querySelectorAll('.js-async-scroll')
       
       featElems.forEach(item => item.setAttribute('data-top', parseInt(getComputedStyle(item)['top'])))
@@ -567,6 +569,7 @@
         html = document.querySelector('html'),
         headerEl = document.querySelector('.header'),
         toNext = document.querySelector('.js-tonext'),
+        toNextCollection = document.querySelector('.js-coltonext'),
         elemsToCheck = ['.news__elem-imgover', '.js-scroll-imgover', '.about__steps-elem']
 
       burgerEl.addEventListener('click', (e) => {
@@ -585,6 +588,15 @@
       if (toNext) {
         toNext.addEventListener('click', (e) => {
           window.animation.scrollTo(document.querySelector('.idishes').offsetTop, 1000)
+          e.preventDefault()
+        })
+      }
+      
+      if (toNextCollection) {
+        toNextCollection.addEventListener('click', (e) => {
+          const mySwiper = document.querySelector('.js-collections').swiper
+          mySwiper.slideNext()
+          toNextCollection.parentNode.removeChild(toNextCollection)
           e.preventDefault()
         })
       }

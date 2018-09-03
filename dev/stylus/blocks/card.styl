@@ -1,7 +1,7 @@
 .card
   pt 9%
-  @media $desktopMax
-    pt 5%
+  @media $lDesktopSmall
+    pt 2%
   @media $desktopMedium
     pt 0
   &__tonext,
@@ -444,6 +444,8 @@
   &__itbe
     bgc white
     pt 112px
+    @media $desktopMin
+      dn()
     &-styled
       pos relative
       z-index 1
@@ -539,6 +541,12 @@
     &-img
       max-width 90%
       margin 0 auto 48px
+      &over
+        pos relative
+        t 0
+        transition .7s top
+        &:hover
+          t -30px
     &-href
       color $red
       fontify 24px 700 19px
@@ -548,6 +556,8 @@
         fontify 21px 700 19px
       &:hover
         border-color transparent
+    &-imgover:hover + &-href
+      border-color transparent
     &-subtitle
       fontify 18px 400 26px
       mt 15px

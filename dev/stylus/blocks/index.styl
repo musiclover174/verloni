@@ -1,11 +1,12 @@
 .ibanner
   h 100vh
   @media $LandscapeMax
-    h 400px
+    h 500px
   @media $LandscapeMin
     h auto
   &__carover
     pos relative
+    z-index 1
   &__tonext
     pos absolute
     size 50px
@@ -39,7 +40,7 @@
     justify-content flex-start
     background-color black
     @media $LandscapeMin
-      padding 70px 0
+      padding 100px 0
     &-active
       & ^[0]
         &__bg
@@ -86,6 +87,8 @@
     opacity .75
     imgCenteringMin()
     transition 7s transform
+    @media $PortraitMax
+      height 100%
   &__container
     padding 0 100px
     max-width 1300px
@@ -216,7 +219,9 @@
     overflow auto
     justify-content center
     align-items flex-start
-    padding 31px 0 56px
+    padding 31px 0 46px
+    @media $lDesktopSmall
+      pb 46px
     @media $LandscapeMax
       display block
       white-space nowrap
@@ -302,7 +307,8 @@
     @media $lDesktopSmall
       w 70%
       h 530px
-    @media $LandscapeMax
+      t -10px
+    @media $desktopMin
       dn()
     &:after
       content ""
@@ -330,7 +336,9 @@
     @media $lDesktopSmall
       transform scale(.7)
     @media $desktopMin
-      dn()
+      pos static
+    @media $PortraitMax
+      max-width 100%
     &_elem1
       t 181px
       l -238px
@@ -358,7 +366,8 @@
     @media $lDesktopSmall
       mb 110px
     @media $desktopMin
-      mb 200px
+      //mb 200px
+      mb 50px
     @media $LandscapeMax
       mb 50px
   &__food
@@ -371,6 +380,7 @@
       transform none
       max-width 70%
       mb 26px
+      dn()
     @media $LandscapeMax
       max-width 80%
 .iabout

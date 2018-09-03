@@ -17,17 +17,23 @@
       pt 290px
       @media $lDesktopSmall
         pt 250px
+      @media $PortraitMax
+        pt 0
     &-img
       &.img1
         pos absolute
         t 0
         l 0
         max-width 40%
+        @media $PortraitMax
+          dn()
       &.img3
         pos absolute
         r 0
         t 90px
         max-width 37%
+        @media $PortraitMax
+          dn()
       &.img2
         db()
         pos relative
@@ -36,7 +42,7 @@
         z-index 1
         max-width 31%
         @media $PortraitMax
-          max-width 45%
+          max-width 100%
   &__serias
     mt 90px
     @media $lDesktopSmall
@@ -79,6 +85,8 @@
     overflow hidden
     @media $PortraitMedium
       mt 90px
+    @media $PortraitMedium
+      mt 0
     .container
       pos relative
       pt 100px
@@ -182,8 +190,8 @@
       .common__row
         dn()
     @media $PortraitMedium
-      mt 93px
-      pb 60px
+      mt 0
+      pb 0
     &-text
       fontify 30px 400 38px
       max-width 880px
@@ -197,6 +205,7 @@
         mb 0
       @media $PortraitMax
         fontify 15px 400 23px
+        text-align left
     .common__col
       text-align center
       @media $desktopMax

@@ -169,6 +169,10 @@
     ml -60px
     w calc(100% + 60px)
     mb -60px
+    @media $lDesktopSmall
+      ml -42px
+      w calc(100% + 42px)
+      mb -42px
     &-title
       fontify 48px 700 54px
       mb 38px
@@ -188,8 +192,10 @@
     display flex
     align-items flex-start
     justify-content space-between
-    @media $desktopMedium
-      w calc(100% - 60px)
+    @media $lDesktopSmall
+      ml 42px
+      mb 42px
+      w calc(50% - 42px)
     @media$LandscapeMin
       flex-direction column-reverse
       padding 24px 38px 41px
