@@ -68,8 +68,8 @@
       fontify 16px 700 16px
       pos relative
       transition .7s color
-      &:hover,
-      &.active
+      &:not(&_red):hover,
+      &:not(&_red).active
         color $red
       &:not(&_red)
         mt 12px
@@ -209,6 +209,8 @@
       pos relative
       l 0
       transition .7s color, .7s left
+      &.active
+        color $red
       &_red
         fontify 36px 400 48px
         bgc $red

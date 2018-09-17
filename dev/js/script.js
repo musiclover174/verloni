@@ -380,6 +380,7 @@
       const marker = new google.maps.Marker({
         position: myLatlng,
         icon: 'static/i/pin.png'
+        //icon: '/local/templates/.default/src/i/pin.png'
       })
 
       marker.setMap(map)
@@ -498,10 +499,12 @@
       
       const featElems = document.querySelectorAll('.js-async-scroll')
       
-      featElems.forEach(item => item.setAttribute('data-top', parseInt(getComputedStyle(item)['top'])))
+      for (let item of featElems) {
+        item.setAttribute('data-top', parseInt(getComputedStyle(item)['top']))
+      }
       
       window.addEventListener('scroll', () => {
-        featElems.forEach(item => {
+        for (let item of featElems) {
           const rect = item.getBoundingClientRect(),
                 diff = rect.bottom - item.offsetHeight - (window.innerHeight || document.documentElement.clientHeight),
                 dataKoef = item.getAttribute('data-koef'),
@@ -510,7 +513,7 @@
           if (diff <= 0 && (rect.top + item.offsetHeight >= 0)) {
             item.style.top = dataTop - diff * dataKoef + 'px'
           }
-        })
+        }
       })
     },
     

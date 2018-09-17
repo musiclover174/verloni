@@ -46,8 +46,11 @@
       dn()
     &_vertical
       flex-direction column
+      mb 43px
       @media $LandscapeMax
         dn()
+      *:not([class]) + *:not([class])
+        mt 0
       & ^[0]__feat
         w 100%
         mb 43px
