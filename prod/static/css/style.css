@@ -1696,7 +1696,7 @@ html.touchevents .burger__button:not(.open):hover .burger__button-meat {
   }
 }
 .ibanner {
-  height: 100vh;
+  height: 75vh;
 }
 @media (max-width: 768px) {
   .ibanner {
@@ -1716,7 +1716,7 @@ html.touchevents .burger__button:not(.open):hover .burger__button-meat {
   position: absolute;
   width: 50px;
   height: 50px;
-  top: calc(100vh - 100px);
+  top: calc(75vh - 100px);
   left: 50%;
   margin-left: -25px;
   z-index: 2;
@@ -2418,6 +2418,12 @@ html.touchevents .burger__button:not(.open):hover .burger__button-meat {
   .iabout__positioner {
     padding: 100px 0 83px;
   }
+}
+.iabout__positioner.fixed {
+  position: fixed;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
 }
 .iabout__positioner.tobottom {
   position: absolute;

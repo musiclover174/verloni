@@ -227,7 +227,7 @@
 
     indexBannerCarousel: () => {
       const bannerSwiper = new Swiper('.js-ibanner', {
-        loop: true,
+        loop: false,
         speed: 800,
         slidesPerView: 1,
         spaceBetween: 0,
@@ -263,7 +263,7 @@
       const spacers = document.querySelectorAll('.js-dishes-spacer'),
             positioner = document.querySelector('.js-dishes-positioner'),
             dishesOver = document.querySelector('.js-dishes'),
-            positionHeight = parseInt(getComputedStyle(positioner)['height']) * 2
+            positionHeight = parseInt(getComputedStyle(positioner)['height']) * 1
       
       for (let spacer of spacers) {
         spacer.style.height = positionHeight + 'px'
@@ -277,9 +277,16 @@
         
         if (dishesRect.top + positionHeightHalf <= wHeightHalf) {
           if (dishesRect.top + dishesOver.offsetHeight - positionHeightHalf - wHeightHalf > 0) { 
-            positioner.style.top = Math.abs(dishesRect.top + positionHeightHalf - wHeightHalf) + 'px'
+            positioner.classList.remove('bottom')
+            positioner.classList.add('fixed')
+            //positioner.style.top = Math.abs(dishesRect.top + positionHeightHalf - wHeightHalf) + 'px'
+          }
+          else {
+            positioner.classList.remove('fixed')
+            positioner.classList.add('bottom')
           }
         } else {
+          positioner.classList.remove('fixed', 'bottom')
           positioner.removeAttribute('style')
         }
       })
@@ -379,8 +386,8 @@
 
       const marker = new google.maps.Marker({
         position: myLatlng,
-        icon: 'static/i/pin.png'
-        //icon: '/local/templates/.default/src/i/pin.png'
+        //icon: 'static/i/pin.png'
+        icon: '/local/templates/.default/src/i/pin.png'
       })
 
       marker.setMap(map)
@@ -422,8 +429,9 @@
       const headerEl = document.querySelector('.header'),
         bodyEl = document.querySelector('body'),
         carElemCount = document.querySelector('.js-collections .swiper-wrapper').children.length,
-        hrefToSlide = document.querySelectorAll('.js-icollections-toslide'),
-        toNextCollection = document.querySelector('.js-coltonext')
+        hrefToSlide = document.querySelectorAll('.js-icollections-toslide')
+      
+      let toNextCollection = document.querySelector('.js-coltonext')
 
       const carVertSwiper = new Swiper('.js-collections', {
         speed: 1500,
@@ -437,7 +445,10 @@
       })
 
       carVertSwiper.on('slideChangeTransitionStart', function () {
-        toNextCollection.parentNode.removeChild(toNextCollection)
+        if (toNextCollection) {
+          toNextCollection.parentNode.removeChild(toNextCollection)
+          toNextCollection = false
+        }
         if (this.activeIndex) {
           headerEl.classList.add('hidden')
           window.verloni.obj.progressUpdate(Math.floor((this.activeIndex + 1) * 100 / carElemCount))
