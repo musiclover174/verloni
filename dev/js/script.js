@@ -551,9 +551,9 @@
     
     changeImageSrc: () => {
       const colorChangers = document.querySelectorAll('.js-info-color'),
-            cardChangers = document.querySelectorAll('.js-card-thumb'),
-            colorImg = document.querySelector('.js-info-img'),
-            cardImg = document.querySelector('.js-card-mainimg')
+        cardChangers = document.querySelectorAll('.js-card-thumb'),
+        colorImg = document.querySelector('.js-info-img'),
+        cardImg = document.querySelector('.js-card-mainimg')
       
       for (let colorChanger of colorChangers) {
         colorChanger.addEventListener('click', () => {
@@ -578,6 +578,49 @@
       }
       
     },
+
+    cardFancy: () => {
+      const cardOverImg = document.querySelector('.js-card-fancy'),
+        cardBigImg = cardOverImg.firstElementChild,
+        cardFancyHref = document.querySelectorAll('.card__gallery-href');
+
+      cardOverImg.addEventListener('click', (e) => {
+        for(let i = 0; i < cardFancyHref.length; i++) {
+          if (cardBigImg.getAttribute('src') == cardFancyHref[i].getAttribute('href')) {
+            cardFancyHref[i].click();
+            break;
+          }
+        }
+        e.preventDefault();
+      });
+
+      $('.card__gallery-href').fancybox({
+        buttons : ['close'],
+				smallBtn : false,
+				afterLoad: function( instance ) {
+          instance.$refs.container[0].classList.add('fancybox-container--gallery');
+				},
+				afterClose: function (instance ) {
+          instance.$refs.container[0].classList.remove('fancybox-container--gallery');
+        },
+        gutter: 50,
+        hash: false,
+        thumbs : {
+          autoStart : true,
+          hideOnClose : true,
+          parentEl : '.fancybox-container',
+          axis : 'x'
+        },
+				lang: "ru",
+				i18n: {
+					ru: {
+						CLOSE: "Закрыть",
+						NEXT: "Следующий",
+						PREV: "Предыдущий"
+					},
+				}
+      });
+    },
     
     init: function () {
 
@@ -586,7 +629,10 @@
         headerEl = document.querySelector('.header'),
         toNext = document.querySelector('.js-tonext'),
         toNextCollection = document.querySelector('.js-coltonext'),
-        elemsToCheck = ['.news__elem-imgover', '.js-scroll-imgover', '.about__steps-elem']
+        elemsToCheck = ['.news__elem-imgover', '.js-scroll-imgover', '.about__steps-elem'],
+        cardNavBtn = document.querySelector('.js-card-nav-btn'),
+        cardNav = document.querySelector('.js-card-nav'),
+        cardNavHref = document.querySelectorAll('.card__nav-href');
 
       burgerEl.addEventListener('click', (e) => {
         html.classList.toggle('burgeropen')
@@ -601,6 +647,32 @@
         e.preventDefault()
       })
       
+      if (cardNavBtn) {
+        cardNavBtn.addEventListener('click', (e) => {
+          if (!cardNavBtn.classList.contains('active')) {
+            cardNavBtn.classList.add('active');
+            cardNav.classList.add('show');
+          } else {
+            cardNavBtn.classList.remove('active');
+            cardNav.classList.remove('show');
+          }
+          e.preventDefault()
+        })
+      }
+      
+      if (cardNavHref) {
+        for(let i=0; i<cardNavHref.length; i++) {
+          cardNavHref[i].addEventListener('click', (e)=> {
+            if (!cardNavHref[i].parentNode.classList.contains('card__nav-item--open-sublist')) {
+              cardNavHref[i].parentNode.classList.add('card__nav-item--open-sublist');
+            } else {
+              cardNavHref[i].parentNode.classList.remove('card__nav-item--open-sublist');
+            }
+            e.preventDefault();
+          })
+        }
+      }
+
       if (toNext) {
         toNext.addEventListener('click', (e) => {
           window.animation.scrollTo(document.querySelector('.idishes').offsetTop, 1000)
@@ -632,14 +704,18 @@
       if (document.querySelector('.js-where-more')) this.whereList()
       
       if (document.querySelector('.js-collections')) this.collectionsCars()
-      
+
+      if (document.querySelector('.js-card-fancy')) this.cardFancy()
+
       if (document.querySelectorAll('.js-info-color').length || document.querySelectorAll('.js-card-thumb').length) this.changeImageSrc()
       
       if (document.querySelectorAll('.js-text-fixed').length) {
+
         for (let fixElem of document.querySelectorAll('.js-text-fixed')) {
           fixElem.setAttribute('data-left', fixElem.getBoundingClientRect().left)
           fixElem.setAttribute('data-top', fixElem.getBoundingClientRect().top)
         }
+
         window.addEventListener('mousemove', (event) => {
           const centerX = Math.round(window.innerWidth / 2),
               centerY = Math.round(window.innerHeight / 2),
@@ -658,6 +734,7 @@
             )
           }
         })
+
         window.addEventListener('resize', () => {
           for (let fixElem of document.querySelectorAll('.js-text-fixed')) {
             fixElem.removeAttribute('style')
@@ -666,7 +743,6 @@
           }
         })
       }
-      
       
       window.addEventListener('resize', () => {
         window.xs = window.innerWidth <= 960 ? true : false
@@ -714,10 +790,14 @@
     }
   });
 
+  var firstLoad = true;
   Pace.on('hide', () => {
-    setTimeout(() => {
-      window.verloni.obj.init()
-    }, 200)
+    if (firstLoad) {
+      firstLoad = false;
+      setTimeout(() => {
+        window.verloni.obj.init()
+      }, 200)
+    }
   })
   
 })();

@@ -4,42 +4,115 @@
     pt 2%
   @media $desktopMedium
     pt 0
-  &__tonext,
-  &__toprev 
-    pos absolute
-    t 50vh
-    size 80px 170px
-    mt -85px
-    z-index 10
-    cursor pointer
-    bgc transparent
-    outline none
-    background url('../i/arleft.png') no-repeat center
-    transition .7s opacity
-    @media $LandscapeMax
-      dn()
-    &:before
-      content ""
-      pos absolute
-      t 70px
-      size 12px 22px
-      background url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAWCAMAAADD5o0oAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAb1BMVEUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD///9tVJtUAAAAI3RSTlMA5X2Dhn6MAXmTc/6Ya58DZf2lX/yrBlqvVPm1CE6wmpSC2hLDrO0AAAABYktHRCS0BvmZAAAACXBIWXMAAAsSAAALEgHS3X78AAAAYElEQVQY023PRxKAIAwFUCwogl0EBcXC/e/ojvyFWf03k0lhWc6oiliCeKxqkogNSKoW1Kl+II3TDFr0akhWb6Dd+YN0Oo8Iv21WB/M3GpfiOVJd6VAR75TxuQfffjnlD/61Bbzz6VU7AAAAAElFTkSuQmCC") no-repeat center
-      transition .7s background
-    &:hover:before
-      background url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAWCAMAAADD5o0oAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAb1BMVEXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCX///8lgV07AAAAI3RSTlMA5X2Dhn6MAXmTc/6Ya58DZf2lX/yrBlqvVPm1CE6wmpSC2hLDrO0AAAABYktHRCS0BvmZAAAACXBIWXMAAAsSAAALEgHS3X78AAAAYElEQVQY023PRxKAIAwFUCwogl0EBcXC/e/ojvyFWf03k0lhWc6oiliCeKxqkogNSKoW1Kl+II3TDFr0akhWb6Dd+YN0Oo8Iv21WB/M3GpfiOVJd6VAR75TxuQfffjnlD/61Bbzz6VU7AAAAAElFTkSuQmCC") no-repeat center
-    &.disabled
-      opacity .1 !important
-  &__toprev
-    transform scaleX(-1)
-    l 0
-    transition .7s opacity
-    &:before
-      l 47px
-  &__tonext
-    r 0
-    transition .7s opacity
-    &:before
-      l 48px
+  &__item
+    &-wrap
+      background-color #fff
+      .container
+        position relative
+    &-row
+      padding-left 245px
+      padding-top 50px
+      @media (min-width: 1400px)
+        padding-left 300px
+      @media (max-width: 1100px)
+        padding-top 0
+        padding-left 0
+  &__nav
+    position absolute
+    left 60px
+    top -139px
+    width 187px
+    background-color white
+    box-shadow 0 5px 35px rgba(0, 0, 0, 0.1)
+    padding 25px 30px
+    transition left .4s
+    z-index 3
+    @media (min-width: 1400px)
+      left 0
+      width 240px
+    @media (max-width: 1100px)
+      position fixed
+      left -200px
+      top 158px
+      padding 0
+    &.show
+      left 0
+    &-mobile-btn
+      display none
+      position fixed
+      right 0
+      top 158px
+      width 44px
+      height 44px
+      background url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACwAAAAsCAMAAAApWqozAAAAXVBMVEUAAADpNzfpNzfpNzfpNzfpNzfpNzfpNzfpNzfpNzfpNzfpNzfpNzfpNzfpNzfpNzfpNzfpNzfpNzfpNzfpNzfpNzfpNzfpNzfpNzfpNzfpNzfpNzfpNzfpNzf///+wtDYKAAAAHXRSTlMACvr16NabiGNMOBcC7d7dycG3rqSQenRVQS0lBK9Dxw4AAABoSURBVDjL7c+3DoAwDEXRFEog9N7C/38mb2RAOEwg4TvZ0hlswXmWpXHoJ2USBc45D2lNqyFLGq9jrSCrYRHAxJmAqjEWGzB1Zt5NEhuBNWTRzxtGGrvLGL+P91OPMD/4kQcZ3+MfdQDTwUYOjUvUVgAAAABJRU5ErkJggg==') no-repeat center #fff
+      border none
+      box-shadow 0 5px 35px rgba(0, 0, 0, 0.1)
+      transition filter .4s
+      &.active
+        filter grayscale(100%)
+      @media (max-width: 1100px)
+        display block
+    &-list
+      @media (max-width: 1100px)
+        padding 25px
+        max-height calc(100vh - 158px)
+        overflow-x hidden
+        overflow-y auto
+    &-item
+      position relative
+      margin-bottom 20px
+      &:last-child
+        margin-bottom 0
+      &--open-sublist
+        .card__nav-href:after
+          transform rotate(-135deg)
+        .card__nav-sublist
+          margin 17px 0 21px
+          max-height 400px
+    &-href
+      display block
+      position relative
+      padding-right 20px
+      color black
+      font-family ProximaNova
+      font-size 18px
+      font-weight 700
+      line-height 22px
+      @media (min-width: 1400px)
+        font-size 20px
+      &:after
+        content ''
+        display block
+        position absolute
+        right 2px
+        top 6px
+        width 5px
+        height 5px
+        border-right 1px solid #000
+        border-bottom 1px solid #000
+        transform rotate(45deg)
+        transition transform .4s
+    &-sublist
+      max-height 0
+      margin 0
+      transition margin .6s, max-height .5s
+      overflow hidden
+    &-subitem
+      margin-bottom 10px
+      &:last-child
+        margin-bottom 0
+    &-subhref
+      font-size 15px
+      line-height 19px
+      color black
+      font-weight 400
+      transition color .4s, font .4s
+      @media (min-width: 1400px)
+        font-size 17px
+      &--active
+        font-style italic
+        color #3ba247
+        font-weight 700
   &__name
     color white
     font-family RaleighBT
@@ -50,41 +123,18 @@
     @media $desktopMedium
       dn()
   &__top
-    background url("../i/board-bg.jpg") repeat top left
-    padding 48px 0 107px
-    @media $desktopMedium
-      background none
-    @media $desktopMedium
-      pt 0
-      pb 80px
-    @media $LandscapeMin
-      pb 50px
+    margin-bottom 44px
+    .breadcrumbs
+      padding-left 2px
+      margin-top -28px
+      margin-bottom 0
     &-over
       padding 20px
       bgc white
       @media $desktopMedium
         padding 0
     &-row
-      display flex
-      justify-content space-between
-      @media $desktopMedium
-        flex-wrap wrap
-    &-col
-      w calc(100% / 3 - 41px)
-      pos relative
-      @media $desktopMedium
-        w calc(50% - 20px)
-      @media $LandscapeMedium
-        w 100%
-      & + &
-        @media $LandscapeMedium
-          mt 50px
-      &:first-child
-        @media $desktopMedium
-          w 100%
-          text-align center
-        @media $LandscapeMedium
-          mb -50px
+      padding 0
     &-text
       fontify 18px 400 26px
       max-width 465px
@@ -292,34 +342,60 @@
       fontify 18px 400 26px
       @media $lDesktopMedium
         fontify 15px 400 23px
-  &__chars
-    w 36%
-    padding 108px 60px 293px 135px
-    background url("../i/board-bg.jpg") repeat top left
+  &__right
+    w 41%
     pos relative
-    @media $lDesktopMedium
-      padding 108px 60px 293px 73px
-    @media $lDesktopSmall
-      padding 108px 60px 293px 60px
-    @media $desktopMax
-      padding 70px 60px
     @media $desktopMin
       w 100%
-      pb 40px
+      margin-top 30px
     @media $LandscapeMin
       background none
       padding 0
+  &__size
+    display flex
+    flex-wrap wrap
+    margin 0 -10px 8px
+    &-item
+      width calc(25% - 20px)
+      margin 0 10px 20px
+      text-align center
+      @media $PortraitMedium
+        width calc(50% - 20px)
+      &-overimg
+        display flex
+        align-items center
+        justify-content center
+        margin-bottom 13px
+      &-img
+        max-height 100%
+        max-width 100%
+      &-art
+        color #888
+        font-size 12px
+        font-weight 400
+        line-height 18px
+        span
+          display block
+          color black
+      &-type
+        font-size 12px
+        font-weight 400
+        line-height 18px
+        color black
+  &__chars
     &-over
       bgc white
-      padding 20px
       display flex
+      flex-wrap wrap
+      align-items flex-start
       @media $desktopMin
         flex-direction column
     &-title
       fontify 48px 700 60px
       mb 28px
       @media $lDesktopMedium
-        fontify 31px 700 37px
+        fontify 24px 700 30px
+        margin-bottom 15px
     &-rows
       @media $desktopMin
         display flex
@@ -341,7 +417,7 @@
         @media $desktopMin
           mt 0
       &-title
-        w 180px
+        w 130px
         fontify 18px 400 26px
         color #888
         @media $lDesktopMedium
@@ -349,44 +425,87 @@
         @media $desktopMax
           w 100%
       &-value
-        w calc(100% - 180px)
+        w calc(100% - 130px)
         fontify 18px 400 26px
         @media $lDesktopMedium
           fontify 15px 400 23px
         @media $desktopMax
           w 100%
+        a:not([class])
+          color #000000
+          border-bottom 1px solid #000000
+          &:hover
+            border-bottom-color  transparent
   &__gallery
     display flex
     align-items center
     justify-content center
     pos relative
-    w calc(64% - 20px)
-    ml 20px
-    border 1px solid alpha(black, .05)
-    pr 210px
-    pl 75px
-    @media $desktopMedium
-      padding 45px 45px 210px 45px
+    w calc(59% - 40px)
+    mr 40px
+    height 600px
+    padding 0 0 125px
+    @media $lDesktopSmall
+      height 510px
     @media $desktopMin
       w 100%
-      mt 20px
-      ml 0
-    &-thumbs
-      pos absolute
-      r 51px
-      t 50%
+      height 430px
+      mr 0
+    @media $LandscapeMin
+      padding-bottom 90px
+    @media $PortraitMax
+      height 330px
+    &-overimg
       display flex
-      flex-direction column
-      transform translateY(-50%)
-      @media $desktopMedium
-        t auto
-        b 50px
-        r auto
-        l 50%
-        transform translateX(-50%)
-        flex-direction row
+      align-items center
+      justify-content center
+      position relative
+      width 100%
+      height 100%
+      padding 30px
+      border 1px solid alpha(black, .05)
+      cursor pointer
+      user-select none
+      &:before
+        content ''
+        display block
+        position absolute
+        left 0
+        top 0
+        width 100%
+        height 100%
+        background-color rgba(#000, .18)
+        opacity 0
+        transition .4s opacity
+        z-index 1
+      &:after
+        content ''
+        display block
+        position absolute
+        left 50%
+        top 50%
+        transform translate(-50%, -50%)
+        width 36px
+        height 36px
+        background url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAkCAMAAADW3miqAAAAclBMVEUAAAA7okc7okc7okc7okc7okc7okc7okc7okc7okc7okc7okc7okc7okc7okc7okc7okc7okc7okc7okc7okf///9LqlZEp1D1+/bF5Mid0aNtunb7/fve7+B7wIPd79+k1Krc7t5KqVXZ7dyGxY1ZsGOQ54H7AAAAFHRSTlMA2M767cVpRCEVCQJZyaScmaalWqfKGXsAAAEaSURBVDjLjZTbdoMgEEUBEfGapJ1RvEVN2///xbZxSQaDl/10HvZasA7DMIpWhZBBIEWhNPOSZiEQwix9dyIOK3i0UpIreLgm1Ilz8JLHxOGwAbdWksMm+XLiBXa4zE4Eu0TPfvi+xP/7yuDFYxy6bmoeQMn+JNLz3eATc3e6Z0wTB7Fuq6qtER1LM2VzabCZU4OmJJJihc0N1kuscSRSwYTNE7ZLbHEgkmDS5g6rJVbYEUmywC8ZIgVEco6bHEkeX1wycVyBYB/eMr/BqUDB+7N0OLhlalg9sPlqfnrH0uSBCWWPvbVCOyoeqyKjknK/Ndqh2x5f23508iMcf6lzn9Nawu+I+NTCOF49x0vsM2VetLrN6/DmrsNfX+JQ3RTkAM0AAAAASUVORK5CYII=') no-repeat center
+        opacity 0
+        transition .4s opacity
+        z-index 2
+      &:hover
+        &:before, &:after
+          opacity 1
+    &-thumbs
+      width 100%
+      pos absolute
+      left 0
+      bottom 20px
+      display flex
+      flex-wrap wrap
+      justify-content center
     &-mainimg
       max-width 100%
+      max-height 100%
+      user-select none
     &-thumb
       cursor pointer
       size 74px
@@ -405,10 +524,9 @@
       &:hover
         transform scale(1.2)
       & + &
-        mt 12px
-        @media $desktopMedium
-          ml 12px
-          mt 0
+        ml 20px
+    &-hidden
+      display none
   &__spacer
     h 41vh
     @media $desktopMedium
@@ -503,11 +621,11 @@
         max-width none
   &__others
     bgc white
-    pt 131px
+    pt 84px
     &-title
       fontify 48px 700 54px
       text-align center
-      mb 37px
+      mb 29px
       @media $lDesktopMedium
         fontify 39px 700 42px
       @media $desktopMedium
@@ -527,7 +645,7 @@
       @media $LandscapeMedium
         flex-direction column
     &-col
-      w calc(100% / 3 - 62px)
+      w calc(100% / 4 - 62px)
       ml 62px
       text-align center
       display flex
@@ -540,9 +658,15 @@
           mt 50px
     &-img
       max-width 90%
-      margin 0 auto 48px
+      margin 0 auto
+      max-height 100%
       &over
+        display flex
+        align-items center
+        justify-content center
+        height 220px
         pos relative
+        margin-bottom 33px
         t 0
         transition .7s top
         &:hover
@@ -560,9 +684,9 @@
       border-color transparent
     &-subtitle
       fontify 18px 400 26px
-      mt 15px
+      mt 11px
       @media $lDesktopMedium
-        fontofu 15px 400 23px
+        fontify 15px 400 23px
   &__toall
     bgc $green
     size 100% 116px
@@ -575,7 +699,7 @@
       h 80px
     &-over
       padding 20px
-      pt 112px
+      pt 83px
       bgc white
     &-text
       color white
@@ -630,3 +754,14 @@
     &:hover &-dish3
       t -64px
       opacity 1
+
+  &__text
+    margin-top 47px
+    color black
+    font-size 24px
+    font-weight 400
+    line-height 32px
+    @media $desktopMin
+      margin-top 30px
+      font-size 20px
+      line-height 26px

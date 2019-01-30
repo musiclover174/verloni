@@ -58,6 +58,7 @@
     &-list
       display flex
     &-item
+      pos relative
       & + &
         ml 28px
         @media $desktopMax
@@ -95,7 +96,53 @@
         &:hover
           bgc $green
           color white
-  
+    &-sublist
+      @media $LandscapeMaxFrom
+        padding 15px 0
+        visibility hidden
+        opacity 0
+        pos absolute
+        t 28px
+        l -30px
+        bgc white
+        box-shadow 0 3px 34.3px 0.7px rgba(112, 118, 126, 0.15)
+        transition .3s visibility, .3s opacity, .3s top
+        ^[-1]-item:hover &
+          t 38px
+          opacity 1
+          visibility visible
+      @media $LandscapeMax
+        mt 14px
+        dfv()
+        &:before
+          content ""
+          pos absolute
+          l 0
+          t -21px
+          h 21px
+          w 100%
+      &-item
+        @media $LandscapeMax
+          & + &
+            mt 10px
+      &-href
+        db()
+        pos relative
+        color black
+        fontify 16px 700 20px
+        transition .7s background, .7s color
+        @media $desktopMin
+          fontify 14px 700 20px
+        @media $LandscapeMaxFrom
+          padding 9px 30px
+          &:hover,
+          &_active
+            bgc $red
+            color white
+        @media $LandscapeMax
+          fontify 23px 400 30px
+          &_active
+            color $red
 .burger
   &__bg
     pos absolute
@@ -219,6 +266,27 @@
         padding 0 15px
         ml -15px
         ib()
+    &-sublist
+      mt 14px
+      dfv()
+      &:before
+        content ""
+        pos absolute
+        l 0
+        t -21px
+        h 21px
+        w 100%
+      &-item
+        & + &
+          mt 10px
+      &-href
+        db()
+        pos relative
+        color black
+        fontify 23px 400 30px
+        transition .7s background, .7s color
+        &_active
+          color $red
         
 
 @keyframes burger-hover

@@ -141,6 +141,10 @@
   }
 }
 
+body:not(.index) .ibanner__tonext {
+  t calc(100vh - 100px)
+}
+
 .idishes
   margin 20px
   overflow hidden
@@ -415,7 +419,7 @@
       pos fixed
       t 50%
       transform translateY(-50%)
-    &.tobottom
+    &.bottom
       pos absolute
       t auto
       b 0
