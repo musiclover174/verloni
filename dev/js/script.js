@@ -186,26 +186,32 @@
               var re = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im;
               if (!re.test(elem.value)) {
                 elem.classList.add('warning')
-                checkResult = false
+                checkResult = false;
               }
               break;
             case 'email':
               var re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
               if (!re.test(elem.value)) {
                 elem.classList.add('warning')
-                checkResult = false
+                checkResult = false;
+              }
+              break;
+            case 'select': 
+              if (elem.nextSibling.querySelector('.choices__item').getAttribute('data-value') == '-1') {
+                elem.parentNode.classList.add('warning');
+                checkResult = false;
               }
               break;
             case 'file':
               if (elem.value.trim() === '') {
                 elem.parentNode.classList.add('warning')
-                checkResult = false
+                checkResult = false;
               }
               break;
             default:
               if (elem.value.trim() === '') {
                 elem.classList.add('warning')
-                checkResult = false
+                checkResult = false;
               }
               break;
           }

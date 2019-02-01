@@ -102,144 +102,78 @@
       & + &
         mt 12px
     
+
 .contacts
-  &__variants
-    display flex
-    flex-wrap wrap
-    ml -60px
-    w calc(100% + 60px)
-    mt -5px
-    @media $lDesktopSmall
-      mt -20px
-    @media $desktopMin
-      flex-direction column
-      ml 0
-      w 100%
-  &__variant
-    display flex
-    flex-direction column
-    align-items flex-start
-    w calc(100% / 3 - 60px)
-    ml 60px
-    mb 50px
-    @media $lDesktopSmall
-      mb 40px
-    @media $desktopMin
-      w 100%
-      ml 0
-    &-title
-      fontify 30px 700 34px
-      mb 8px
-      @media $lDesktopSmall
-        fontify 21px 700 29px
-        mb 6px
-    &-phone
-      color black
-      fontify 30px 400 38px
-      @media $lDesktopSmall
-        fontify 21px 400 29px
-    &-adress
-      fontify 30px 400 38px
-      @media $lDesktopSmall
-        fontify 21px 400 29px
-    &-mail
-      mt 3px
-      color black
-      fontify 30px 400 30px
-      border-bottom 1px solid
-      transition .7s border
-      @media $lDesktopSmall
-        fontify 21px 400 21px
-      &:hover
-        border-color transparent
-  &__map
-    pos relative
-    h 80vh
-    max-height 500px
-    bgc black
-    w 100vw
-    l 50%
-    ml -50vw
-    mb 90px
-    @media $lDesktopSmall
-      mb 95px
-  &__managers
-    display flex
-    flex-wrap wrap
-    ml -60px
-    w calc(100% + 60px)
-    mb -60px
-    @media $lDesktopSmall
-      ml -42px
-      w calc(100% + 42px)
-      mb -42px
-    &-title
-      fontify 48px 700 54px
-      mb 38px
-      text-align center
-      @media $lDesktopMedium
-        fontify 39px 700 44px
-      @media $lDesktopSmall
-        mb 34px
-      @media $LandscapeMedium
-        fontify 30px 700 34px
-  &__manager
-    w calc(50% - 60px)
-    ml 60px
-    mb 60px
-    border 1px solid alpha(black, .05)
-    padding 44px 58px 61px
-    display flex
-    align-items flex-start
-    justify-content space-between
-    @media $lDesktopSmall
-      ml 42px
-      mb 42px
-      w calc(50% - 42px)
-    @media $desktopMin
-      w calc(100% - 42px)
-    @media$LandscapeMin
-      flex-direction column-reverse
-      padding 24px 38px 41px
-    &-imgover
-      w 180px
-      mt 3px
-      @media$LandscapeMin
-        mt 0
-        mb 30px
-    &-img
-      max-width 100%
-    &-content
-      w calc(100% - 240px)
-      @media $LandscapeMin
-        w 100%
-    &-pos
-      fontify 18px 400 26px
-      mb 13px
-      @media $lDesktopMedium
-        fontify 15px 400 23px
-    &-name
-      fontify 48px 400 37px
-      font-family $handy
-      mb 20px
-      @media $lDesktopSmall
-        fontify 39px 400 37px
-    &-phones
-      margin 30px 0 20px
+  &__subtitle
+    max-width 710px
+    margin -17px auto 0
+    text-align center
+    fontify 18px 400 26px
+    span
+      color $red
+  &__form
+    max-width 960px
+    margin 40px auto 0
+  &__row
+    &_flex
       display flex
-      flex-direction column
-    &-phone
-      color black
-      fontify 18px 400 26px
-      @media $lDesktopMedium
-        fontify 15px 400 23px
-    &-mail
-      ib()
-      color black
-      fontify 18px 400 18px
-      border-bottom 1px solid
-      transition .7s border
-      &:hover
-        border-color transparent
-      @media $lDesktopMedium
-        fontify 15px 400 18px
+      align-items flex-start
+      justify-content space-between
+      @media $LandscapeMax
+        flex-direction column
+    &_center
+      text-align center
+    & + &
+      mt 38px
+      @media $lDesktopSmall
+        mt 18px
+  &__col
+    w calc(50% - 31px)
+    @media $lDesktopSmall
+      w calc(50% - 21px)
+    @media $LandscapeMax
+      w 100%
+      & + &
+        mt 18px
+  &__label
+    db()
+    fontify 14px 400 17px
+    mb 7px
+    span
+      color $red
+  &__input
+    width 100%
+    h 47px
+    border 1px solid alpha(black, 0.1)
+    padding 0 25px
+    font-size 18px
+    font-weight 400
+    transition .7s border-color
+    &:focus
+      border-color rgba(0,0,0,0.4)
+    @media $lDesktopSmall
+      font-size 16px
+    &.warning
+      border-color $red
+  &__textarea
+    width 100%
+    h 97px
+    border 1px solid alpha(black, 0.1)
+    padding 10px 25px
+    font-size 18px
+    font-weight 400
+    line-height 24px
+    resize none
+    overflow hidden
+    transition .7s border-color
+    &:focus
+      border-color rgba(0,0,0,0.4)
+    @media $lDesktopSmall
+      font-size 16px
+      line-height 22px
+    &.warning
+      border-color $red
+  &__btn
+    mt 11px
+    @media $LandscapeMax
+      mt 0

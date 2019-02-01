@@ -68,47 +68,58 @@
         <section class="breadcrumbs"><a class="breadcrumbs__href" href="#">Главная</a><span class="breadcrumbs__delim">/</span></section>
       </section>
       <section class="container">
-        <section class="contacts__variants">
-          <div class="contacts__variant">
-            <p class="contacts__variant-title">Телефоны</p><a class="contacts__variant-phone" href="tel:+74957378203">+7 (495) 737 82 03 (708)</a><a class="contacts__variant-phone" href="tel:+79262085263">+7 (926) 208 52 63</a>
+        <p class="contacts__subtitle">На данный момент с нами можно связаться только используя форму ниже. Обратите внимание, поля со звездочкой <span>* </span> – обязательны для заполнения.</p>
+        <form class="contacts__form">
+          <div class="contacts__row contacts__row_flex">
+            <div class="contacts__col">
+              <div class="contacts__row">
+                <label class="contacts__label">ФИО <span>*</span></label>
+                <input class="contacts__input" type="text" data-req="req">
+              </div>
+              <div class="contacts__row">
+                <label class="contacts__label">Email <span>*</span></label>
+                <input class="contacts__input" type="text" data-req="req" data-type="email">
+              </div>
+              <div class="contacts__row">
+                <label class="contacts__label">Город <span>*</span></label>
+                <input class="contacts__input" type="text" data-req="req">
+              </div>
+            </div>
+            <div class="contacts__col">
+              <div class="contacts__row">
+                <label class="contacts__label">Компания </label>
+                <input class="contacts__input" type="text">
+              </div>
+              <div class="contacts__row">
+                <label class="contacts__label">Телефон <span>*</span></label>
+                <input class="contacts__input js-phone" type="text" data-req="req">
+              </div>
+              <div class="contacts__row">
+                <label class="contacts__label">Тема обращения <span>*</span></label>
+                <select class="contacts__select js-select" data-req="req" data-type="select">
+                  <option value="-1" selected disabled> </option>
+                  <option value="1">Тема 1</option>
+                  <option value="2">Тема 2</option>
+                  <option value="3">Тема 3</option>
+                  <option value="4">Тема 4</option>
+                </select>
+              </div>
+            </div>
           </div>
-          <div class="contacts__variant">
-            <p class="contacts__variant-title">Адрес</p>
-            <p class="contacts__variant-adress">123423, Москва, Карамышевская набережная, дом 44</p>
+          <div class="contacts__row">
+            <label class="contacts__label">Сообщение<span>*</span></label>
+            <textarea class="contacts__textarea" data-req="req"></textarea>
           </div>
-          <div class="contacts__variant">
-            <p class="contacts__variant-title">Электронная почта</p><a class="contacts__variant-mail" href="mailto:mail@verloni.ru">mail@verloni.ru</a>
+          <div class="contacts__row contacts__row_center">
+            <div class="fakecheckbox">
+              <input class="fakecheckbox__truecheck" type="checkbox" value="" name="agreement" checked id="agreement">
+              <label class="fakecheckbox__label" for="agreement">Я согласен с <a href="#">политикой конфиденциальности</a></label>
+            </div>
           </div>
-        </section>
-        <section class="contacts__map js-contacts-map" data-coords="55.772905,37.4630044"></section>
-        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCDTIKzsSt-JWBYMGIXaK0Q6vMhJeoYanc" type="text/javascript"></script>
-        <p class="contacts__managers-title">Наши менеджеры</p>
-        <section class="contacts__managers">
-          <div class="contacts__manager">
-            <main class="contacts__manager-main">
-              <p class="contacts__manager-pos">Руководитель направления «Посуда»</p>
-              <p class="contacts__manager-name">Борисова Светлана</p>
-              <div class="contacts__manager-phones"><a class="contacts__manager-phone" href="tel:+74957378203">+7 (495) 737 82 03 (708)</a><a class="contacts__manager-phone" href="tel:+79262085263">+7 (926) 208 52 63</a></div><a class="contacts__manager-mail" href="mailto:borisova.s@scarlett.ru">borisova.s@scarlett.ru</a>
-            </main>
-            <aside class="contacts__manager-imgover"><img class="contacts__manager-img" src="img/manager.png"></aside>
+          <div class="contacts__row contacts__row_center">
+            <button class="contacts__btn btn btn_red" type="submit">Отправить</button>
           </div>
-          <div class="contacts__manager">
-            <main class="contacts__manager-main">
-              <p class="contacts__manager-pos">Руководитель направления «Посуда»</p>
-              <p class="contacts__manager-name">Борисова Светлана</p>
-              <div class="contacts__manager-phones"><a class="contacts__manager-phone" href="tel:+74957378203">+7 (495) 737 82 03</a><a class="contacts__manager-phone" href="tel:+79262085263">+7 (926) 208 52 63</a></div><a class="contacts__manager-mail" href="mailto:borisova.s@scarlett.ru">borisova.s@scarlett.ru</a>
-            </main>
-            <aside class="contacts__manager-imgover"><img class="contacts__manager-img" src="img/manager.png"></aside>
-          </div>
-          <div class="contacts__manager">
-            <main class="contacts__manager-main">
-              <p class="contacts__manager-pos">Руководитель направления «Посуда»</p>
-              <p class="contacts__manager-name">Борисова Светлана</p>
-              <div class="contacts__manager-phones"><a class="contacts__manager-phone" href="tel:+74957378203">+7 (495) 737 82 03</a><a class="contacts__manager-phone" href="tel:+79262085263">+7 (926) 208 52 63</a></div><a class="contacts__manager-mail" href="mailto:borisova.s@scarlett.ru">borisova.s@scarlett.ru</a>
-            </main>
-            <aside class="contacts__manager-imgover"><img class="contacts__manager-img" src="img/manager.png"></aside>
-          </div>
-        </section>
+        </form>
       </section>
     </section>
     <footer class="footer">

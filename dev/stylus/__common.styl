@@ -385,26 +385,28 @@ div[class\^="table-scroller"]
   &__label
     ib()
     color black
-    fontify 14px 400 24px
+    fontify 18px 400 24px
     pos relative
-    pl 37px
+    pl 30px
     pt 7px
+    @media $lDesktopSmall
+      fontify 16px 400 22px
     &:before 
       content ""
       pos absolute
       l 0px
       t 8px
-      size 20px
-      border 1px solid #ececec
+      size 18px
+      border 1px solid alpha(black, .1)
       cursor pointer
       transition .5s border
     &:after
       content ""
       pos absolute
       size 16px 13px
-      background url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAANBAMAAABSlfMXAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAG1BMVEX///////////////////////////////////8HBRbfAAAACHRSTlMAAyio8Dc4NlLA1+AAAAABYktHRACIBR1IAAAACXBIWXMAAAsSAAALEgHS3X78AAAAOUlEQVQI12NgAANGBQjNIOwKFbCAMoRbArAIMAlABUIMoSpSmgUhKlg9jKFaQjqgWlhdAqDGl4JJAP/cCjh7XMPDAAAAAElFTkSuQmCC") no-repeat center
-      l 4px
-      t 13px
+      background url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAANBAMAAABSlfMXAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAHlBMVEXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCXrHCX///9hWVI5AAAACHRSTlMAAyio8Dc4NlLA1+AAAAABYktHRAnx2aXsAAAACXBIWXMAAAsSAAALEgHS3X78AAAAB3RJTUUH4wIBDjM2rzcqKgAAADlJREFUCNdjYAADRgUIzSDsChWwgDKEWwKwCDAJQAVCDKEqUpoFISpYPYyhWkI6oFpYXQKgxpeCSQD/3Ao4e1zDwwAAAABJRU5ErkJggg==') no-repeat center
+      l 2px
+      t 11px
       opacity 0
       cursor pointer
       transition .5s opacity

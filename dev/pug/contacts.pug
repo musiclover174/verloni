@@ -11,50 +11,53 @@ html
           a(href="#").breadcrumbs__href Главная
           span.breadcrumbs__delim /
       section.container
-        section.contacts__variants
-          .contacts__variant
-            p.contacts__variant-title Телефоны
-            a(href="tel:+74957378203").contacts__variant-phone +7 (495) 737 82 03 (708)
-            a(href="tel:+79262085263").contacts__variant-phone +7 (926) 208 52 63
-          .contacts__variant
-            p.contacts__variant-title Адрес
-            p.contacts__variant-adress 123423, Москва, Карамышевская набережная, дом 44
-          .contacts__variant
-            p.contacts__variant-title Электронная почта
-            a(href="mailto:mail@verloni.ru").contacts__variant-mail mail@verloni.ru
-        section.contacts__map.js-contacts-map(data-coords="55.772905,37.4630044")
-        script(src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCDTIKzsSt-JWBYMGIXaK0Q6vMhJeoYanc", type="text/javascript")
-        p.contacts__managers-title Наши менеджеры
-        section.contacts__managers
-          .contacts__manager
-            main.contacts__manager-main
-              p.contacts__manager-pos Руководитель направления «Посуда»
-              p.contacts__manager-name Борисова Светлана
-              .contacts__manager-phones
-                a(href="tel:+74957378203").contacts__manager-phone +7 (495) 737 82 03 (708)
-                a(href="tel:+79262085263").contacts__manager-phone +7 (926) 208 52 63
-              a(href="mailto:borisova.s@scarlett.ru").contacts__manager-mail borisova.s@scarlett.ru
-            aside.contacts__manager-imgover
-              img(src="img/manager.png").contacts__manager-img
-          .contacts__manager
-            main.contacts__manager-main
-              p.contacts__manager-pos Руководитель направления «Посуда»
-              p.contacts__manager-name Борисова Светлана
-              .contacts__manager-phones
-                a(href="tel:+74957378203").contacts__manager-phone +7 (495) 737 82 03
-                a(href="tel:+79262085263").contacts__manager-phone +7 (926) 208 52 63
-              a(href="mailto:borisova.s@scarlett.ru").contacts__manager-mail borisova.s@scarlett.ru
-            aside.contacts__manager-imgover
-              img(src="img/manager.png").contacts__manager-img
-          .contacts__manager
-            main.contacts__manager-main
-              p.contacts__manager-pos Руководитель направления «Посуда»
-              p.contacts__manager-name Борисова Светлана
-              .contacts__manager-phones
-                a(href="tel:+74957378203").contacts__manager-phone +7 (495) 737 82 03
-                a(href="tel:+79262085263").contacts__manager-phone +7 (926) 208 52 63
-              a(href="mailto:borisova.s@scarlett.ru").contacts__manager-mail borisova.s@scarlett.ru
-            aside.contacts__manager-imgover
-              img(src="img/manager.png").contacts__manager-img
+        p.contacts__subtitle На данный момент с нами можно связаться только используя форму ниже. Обратите внимание, поля со звездочкой 
+          span * 
+          |  – обязательны для заполнения.
+        form.contacts__form
+          .contacts__row.contacts__row_flex
+            .contacts__col
+              .contacts__row
+                label.contacts__label ФИО 
+                  span *
+                input(type="text", data-req="req").contacts__input
+              .contacts__row
+                label.contacts__label Email 
+                  span *
+                input(type="text", data-req="req", data-type="email").contacts__input
+              .contacts__row
+                label.contacts__label Город 
+                  span *
+                input(type="text", data-req="req").contacts__input
+            .contacts__col
+              .contacts__row
+                label.contacts__label Компания 
+                input(type="text").contacts__input
+              .contacts__row
+                label.contacts__label Телефон 
+                  span *
+                input(type="text", data-req="req").contacts__input.js-phone
+              .contacts__row
+                label.contacts__label Тема обращения 
+                  span *
+                select.contacts__select.js-select(data-req="req", data-type="select")
+                  option(value="-1", selected, disabled) 
+                  option(value="1") Тема 1
+                  option(value="2") Тема 2
+                  option(value="3") Тема 3
+                  option(value="4") Тема 4
+          .contacts__row
+            label.contacts__label Сообщение
+              span *
+            textarea(data-req="req").contacts__textarea
+          .contacts__row.contacts__row_center
+            .fakecheckbox
+              input(type="checkbox", value="", name="agreement", checked)#agreement.fakecheckbox__truecheck
+              label(for="agreement").fakecheckbox__label Я согласен с 
+                a(href="#") политикой конфиденциальности
+          .contacts__row.contacts__row_center
+            button(type="submit").contacts__btn.btn.btn_red Отправить
+          
+            
     include layout/__footer
     include layout/__scripts

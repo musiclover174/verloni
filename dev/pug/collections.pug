@@ -4,338 +4,86 @@ html
     include layout/__head
   body
     include layout/__header
-    span.progress.js-progress
-    button(type="button").btn.ibanner__tonext.js-coltonext
-    .swiper-container.collections.js-collections
-      .swiper-wrapper
-        .swiper-slide
-          section.content
-            section.container
-              h1 Коллекции
-              section.breadcrumbs
-                a(href="#").breadcrumbs__href Главная
-                span.breadcrumbs__delim /
-              p.collections__subtitle Под маркой Verloni мы производим сковороды и кастрюли. Вся продукция делится на 8 коллекций, каждая из которых обладает своими уникальными свойсвами и характеристиками.
-              ul.collections__feats
-                li.collections__feat Уникальные внешние покрытия, имитирующие натуральные текстуры: медь, кожа, бархат, мраморная крошка, золотое напыление.
-                li.collections__feat Посуда некоторых наших коллекций изготавливается в нескольких разных диаметрах, под разные плиты.
-                li.collections__feat Встроенная мерная шкала для масла, для приверженцев здорового питания. Масла, налитого «внутри» мерных рисок достаточно для обжарки продукта без избыточных жиров.
-                li.collections__feat Уникальное внешнее цветочное прозрачное покрытие. Не тускнеет при мытье, особо устойчиво к абразивным материалам и не выгорает со временем.
-                li.collections__feat Индивидуальные цвета для каждого диаметра.
-        .swiper-slide(data-slide="rome")
-          include blocks/collections-buttons
-          +colBtn("rome")
-          section.content
-            img(src="img/col-bg1.jpg").collections__bg
-            img(src="img/col-dish1.png").collections__dish
-            section.container
-              .collections__item
-                .collections__col
-                  .collections__item-info
-                    p.collections__item-name Сковорода классическая
-                    p.collections__item-about Уникальные внешние покрытия, имитирующие натуральные текстуры: медь, кожа, бархат, мраморная крошка, золотое напыление.
-                  p.collections__item-pager 
-                    span 1
-                    | /2
-                .collections__col
-                  ul.collections__feats.collections__feats_vertical
-                    li.collections__feat Уникальные внешние покрытия, имитирующие натуральные текстуры: медь, кожа, бархат, мраморная крошка, золотое напыление. диаметра.
-                    li.collections__feat Посуда некоторых наших коллекций изготавливается в нескольких разных диаметрах, под разные плиты.
-                  a(href="#").btn.collections__href Подробнее
-        .swiper-slide(data-slide="rome")
-          include blocks/collections-buttons
-          +colBtn("rome")
-          section.content
-            img(src="img/col-bg1.jpg").collections__bg
-            img(src="img/col-dish2.png").collections__dish
-            section.container
-              .collections__item
-                .collections__col
-                  .collections__item-info
-                    p.collections__item-name Набор кастрюль
-                    p.collections__item-about Классический набор кастрюль, элегантная форма  «belly shape», нержавеющая сталь, крышки из жаропрочного стекла с отверстием для выхода пара, бакелитовые ручки, капсулированное дно, зеркальная полировка внутри и снаружи кастрюли. 
-                  p.collections__item-pager 
-                    span 2
-                    | /2
-                .collections__col
-                  ul.collections__feats.collections__feats_vertical
-                    li.collections__feat Уникальные внешние покрытия, имитирующие натуральные текстуры: медь, кожа, бархат, мраморная крошка, золотое напыление.
-                  a(href="#").btn.collections__href Подробнее
-        .swiper-slide(data-slide="sicily")
-          include blocks/collections-buttons
-          +colBtn("sicily")
-          section.content
-            img(src="img/col-bg2.jpg").collections__bg
-            img(src="img/col-dish3.png").collections__dish
-            section.container
-              .collections__item
-                .collections__col
-                  .collections__item-info
-                    p.collections__item-name Сковорода классическая
-                    p.collections__item-about Классическая сковорода с мраморным антипригарным покрытием, индукционное дно для  наплитного и внутридуховочного использования. Элегантная металлическая ручка.
-                  p.collections__item-pager 
-                    span 1
-                    | /2
-                .collections__col
-                  ul.collections__feats.collections__feats_vertical
-                    li.collections__feat Уникальные внешние покрытия, имитирующие натуральные текстуры: медь, кожа, бархат, мраморная крошка, золотое напыление.
-                    li.collections__feat Посуда некоторых наших коллекций изготавливается в нескольких разных диаметрах, под разные плиты.
-                  a(href="#").btn.collections__href Подробнее
-        .swiper-slide(data-slide="sicily")
-          include blocks/collections-buttons
-          +colBtn("sicily")
-          section.content
-            img(src="img/col-bg2.jpg").collections__bg
-            img(src="img/col-dish4.png").collections__dish
-            section.container
-              .collections__item
-                .collections__col
-                  .collections__item-info
-                    p.collections__item-name Набор кастрюль
-                    p.collections__item-about Классический набор кастрюль, элегантная форма  «belly shape», нержавеющая сталь, крышки из жаропрочного стекла с отверстием для выхода пара, бакелитовые ручки, капсулированное дно, зеркальная полировка внутри и снаружи кастрюли. 
-                  p.collections__item-pager 
-                    span 2
-                    | /2
-                .collections__col
-                  ul.collections__feats.collections__feats_vertical
-                    li.collections__feat Посуда некоторых наших коллекций изготавливается в нескольких разных диаметрах, под разные плиты.
-                  a(href="#").btn.collections__href Подробнее   
-        .swiper-slide(data-slide="milan")
-          include blocks/collections-buttons
-          +colBtn("milan")
-          section.content
-            img(src="img/col-bg3.jpg").collections__bg
-            img(src="img/col-dish1.png").collections__dish
-            section.container
-              .collections__item
-                .collections__col
-                  .collections__item-info
-                    p.collections__item-name Сковорода классическая
-                    p.collections__item-about Уникальные внешние покрытия, имитирующие натуральные текстуры: медь, кожа, бархат, мраморная крошка, золотое напыление.
-                  p.collections__item-pager 
-                    span 1
-                    | /1
-                .collections__col
-                  ul.collections__feats.collections__feats_vertical
-                    li.collections__feat Уникальные внешние покрытия, имитирующие натуральные текстуры: медь, кожа, бархат, мраморная крошка, золотое напыление. диаметра.
-                    li.collections__feat Посуда некоторых наших коллекций изготавливается в нескольких разных диаметрах, под разные плиты.
-                  a(href="#").btn.collections__href Подробнее
-        .swiper-slide(data-slide="verona")
-          include blocks/collections-buttons
-          +colBtn("verona")
-          section.content
-            img(src="img/col-bg4.jpg").collections__bg
-            img(src="img/col-dish3.png").collections__dish
-            section.container
-              .collections__item
-                .collections__col
-                  .collections__item-info
-                    p.collections__item-name Сковорода классическая
-                    p.collections__item-about Уникальные внешние покрытия, имитирующие натуральные текстуры: медь, кожа, бархат, мраморная крошка, золотое напыление.
-                  p.collections__item-pager 
-                    span 1
-                    | /2
-                .collections__col
-                  ul.collections__feats.collections__feats_vertical
-                    li.collections__feat Уникальные внешние покрытия, имитирующие натуральные текстуры: медь, кожа, бархат, мраморная крошка, золотое напыление. диаметра.
-                    li.collections__feat Посуда некоторых наших коллекций изготавливается в нескольких разных диаметрах, под разные плиты.
-                  a(href="#").btn.collections__href Подробнее
-        .swiper-slide(data-slide="verona")
-          include blocks/collections-buttons
-          +colBtn("verona")
-          section.content
-            img(src="img/col-bg4.jpg").collections__bg
-            img(src="img/col-dish2.png").collections__dish
-            section.container
-              .collections__item
-                .collections__col
-                  .collections__item-info
-                    p.collections__item-name Набор кастрюль
-                    p.collections__item-about Классический набор кастрюль, элегантная форма  «belly shape», нержавеющая сталь, крышки из жаропрочного стекла с отверстием для выхода пара, бакелитовые ручки, капсулированное дно, зеркальная полировка внутри и снаружи кастрюли. 
-                  p.collections__item-pager 
-                    span 2
-                    | /2
-                .collections__col
-                  ul.collections__feats.collections__feats_vertical
-                    li.collections__feat Посуда некоторых наших коллекций изготавливается в нескольких разных диаметрах, под разные плиты.
-                  a(href="#").btn.collections__href Подробнее   
-        .swiper-slide(data-slide="venice")
-          include blocks/collections-buttons
-          +colBtn("venice")
-          section.content
-            img(src="img/col-bg5.jpg").collections__bg
-            img(src="img/col-dish1.png").collections__dish
-            section.container
-              .collections__item
-                .collections__col
-                  .collections__item-info
-                    p.collections__item-name Сковорода классическая
-                    p.collections__item-about Уникальные внешние покрытия, имитирующие натуральные текстуры: медь, кожа, бархат, мраморная крошка, золотое напыление.
-                  p.collections__item-pager 
-                    span 1
-                    | /2
-                .collections__col
-                  ul.collections__feats.collections__feats_vertical
-                    li.collections__feat Уникальные внешние покрытия, имитирующие натуральные текстуры: медь, кожа, бархат, мраморная крошка, золотое напыление. диаметра.
-                    li.collections__feat Посуда некоторых наших коллекций изготавливается в нескольких разных диаметрах, под разные плиты.
-                  a(href="#").btn.collections__href Подробнее
-        .swiper-slide(data-slide="venice")
-          include blocks/collections-buttons
-          +colBtn("venice")
-          section.content
-            img(src="img/col-bg5.jpg").collections__bg
-            img(src="img/col-dish4.png").collections__dish
-            section.container
-              .collections__item
-                .collections__col
-                  .collections__item-info
-                    p.collections__item-name Набор кастрюль
-                    p.collections__item-about Классический набор кастрюль, элегантная форма  «belly shape», нержавеющая сталь, крышки из жаропрочного стекла с отверстием для выхода пара, бакелитовые ручки, капсулированное дно, зеркальная полировка внутри и снаружи кастрюли. 
-                  p.collections__item-pager 
-                    span 2
-                    | /2
-                .collections__col
-                  ul.collections__feats.collections__feats_vertical
-                    li.collections__feat Посуда некоторых наших коллекций изготавливается в нескольких разных диаметрах, под разные плиты.
-                  a(href="#").btn.collections__href Подробнее 
-        .swiper-slide(data-slide="turin")
-          include blocks/collections-buttons
-          +colBtn("turin")
-          section.content
-            img(src="img/col-bg6.jpg").collections__bg
-            img(src="img/col-dish1.png").collections__dish
-            section.container
-              .collections__item
-                .collections__col
-                  .collections__item-info
-                    p.collections__item-name Сковорода классическая
-                    p.collections__item-about Уникальные внешние покрытия, имитирующие натуральные текстуры: медь, кожа, бархат, мраморная крошка, золотое напыление.
-                  p.collections__item-pager 
-                    span 1
-                    | /1
-                .collections__col
-                  ul.collections__feats.collections__feats_vertical
-                    li.collections__feat Уникальные внешние покрытия, имитирующие натуральные текстуры: медь, кожа, бархат, мраморная крошка, золотое напыление. диаметра.
-                    li.collections__feat Посуда некоторых наших коллекций изготавливается в нескольких разных диаметрах, под разные плиты.
-                  a(href="#").btn.collections__href Подробнее
-        .swiper-slide(data-slide="florence")
-          include blocks/collections-buttons
-          +colBtn("florence")
-          section.content
-            img(src="img/col-bg7.jpg").collections__bg
-            img(src="img/col-dish1.png").collections__dish
-            section.container
-              .collections__item
-                .collections__col
-                  .collections__item-info
-                    p.collections__item-name Сковорода классическая
-                    p.collections__item-about Уникальные внешние покрытия, имитирующие натуральные текстуры: медь, кожа, бархат, мраморная крошка, золотое напыление.
-                  p.collections__item-pager 
-                    span 1
-                    | /2
-                .collections__col
-                  ul.collections__feats.collections__feats_vertical
-                    li.collections__feat Уникальные внешние покрытия, имитирующие натуральные текстуры: медь, кожа, бархат, мраморная крошка, золотое напыление. диаметра.
-                    li.collections__feat Посуда некоторых наших коллекций изготавливается в нескольких разных диаметрах, под разные плиты.
-                  a(href="#").btn.collections__href Подробнее
-        .swiper-slide(data-slide="florence")
-          include blocks/collections-buttons
-          +colBtn("florence")
-          section.content
-            img(src="img/col-bg7.jpg").collections__bg
-            img(src="img/col-dish3.png").collections__dish
-            section.container
-              .collections__item
-                .collections__col
-                  .collections__item-info
-                    p.collections__item-name Сковорода двойная
-                    p.collections__item-about Позволяет готовить продукт без брызг масла, бакелитовые ручки на магнитах, 2 нагревательные поверхности. 
-                  p.collections__item-pager 
-                    span 2
-                    | /2
-                .collections__col
-                  ul.collections__feats.collections__feats_vertical
-                    li.collections__feat Уникальные внешние покрытия, имитирующие натуральные текстуры: медь, кожа, бархат, мраморная крошка, золотое напыление. диаметра.
-                    li.collections__feat Посуда некоторых наших коллекций изготавливается в нескольких разных диаметрах, под разные плиты.
-                  a(href="#").btn.collections__href Подробнее
-        .swiper-slide(data-slide="bologna")
-          include blocks/collections-buttons
-          +colBtn("bologna")
-          section.content
-            img(src="img/col-bg8.jpg").collections__bg
-            img(src="img/col-dish1.png").collections__dish
-            section.container
-              .collections__item
-                .collections__col
-                  .collections__item-info
-                    p.collections__item-name Сковорода классическая
-                    p.collections__item-about Уникальные внешние покрытия, имитирующие натуральные текстуры: медь, кожа, бархат, мраморная крошка, золотое напыление.
-                  p.collections__item-pager 
-                    span 1
-                    | /3
-                .collections__col
-                  ul.collections__feats.collections__feats_vertical
-                    li.collections__feat Уникальные внешние покрытия, имитирующие натуральные текстуры: медь, кожа, бархат, мраморная крошка, золотое напыление. диаметра.
-                    li.collections__feat Посуда некоторых наших коллекций изготавливается в нескольких разных диаметрах, под разные плиты.
-                  a(href="#").btn.collections__href Подробнее
-        .swiper-slide(data-slide="bologna")
-          include blocks/collections-buttons
-          +colBtn("bologna")
-          section.content
-            img(src="img/col-bg8.jpg").collections__bg
-            img(src="img/col-dish3.png").collections__dish
-            section.container
-              .collections__item
-                .collections__col
-                  .collections__item-info
-                    p.collections__item-name Сковорода блинная
-                    p.collections__item-about Классическая черная сковорода со стильной ручкой soft touch, индукционное дно. 
-                  p.collections__item-pager 
-                    span 2
-                    | /3
-                .collections__col
-                  ul.collections__feats.collections__feats_vertical
-                    li.collections__feat Уникальные внешние покрытия, имитирующие натуральные текстуры: медь, кожа, бархат, мраморная крошка, золотое напыление. диаметра.
-                    li.collections__feat Посуда некоторых наших коллекций изготавливается в нескольких разных диаметрах, под разные плиты.
-                  a(href="#").btn.collections__href Подробнее
-        .swiper-slide(data-slide="bologna")
-          include blocks/collections-buttons
-          +colBtn("bologna")
-          section.content
-            img(src="img/col-bg8.jpg").collections__bg
-            img(src="img/col-dish2.png").collections__dish
-            section.container
-              .collections__item
-                .collections__col
-                  .collections__item-info
-                    p.collections__item-name Набор кастрюль
-                    p.collections__item-about Классический набор кастрюль, элегантная форма  «belly shape», нержавеющая сталь, крышки из жаропрочного стекла с отверстием для выхода пара, бакелитовые ручки, капсулированное дно, зеркальная полировка внутри и снаружи кастрюли. 
-                  p.collections__item-pager 
-                    span 3
-                    | /3
-                .collections__col
-                  ul.collections__feats.collections__feats_vertical
-                    li.collections__feat Посуда некоторых наших коллекций изготавливается в нескольких разных диаметрах, под разные плиты.
-                  a(href="#").btn.collections__href Подробнее 
-        .swiper-slide(data-slide="naples")
-          include blocks/collections-buttons
-          +colBtn("naples")
-          section.content
-            img(src="img/col-bg4.jpg").collections__bg
-            img(src="img/col-dish1.png").collections__dish
-            section.container
-              .collections__item
-                .collections__col
-                  .collections__item-info
-                    p.collections__item-name Сковорода классическая
-                    p.collections__item-about Уникальные внешние покрытия, имитирующие натуральные текстуры: медь, кожа, бархат, мраморная крошка, золотое напыление.
-                  p.collections__item-pager 
-                    span 1
-                    | /1
-                .collections__col
-                  ul.collections__feats.collections__feats_vertical
-                    li.collections__feat Уникальные внешние покрытия, имитирующие натуральные текстуры: медь, кожа, бархат, мраморная крошка, золотое напыление. диаметра.
-                    li.collections__feat Посуда некоторых наших коллекций изготавливается в нескольких разных диаметрах, под разные плиты.
-                  a(href="#").btn.collections__href Подробнее
-                  
+    section.content
+      section.container
+        .collections
+          aside.collections__side
+            nav.card__nav.card__nav_collections.js-card-nav
+              button(type="button").card__nav-mobile-btn.js-card-nav-btn
+              ul.card__nav-list
+                li.card__nav-item.card__nav-item--open-sublist
+                  a(href="#").card__nav-href Сковороды
+                  ul.card__nav-sublist
+                    li.card__nav-subitem
+                      a(href="#").card__nav-subhref.card__nav-subhref--active Рим
+                    li.card__nav-subitem
+                      a(href="#").card__nav-subhref Венеция
+                    li.card__nav-subitem
+                      a(href="#").card__nav-subhref Турин
+                    li.card__nav-subitem
+                      a(href="#").card__nav-subhref Милан
+                    li.card__nav-subitem
+                      a(href="#").card__nav-subhref Сицилия
+                    li.card__nav-subitem
+                      a(href="#").card__nav-subhref Болонья
+                    li.card__nav-subitem
+                      a(href="#").card__nav-subhref Верона
+                    li.card__nav-subitem
+                      a(href="#").card__nav-subhref Флоренция
+                    li.card__nav-subitem
+                      a(href="#").card__nav-subhref Пьемонт
+                    li.card__nav-subitem
+                      a(href="#").card__nav-subhref Каррара
+                li.card__nav-item
+                  a(href="#").card__nav-href Кастрюли
+                  ul.card__nav-sublist
+                    li.card__nav-subitem
+                      a(href="#").card__nav-subhref Кастрюля
+                    li.card__nav-subitem
+                      a(href="#").card__nav-subhref Кастрюля 2
+                    li.card__nav-subitem
+                      a(href="#").card__nav-subhref Кастрюля 3
+                li.card__nav-item
+                  a(href="#").card__nav-href Крышки
+                  ul.card__nav-sublist
+                    li.card__nav-subitem
+                      a(href="#").card__nav-subhref Крышка
+                    li.card__nav-subitem
+                      a(href="#").card__nav-subhref Крышка 2
+                    li.card__nav-subitem
+                      a(href="#").card__nav-subhref Крышка 3
+          
+          .collections__main
+            h1 Коллекции
+            section.breadcrumbs
+              a(href="#").breadcrumbs__href Главная
+              span.breadcrumbs__delim /
+            ul.collections__list
+              li.collections__item
+                a(href="#").collections__item-href Рим
+                img(src="img/col1.png").collections__item-img
+              li.collections__item
+                a(href="#").collections__item-href Венеция
+                img(src="img/col2.png").collections__item-img
+              li.collections__item
+                a(href="#").collections__item-href Милан
+                img(src="img/col3.png").collections__item-img
+              li.collections__item
+                a(href="#").collections__item-href Верона
+                img(src="img/col4.png").collections__item-img
+              li.collections__item
+                a(href="#").collections__item-href Турин
+                img(src="img/col1.png").collections__item-img
+              li.collections__item
+                a(href="#").collections__item-href Сицилия
+                img(src="img/col2.png").collections__item-img
+              li.collections__item
+                a(href="#").collections__item-href Флоренция
+                img(src="img/col3.png").collections__item-img
+              li.collections__item
+                a(href="#").collections__item-href Болонья
+                img(src="img/col4.png").collections__item-img
+          
+
+    include layout/__footer
     include layout/__scripts

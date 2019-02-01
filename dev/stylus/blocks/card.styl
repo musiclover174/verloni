@@ -18,10 +18,11 @@
         padding-top 0
         padding-left 0
   &__nav
-    position absolute
-    left 60px
-    top -139px
-    width 187px
+    &:not(&_collections)
+      position absolute
+      left 60px
+      top -139px
+      width 187px
     background-color white
     box-shadow 0 5px 35px rgba(0, 0, 0, 0.1)
     padding 25px 30px
