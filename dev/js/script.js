@@ -638,7 +638,7 @@
         elemsToCheck = ['.news__elem-imgover', '.js-scroll-imgover', '.about__steps-elem'],
         cardNavBtn = document.querySelector('.js-card-nav-btn'),
         cardNav = document.querySelector('.js-card-nav'),
-        cardNavHref = document.querySelectorAll('.card__nav-href');
+        cardToggleSublist = document.querySelectorAll('.js-card-toggle-sublist');
 
       burgerEl.addEventListener('click', (e) => {
         html.classList.toggle('burgeropen')
@@ -666,13 +666,13 @@
         })
       }
       
-      if (cardNavHref) {
-        for(let i=0; i<cardNavHref.length; i++) {
-          cardNavHref[i].addEventListener('click', (e)=> {
-            if (!cardNavHref[i].parentNode.classList.contains('card__nav-item--open-sublist')) {
-              cardNavHref[i].parentNode.classList.add('card__nav-item--open-sublist');
+      if (cardToggleSublist) {
+        for(let i=0; i<cardToggleSublist.length; i++) {
+          cardToggleSublist[i].addEventListener('click', (e)=> {
+            if (!cardToggleSublist[i].parentNode.classList.contains('card__nav-item--open-sublist')) {
+              cardToggleSublist[i].parentNode.classList.add('card__nav-item--open-sublist');
             } else {
-              cardNavHref[i].parentNode.classList.remove('card__nav-item--open-sublist');
+              cardToggleSublist[i].parentNode.classList.remove('card__nav-item--open-sublist');
             }
             e.preventDefault();
           })

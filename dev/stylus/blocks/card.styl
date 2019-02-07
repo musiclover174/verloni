@@ -18,11 +18,12 @@
         padding-top 0
         padding-left 0
   &__nav
-    &:not(&_collections)
-      position absolute
-      left 60px
-      top -139px
-      width 187px
+    @media (min-width: 1100px)
+      &:not(&_collections)
+        position absolute
+        left 60px
+        top -139px
+        width 187px
     background-color white
     box-shadow 0 5px 35px rgba(0, 0, 0, 0.1)
     padding 25px 30px
@@ -65,11 +66,24 @@
       &:last-child
         margin-bottom 0
       &--open-sublist
-        .card__nav-href:after
-          transform rotate(-135deg)
-        .card__nav-sublist
-          margin 17px 0 21px
-          max-height 400px
+        .card__nav
+          &-item-btn
+            transform scale(1, -1)
+          &-sublist
+            margin 17px 0 21px
+            max-height 400px
+      &-btn
+        display block
+        position absolute
+        right -8px
+        top 0
+        width 24px
+        height 24px
+        padding 0
+        background url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAGBAMAAAAI3hL1AAAAD1BMVEUAAAAAAAAAAAAAAAAAAABPDueNAAAABXRSTlMAN+lIOBkGUBUAAAApSURBVAjXBcELEQAQFACwOQUcCR4FfBo4/TPZNCx3yiENu1BPIPUCjw8pkQIeJbSSbwAAAABJRU5ErkJggg==') no-repeat center
+        transition transform .4s
+        cursor pointer
+        z-index 1
     &-href
       display block
       position relative
@@ -81,18 +95,6 @@
       line-height 22px
       @media (min-width: 1400px)
         font-size 20px
-      &:after
-        content ''
-        display block
-        position absolute
-        right 2px
-        top 6px
-        width 5px
-        height 5px
-        border-right 1px solid #000
-        border-bottom 1px solid #000
-        transform rotate(45deg)
-        transition transform .4s
     &-sublist
       max-height 0
       margin 0
@@ -674,11 +676,11 @@
           t -30px
     &-href
       color $red
-      fontify 24px 700 19px
+      fontify 24px 700 32px
       border-bottom 1px solid
       transition .7s border
       @media $lDesktopMedium
-        fontify 21px 700 19px
+        fontify 21px 700 24px
       &:hover
         border-color transparent
     &-imgover:hover + &-href
