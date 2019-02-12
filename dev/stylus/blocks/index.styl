@@ -18,7 +18,7 @@
     border-radius 50%
     bgc $green
     @media $lDesktopSmall
-      t calc(100vh - 75px)
+      t calc(75vh - 75px)
     @media $LandscapeMax
       dn()
     &:before
@@ -44,7 +44,7 @@
     &-active
       & ^[0]
         &__bg
-          transform translate(-50%, -50%) scale(1.08)
+          transform translate(-50%, -50%) scale(1)
         &__title
           opacity 1
           b 0
@@ -85,7 +85,12 @@
   &__bg
     z-index -1
     opacity .75
-    imgCenteringMin()
+    position absolute
+    left 50%
+    top 50%
+    transform translate(-50%, -50%) scale(1.03)
+    transition 1s transform
+    will-change transform
     transition 7s transform
     @media $PortraitMax
       height 100%
@@ -521,10 +526,15 @@ body:not(.index) .ibanner__tonext {
       @media $desktopMin
         size 270px
   &__img
-    imgCenteringMin()
-    transition .35s transform
+    position absolute
+    left 50%
+    top 50%
+    transform translate(-50%, -50%) scale(1.03)
+    transition 1s transform
+    will-change transform
+    transition .7s transform
     &:hover
-      transform translate(-50%, -50%) scale(1.08)
+      transform translate(-50%, -50%) scale(1)
   &__top
     max-width 730px
     margin 0 auto

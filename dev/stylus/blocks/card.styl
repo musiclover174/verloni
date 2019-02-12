@@ -95,6 +95,8 @@
       line-height 22px
       @media (min-width: 1400px)
         font-size 20px
+      &--active
+        color $red
     &-sublist
       max-height 0
       margin 0
@@ -350,7 +352,7 @@
     pos relative
     @media $desktopMin
       w 100%
-      margin-top 30px
+      margin-top 50px
     @media $LandscapeMin
       background none
       padding 0
@@ -440,35 +442,43 @@
           &:hover
             border-bottom-color  transparent
   &__gallery
-    display flex
-    align-items center
-    justify-content center
+    // display flex
+    // align-items center
+    // justify-content center
     pos relative
     w calc(59% - 40px)
     mr 40px
-    height 600px
-    padding 0 0 125px
-    @media $lDesktopSmall
-      height 510px
+    // height 600px
+    // padding 0 0 125px
+    // @media $lDesktopSmall
+    //   height 510px
     @media $desktopMin
       w 100%
-      height 430px
+      // height 430px
       mr 0
-    @media $LandscapeMin
-      padding-bottom 90px
-    @media $PortraitMax
-      height 330px
+    // @media $LandscapeMin
+    //   padding-bottom 90px
+    // @media $PortraitMax
+    //   height 330px
     &-overimg
       display flex
       align-items center
       justify-content center
       position relative
       width 100%
-      height 100%
+      h 475px
       padding 30px
       border 1px solid alpha(black, .05)
       cursor pointer
       user-select none
+      @media $lDesktopSmall
+        h 385px
+      @media $desktopMin
+        h 305px
+      @media $LandscapeMin
+        h 330px
+      @media $PortraitMax
+        h 240px
       &:before
         content ''
         display block
@@ -498,25 +508,32 @@
         &:before, &:after
           opacity 1
     &-thumbs
-      width 100%
-      pos absolute
-      left 0
-      bottom 20px
+      width calc(100% + 20px)
+      ml -20px
+      mb -20px
+      // pos absolute
+      // left 0
+      // bottom 20px
+      mt 40px
       display flex
       flex-wrap wrap
-      justify-content center
+      justify-content flex-start
     &-mainimg
       max-width 100%
       max-height 100%
       user-select none
     &-thumb
+      position relative
+      t 0
       cursor pointer
       size 74px
+      ml 20px
+      mb 20px
       border-radius 50%
       background-repeat no-repeat
-      background-size cover
+      // background-size cover
       background-position center
-      transition .7s transform, .7s box-shadow
+      transition .7s transform, .7s box-shadow, .3s top
       will-change transform
       @media $LandscapeMin
         size 44px
@@ -524,10 +541,8 @@
         size 34px
       &.active
         box-shadow 0 5px 35px rgba(0, 0, 0, 0.25)
-      &:hover
-        transform scale(1.2)
-      & + &
-        ml 20px
+      &:not(.active):hover
+        t -2px
     &-hidden
       display none
   &__spacer
@@ -651,9 +666,9 @@
       w calc(100% / 4 - 62px)
       ml 62px
       text-align center
-      display flex
-      flex-direction column
-      align-items center
+      // display flex
+      // flex-direction column
+      // align-items center
       @media $LandscapeMedium
         w calc(100% - 62px)
       & + &
@@ -748,13 +763,13 @@
       transition .7s opacity, .7s top
       @media $desktopMedium
         dn()
-    &:hover &-dish1
+    &:not(:hover) &-dish1
       b -30px
       opacity 1
-    &:hover &-dish2
+    &:not(:hover) &-dish2
       t -48px
       opacity 1
-    &:hover &-dish3
+    &:not(:hover) &-dish3
       t -64px
       opacity 1
 

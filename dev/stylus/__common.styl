@@ -453,6 +453,8 @@ div[class\^="table-scroller"]
     fontify 14px 400 18px
     border-bottom 1px solid $grey
     transition .5s border
+    &:not([href])
+      border-bottom: none
     &:hover
       border-color transparent
     @media $lDesktopMedium
