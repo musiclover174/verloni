@@ -75,7 +75,7 @@ body
     @media $desktopMin
       fontify 52px 700 56px
     @media $LandscapeMedium
-      fontify 42px 700 46px
+      fontify 27px 700 32px
   h2:not([class])
     color black
     fontify 48px 700 54px
@@ -83,7 +83,7 @@ body
     @media $lDesktopMedium
       fontify 39px 700 44px
     @media $LandscapeMedium
-      fontify 30px 700 34px
+      fontify 23px 700 28px
       margin 45px 0 28px
   h3:not([class])
     color $dark
@@ -92,14 +92,14 @@ body
     @media $lDesktopMedium
       fontify 31px 700 37px
     @media $LandscapeMedium
-      fontify 26px 700 34px
+      fontify 20px 700 24px
       margin 45px 0 28px
   h4:not([class])
     color $dark
     fontify 24px 700 34px
     margin 43px 0 16px
     @media $lDesktopMedium
-      fontify 21px 700 27px
+      fontify 20px 700 24px
   img:not([class])
     margin 5px 0
     max-width 100%
@@ -448,6 +448,8 @@ div[class\^="table-scroller"]
   pos relative
   mt -25px
   pl 13px
+  @media $LandscapeMin
+    pl 0
   &__href
     color $grey
     fontify 14px 400 18px

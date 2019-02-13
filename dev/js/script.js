@@ -232,6 +232,10 @@
   window.verloni.obj = ({
 
     indexBannerCarousel: () => {
+      if (document.querySelector('.js-ibanner .swiper-wrapper').childElementCount <= 1) {
+        document.querySelector('.js-ibanner').classList.add('--onechild');
+      }
+
       const bannerSwiper = new Swiper('.js-ibanner', {
         loop: false,
         speed: 800,
@@ -551,7 +555,9 @@
     changerFunction: (elem, newsrc) => {
       window.animation.fadeOut(elem, 300, () => {
         elem.setAttribute('src', newsrc)
-        window.animation.fadeIn(elem, 300)
+        elem.onload = function() {
+          window.animation.fadeIn(elem, 300)
+        }
       })
     },
     
@@ -572,6 +578,26 @@
         })
       }
       
+      if (cardChangers) {
+        const changersSwiper = new Swiper('.js-card-thumbs', {
+          speed: 800,
+          slidesPerView: 5,
+          spaceBetween: 20,
+          navigation: {
+            nextEl: '.js-card-thumbs .swiper-button-next',
+            prevEl: '.js-card-thumbs .swiper-button-prev',
+          },
+          breakpoints: {
+            500: {
+              slidesPerView: 3,
+            },
+            1270: {
+              slidesPerView: 4,
+            }
+          }
+        })
+      }
+
       for (let cardChanger of cardChangers) {
         cardChanger.addEventListener('click', () => {
           if (!cardChanger.classList.contains('active')) {
@@ -666,6 +692,36 @@
         })
       }
       
+      let sidebar;
+      function sideBarInit() {
+        if (document.querySelector('.collections')) {
+          sidebar = new StickySidebar('.collections__side', {
+            topSpacing: 120,
+            bottomSpacing: 20,
+            containerSelector: '.collections',
+            innerWrapperSelector: '.js-card-nav'
+          });
+        } else {
+          sidebar = new StickySidebar('.js-side-parent', {
+            topSpacing: 120,
+            bottomSpacing: 20,
+            containerSelector: '.js-side-container',
+            innerWrapperSelector: '.js-card-nav'
+          });
+        }
+      }
+
+      window.addEventListener('resize', () => {
+        if (window.innerWidth < 1100) {
+          if (sidebar) { 
+            sidebar.destroy();
+            sidebar = null;
+          }
+        } else if (!sidebar) {
+          sideBarInit();
+        }
+      })
+
       if (cardToggleSublist) {
         for(let i=0; i<cardToggleSublist.length; i++) {
           cardToggleSublist[i].addEventListener('click', (e)=> {
@@ -674,6 +730,9 @@
             } else {
               cardToggleSublist[i].parentNode.classList.remove('card__nav-item--open-sublist');
             }
+            setTimeout(function() {
+              sidebar.updateSticky();
+            }, 600);
             e.preventDefault();
           })
         }
