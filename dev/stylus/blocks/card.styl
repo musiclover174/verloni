@@ -133,9 +133,15 @@
     color white
     font-family RaleighBT
     text-align center
-    fontify 300px 700 208px
+    fontify 200px 700 139px
+    @media $lDesktopMax
+      fontify 160px 700 111px
     @media $lDesktopMedium
-      fontify 200px 700 139px
+      fontify 130px 700 90px
+      pt 20px
+    @media $desktopMax
+      fontify 110px 700 77px
+      pt 33px
     @media $desktopMedium
       dn()
   &__top

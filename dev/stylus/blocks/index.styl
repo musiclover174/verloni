@@ -47,6 +47,7 @@
       & ^[0]
         &__bg
           transform translate(-50%, -50%) scale(1)
+          transition 7s transform
         &__title
           opacity 1
           b 0
@@ -91,9 +92,7 @@
     left 50%
     top 50%
     transform translate(-50%, -50%) scale(1.03)
-    transition 1s transform
     will-change transform
-    transition 7s transform
     @media $PortraitMax
       height 100%
   &__container
@@ -394,6 +393,8 @@ body:not(.index) .ibanner__tonext {
       dn()
     @media $LandscapeMax
       max-width 80%
+.idishes + .iabout
+  mt -100px
 .iabout
   mt 258px
   padding 100px 0

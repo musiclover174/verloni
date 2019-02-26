@@ -717,7 +717,7 @@
             sidebar.destroy();
             sidebar = null;
           }
-        } else if (!sidebar) {
+        } else if (!sidebar && document.querySelectorAll('.js-card-nav').length) {
           sideBarInit();
         }
       })

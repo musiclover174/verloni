@@ -226,20 +226,10 @@ body .footer,
 body .swiper-buttons,
 body .ibanner__tonext {
   opacity: 0;
-  -webkit-transition: 0.7s opacity;
-  transition: 0.7s opacity;
 }
 body .content {
   z-index: -5;
   position: relative;
-  -webkit-transition-delay: 0.3s;
-  transition-delay: 0.3s;
-}
-body .header,
-body .footer,
-body .swiper-buttons {
-  -webkit-transition-delay: 0.8s;
-  transition-delay: 0.8s;
 }
 body.pace-done .header,
 body.pace-done .content,
@@ -247,9 +237,13 @@ body.pace-done .footer,
 body.pace-done .swiper-buttons,
 body.pace-done .ibanner__tonext {
   opacity: 1;
+  -webkit-transition: 0.7s opacity;
+  transition: 0.7s opacity;
 }
 body.pace-done .content {
   z-index: auto;
+  -webkit-transition-delay: 0.3s;
+  transition-delay: 0.3s;
 }
 body.pace-done .pace {
   display: none;
@@ -1027,6 +1021,7 @@ textarea.warning {
 .tomato_elem2 {
   left: -570px;
   top: -100px;
+  display: none;
 }
 .tomato_elem3 {
   left: 100px;
@@ -4396,7 +4391,6 @@ iframe.wait-autoplay {
   border-radius: 24px;
   color: #fff;
   padding: 0 15px;
-  margin-left: -15px;
   display: inline-block;
   vertical-align: top;
 }
@@ -4727,6 +4721,10 @@ html.touchevents .burger__button:not(.open):hover .burger__button-meat {
 .ibanner .swiper-slide-active .ibanner__bg {
   -webkit-transform: translate(-50%, -50%) scale(1);
   transform: translate(-50%, -50%) scale(1);
+  -webkit-transition: 7s -webkit-transform;
+  transition: 7s -webkit-transform;
+  transition: 7s transform;
+  transition: 7s transform, 7s -webkit-transform;
 }
 .ibanner .swiper-slide-active .ibanner__title {
   opacity: 1;
@@ -4794,15 +4792,7 @@ html.touchevents .burger__button:not(.open):hover .burger__button-meat {
   top: 50%;
   -webkit-transform: translate(-50%, -50%) scale(1.03);
   transform: translate(-50%, -50%) scale(1.03);
-  -webkit-transition: 1s -webkit-transform;
-  transition: 1s -webkit-transform;
-  transition: 1s transform;
-  transition: 1s transform, 1s -webkit-transform;
   will-change: transform;
-  -webkit-transition: 7s -webkit-transform;
-  transition: 7s -webkit-transform;
-  transition: 7s transform;
-  transition: 7s transform, 7s -webkit-transform;
 }
 @media (max-width: 500px) {
   .ibanner__bg {
@@ -5331,6 +5321,9 @@ body:not(.index) .ibanner__tonext {
   .icollections__food {
     max-width: 80%;
   }
+}
+.idishes + .iabout {
+  margin-top: -100px;
 }
 .iabout {
   margin-top: 258px;
@@ -6528,6 +6521,7 @@ html.newsopen .news__inner-content {
   padding: 0 25px;
   font-size: 18px;
   font-weight: 400;
+  border-radius: 0;
   -webkit-transition: 0.7s border-color;
   transition: 0.7s border-color;
 }
@@ -6554,6 +6548,7 @@ html.newsopen .news__inner-content {
   font-size: 18px;
   font-weight: 400;
   line-height: 24px;
+  border-radius: 0;
   resize: none;
   overflow: hidden;
   -webkit-transition: 0.7s border-color;
@@ -7678,15 +7673,31 @@ html.newsopen .news__inner-content {
   color: #fff;
   font-family: RaleighBT;
   text-align: center;
-  font-size: 300px;
+  font-size: 200px;
   font-weight: 700;
-  line-height: 208px;
+  line-height: 139px;
+}
+@media (max-width: 1740px) {
+  .card__name {
+    font-size: 160px;
+    font-weight: 700;
+    line-height: 111px;
+  }
 }
 @media (max-width: 1560px) {
   .card__name {
-    font-size: 200px;
+    font-size: 130px;
     font-weight: 700;
-    line-height: 139px;
+    line-height: 90px;
+    padding-top: 20px;
+  }
+}
+@media (max-width: 1270px) {
+  .card__name {
+    font-size: 110px;
+    font-weight: 700;
+    line-height: 77px;
+    padding-top: 33px;
   }
 }
 @media (max-width: 1100px) {

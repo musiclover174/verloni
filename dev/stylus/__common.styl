@@ -12,15 +12,9 @@ body
     .swiper-buttons,
     .ibanner__tonext
       opacity 0
-      transition .7s opacity
     .content
       z-index -5
       pos relative
-      transition-delay 0.3s
-    .header,
-    .footer,
-    .swiper-buttons
-      transition-delay 0.8s
   &.pace-done
     .header,
     .content,
@@ -28,8 +22,10 @@ body
     .swiper-buttons,
     .ibanner__tonext
       opacity 1
+      transition .7s opacity
     .content
       z-index auto
+      transition-delay 0.3s
     .pace
       dn()
       
@@ -498,6 +494,7 @@ textarea.warning
   &_elem2
     l -570px
     t -100px
+    dn()
   &_elem3
     l 100px
     b 100px
