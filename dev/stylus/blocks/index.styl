@@ -21,7 +21,7 @@
     bgc $green
     @media $lDesktopSmall
       t calc(75vh - 75px)
-    @media $LandscapeMax
+    @media $desktopMin
       dn()
     &:before
       content ""
@@ -100,9 +100,13 @@
     max-width 1300px
     @media $lDesktopSmall
       max-width 960px
-    @media $LandscapeMax
+    @media $desktopMin
       padding 0 70px
+      margin-top 90px
+    @media $LandscapeMax
+      margin-top 70px
     @media $LandscapeMin
+      mt 0
       padding 0 20px
   &__title
     color #fefefe
@@ -113,10 +117,11 @@
     transition .7s opacity, .7s bottom
     @media $lDesktopSmall
       fontify 60px 900 50px
+      text-align center
     @media $desktopMin
-      fontify 52px 700 50px
+      fontify 56px 700 50px
     @media $LandscapeMedium
-      fontify 32px 700 32px
+      fontify 36px 700 32px
   &__subtitle
     color white
     font-family $handy
@@ -130,10 +135,9 @@
       fontify 60px 400 43px
     @media $desktopMin
       fontify 52px 400 40px
-    @media $LandscapeMax
-      text-align left
+      text-align center
     @media $LandscapeMedium
-      fontify 32px 400 30px
+      fontify 36px 400 30px
     
 @keyframes arrow {
   from {
@@ -176,6 +180,13 @@ body:not(.index) .ibanner__tonext {
       size 650px
     @media $LandscapeMedium
       dn()
+  .common
+    &__title, &__subtitle
+      @media $desktopMin
+        text-align center
+      @media $LandscapeMedium
+        text-align left
+        fontify 36px 700 32px
   &__top
     padding 0 125px
     mb 54px
@@ -183,8 +194,11 @@ body:not(.index) .ibanner__tonext {
       max-width 1000px
       padding 0 50px
       margin 0 auto 54px
+    @media $desktopMin
+      mb 44px
     @media $LandscapeMax
       padding 0
+      mb 34px
   &__cols
     display flex
     justify-content space-between
@@ -202,14 +216,20 @@ body:not(.index) .ibanner__tonext {
       @media $desktopMedium
         pt 0
         mt 40px
+      @media $desktopMin
+        mt 21px
     &:nth-child(3)
       mt -16px
       @media $desktopMedium
         mt 40px
+      @media $desktopMin
+        mt 0
     img:not([class])
       @media $desktopMedium
         display inline !important
         margin-bottom 5px !important
+      @media $desktopMin
+        display none !important
   &__brand
     fontify 30px 600 36px
     @media $lDesktopSmall
@@ -521,6 +541,12 @@ body:not(.index) .ibanner__tonext {
   mt 152px
   @media $lDesktopSmall
     mt 78px
+  @media $desktopMin
+    .common
+      &__title, &__subtitle
+        text-align center
+  @media $LandscapeMin
+    margin-top 66px
   &__car
     .swiper-slide
       size 384px
@@ -528,6 +554,8 @@ body:not(.index) .ibanner__tonext {
       overflow hidden
       @media $desktopMin
         size 270px
+      @media $PortraitMedium
+        width 100vw
   &__img
     position absolute
     left 50%

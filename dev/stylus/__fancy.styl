@@ -870,11 +870,11 @@ body.compensate-for-scrollbar {
 		max-width: calc(100% - 10px);
 	}
 }
-
 .fancybox-container--gallery
 	.fancybox
 		&-bg
 			background #fff
+			opacity 1
 			
 		&-infobar
 			display none
@@ -908,8 +908,10 @@ body.compensate-for-scrollbar {
 				svg
 					display none
 
-			&.disabled, &:hover
-				opacity .7 !important
+			&.disabled
+				opacity 0 !important
+			&:hover
+				opacity .6 !important
 
 		&-inner
 			padding 25px
@@ -928,13 +930,19 @@ body.compensate-for-scrollbar {
 				box-shadow 0 5px 35px rgba(0, 0, 0, 0.1)
 				
 			& > ul 
+				display flex
+				justify-content center
 				margin 0 auto
+				width 100% !important
+				max-width 100%
+				overflow-x auto
 
 				> li
-					width 74px
-					height 74px
-					border-radius 50%
-					margin 10px
+					flex-shrink 0
+					width 106px
+					height 70px
+					margin 5px
+					border 1px solid rgba(0,0,0,0.05)
 
 					&:before
 						content none

@@ -123,8 +123,8 @@
         flex-direction column
     &_center
       text-align center
-      @media $PortraitMax
-        text-align left
+      /*@media $PortraitMax
+        text-align left*/
     & + &
       mt 38px
       @media $lDesktopSmall
@@ -143,6 +143,8 @@
     mb 7px
     span
       color $red
+      @media $PortraitMedium
+        font-size 22px
   &__input
     width 100%
     h 47px
@@ -155,6 +157,8 @@
     &--captcha
       width auto
       vertical-align top
+      @media $LandscapeMin
+        width 180px
     &:focus
       border-color rgba(0,0,0,0.4)
     @media $lDesktopSmall

@@ -101,7 +101,7 @@
           event.target.classList.remove('notempty') :
           event.target.classList.add('notempty')
       }
-      
+
       for (let item of inputs) {
         item.addEventListener('keyup', emptyCheck)
         item.addEventListener('blur', emptyCheck)
@@ -196,7 +196,7 @@
                 checkResult = false;
               }
               break;
-            case 'select': 
+            case 'select':
               if (elem.nextSibling.querySelector('.choices__item').getAttribute('data-value') == '-1') {
                 elem.parentNode.classList.add('warning');
                 checkResult = false;
@@ -217,7 +217,7 @@
           }
         }
       }
-      
+
       for (let item of form.querySelectorAll('input[name^=agreement]')) {
         if (!item.checked) {
           item.classList.add('warning')
@@ -251,7 +251,7 @@
         }
       })
     },
-    
+
     indexGalleryCarousel: () => {
       const gallerySwiper = new Swiper('.js-igal', {
         loop: true,
@@ -266,32 +266,31 @@
         }
       })
     },
-    
+
     indexDishes: () => {
       let step = 1
-      
+
       const spacers = document.querySelectorAll('.js-dishes-spacer'),
-            positioner = document.querySelector('.js-dishes-positioner'),
-            dishesOver = document.querySelector('.js-dishes'),
-            positionHeight = parseInt(getComputedStyle(positioner)['height']) * 1
-      
+        positioner = document.querySelector('.js-dishes-positioner'),
+        dishesOver = document.querySelector('.js-dishes'),
+        positionHeight = parseInt(getComputedStyle(positioner)['height']) * 1
+
       for (let spacer of spacers) {
         spacer.style.height = positionHeight + 'px'
       }
-      
+
       window.addEventListener('scroll', () => {
         const dishesRect = dishesOver.getBoundingClientRect(),
-              posRect = positioner.getBoundingClientRect(),
-              wHeightHalf = (window.innerHeight || document.documentElement.clientHeight) / 2,
-              positionHeightHalf = positioner.offsetHeight / 2
-        
+          posRect = positioner.getBoundingClientRect(),
+          wHeightHalf = (window.innerHeight || document.documentElement.clientHeight) / 2,
+          positionHeightHalf = positioner.offsetHeight / 2
+
         if (dishesRect.top + positionHeightHalf <= wHeightHalf) {
-          if (dishesRect.top + dishesOver.offsetHeight - positionHeightHalf - wHeightHalf > 0) { 
+          if (dishesRect.top + dishesOver.offsetHeight - positionHeightHalf - wHeightHalf > 0) {
             positioner.classList.remove('bottom')
             positioner.classList.add('fixed')
             //positioner.style.top = Math.abs(dishesRect.top + positionHeightHalf - wHeightHalf) + 'px'
-          }
-          else {
+          } else {
             positioner.classList.remove('fixed')
             positioner.classList.add('bottom')
           }
@@ -300,32 +299,49 @@
           positioner.removeAttribute('style')
         }
       })
-      
+
       const controller = new ScrollMagic.Controller()
 
       // dishes scenes
       const sceneDish1 = new ScrollMagic.Scene({
         triggerElement: '.js-dishes-spacer[data-step="1"]',
         duration: positionHeight
-      }).setTween('.iabout__dishes-dish[data-step="1"]', 1, {top: '-208px', ease: Linear.easeNone})
-      
+      }).setTween('.iabout__dishes-dish[data-step="1"]', 1, {
+        top: '-208px',
+        ease: Linear.easeNone
+      })
+
       const sceneDish2 = new ScrollMagic.Scene({
         triggerElement: '.js-dishes-spacer[data-step="2"]',
         duration: positionHeight
-      }).setTween('.iabout__dishes-dish[data-step="2"]', 1, {top: '0px', opacity: '1', ease: Linear.easeNone})
-      
+      }).setTween('.iabout__dishes-dish[data-step="2"]', 1, {
+        top: '0px',
+        opacity: '1',
+        ease: Linear.easeNone
+      })
+
       const timelineDish3 = new TimelineMax()
       const sceneDish3 = new ScrollMagic.Scene({
         triggerElement: '.js-dishes-spacer[data-step="3"]',
         duration: positionHeight * .7
       })
       timelineDish3.add([
-        TweenMax.to('.iabout__dishes-dish[data-step="1"]', 1, {top: "-290px", ease: Linear.easeNone}),
-        TweenMax.to('.iabout__dishes-dish[data-step="2"]', 1, {top: "-68px", ease: Linear.easeNone}),
-        TweenMax.to('.iabout__dishes-dish[data-step="3"]', 1, {top: '91px', opacity: '1', ease: Linear.easeNone})
+        TweenMax.to('.iabout__dishes-dish[data-step="1"]', 1, {
+          top: "-290px",
+          ease: Linear.easeNone
+        }),
+        TweenMax.to('.iabout__dishes-dish[data-step="2"]', 1, {
+          top: "-68px",
+          ease: Linear.easeNone
+        }),
+        TweenMax.to('.iabout__dishes-dish[data-step="3"]', 1, {
+          top: '91px',
+          opacity: '1',
+          ease: Linear.easeNone
+        })
       ])
       sceneDish3.setTween(timelineDish3)
-      
+
       // features scenes
       const timelineFeat1 = new TimelineMax()
       const sceneFeat1 = new ScrollMagic.Scene({
@@ -334,22 +350,40 @@
         offset: positionHeight * .75
       })
       timelineFeat1.add([
-        TweenMax.to('.iabout__verloni-value[data-step="1"]', 1, {opacity: 0, right: '20px', ease: Linear.easeNone}),
-        TweenMax.to('.iabout__text-type[data-step="1"]', 1, {opacity: 0, left: '-20px', display: 'none', ease: Linear.easeNone})
+        TweenMax.to('.iabout__verloni-value[data-step="1"]', 1, {
+          opacity: 0,
+          right: '20px',
+          ease: Linear.easeNone
+        }),
+        TweenMax.to('.iabout__text-type[data-step="1"]', 1, {
+          opacity: 0,
+          left: '-20px',
+          display: 'none',
+          ease: Linear.easeNone
+        })
       ])
       sceneFeat1.setTween(timelineFeat1)
-      
+
       const timelineFeat2 = new TimelineMax()
       const sceneFeat2 = new ScrollMagic.Scene({
         triggerElement: '.js-dishes-spacer[data-step="2"]',
         duration: positionHeight * .25
       })
       timelineFeat2.add([
-        TweenMax.to('.iabout__verloni-value[data-step="2"]', 1, {opacity: 1, right: '0px', ease: Linear.easeNone}),
-        TweenMax.to('.iabout__text-type[data-step="2"]', 1, {opacity: 1, left: '0px', display: 'block', ease: Linear.easeNone})
+        TweenMax.to('.iabout__verloni-value[data-step="2"]', 1, {
+          opacity: 1,
+          right: '0px',
+          ease: Linear.easeNone
+        }),
+        TweenMax.to('.iabout__text-type[data-step="2"]', 1, {
+          opacity: 1,
+          left: '0px',
+          display: 'block',
+          ease: Linear.easeNone
+        })
       ])
       sceneFeat2.setTween(timelineFeat2)
-      
+
       const timelineFeat2Fade = new TimelineMax()
       const sceneFeat2Fade = new ScrollMagic.Scene({
         triggerElement: '.js-dishes-spacer[data-step="2"]',
@@ -357,22 +391,40 @@
         offset: positionHeight * .75
       })
       timelineFeat2Fade.add([
-        TweenMax.to('.iabout__verloni-value[data-step="2"]', 1, {opacity: 0, right: '20px', ease: Linear.easeNone}),
-        TweenMax.to('.iabout__text-type[data-step="2"]', 1, {opacity: 0, left: '-20px', display: 'none', ease: Linear.easeNone})
+        TweenMax.to('.iabout__verloni-value[data-step="2"]', 1, {
+          opacity: 0,
+          right: '20px',
+          ease: Linear.easeNone
+        }),
+        TweenMax.to('.iabout__text-type[data-step="2"]', 1, {
+          opacity: 0,
+          left: '-20px',
+          display: 'none',
+          ease: Linear.easeNone
+        })
       ])
       sceneFeat2Fade.setTween(timelineFeat2Fade)
-      
+
       const timelineFeat3 = new TimelineMax()
       const sceneFeat3 = new ScrollMagic.Scene({
         triggerElement: '.js-dishes-spacer[data-step="3"]',
         duration: positionHeight * .25
       })
       timelineFeat3.add([
-        TweenMax.to('.iabout__verloni-value[data-step="3"]', 1, {opacity: 1, right: '0px', ease: Linear.easeNone}),
-        TweenMax.to('.iabout__text-type[data-step="3"]', 1, {opacity: 1, left: '0px', display: 'block', ease: Linear.easeNone})
+        TweenMax.to('.iabout__verloni-value[data-step="3"]', 1, {
+          opacity: 1,
+          right: '0px',
+          ease: Linear.easeNone
+        }),
+        TweenMax.to('.iabout__text-type[data-step="3"]', 1, {
+          opacity: 1,
+          left: '0px',
+          display: 'block',
+          ease: Linear.easeNone
+        })
       ])
       sceneFeat3.setTween(timelineFeat3)
-      
+
       controller.addScene([
         sceneDish1,
         sceneDish2,
@@ -386,11 +438,12 @@
 
     contactsMap: () => {
       const coords = document.querySelector('.js-contacts-map').getAttribute('data-coords').split(','),
-            myLatlng = new google.maps.LatLng(+coords[0],+coords[1]), mapOptions = {
-              zoom: 17,
-              center: myLatlng,
-              disableDefaultUI: true
-            }
+        myLatlng = new google.maps.LatLng(+coords[0], +coords[1]),
+        mapOptions = {
+          zoom: 17,
+          center: myLatlng,
+          disableDefaultUI: true
+        }
 
       const map = new google.maps.Map(document.querySelector('.js-contacts-map'), mapOptions)
 
@@ -434,13 +487,13 @@
 
       progressEl.style.height = val + '%'
     },
-    
+
     collectionsCars: () => {
       const headerEl = document.querySelector('.header'),
         bodyEl = document.querySelector('body'),
         carElemCount = document.querySelector('.js-collections .swiper-wrapper').children.length,
         hrefToSlide = document.querySelectorAll('.js-icollections-toslide')
-      
+
       let toNextCollection = document.querySelector('.js-coltonext')
 
       const carVertSwiper = new Swiper('.js-collections', {
@@ -475,7 +528,7 @@
           carVertSwiper.slideTo(slideIndex, 1500)
         })
       }
-      
+
       let hash = window.location.hash
       if (hash) {
         hash = hash.substr(1)
@@ -484,105 +537,105 @@
       }
 
     },
-    
+
     collections: () => {
       const colItems = document.querySelectorAll('.js-icollections-btn')
-      
+
       for (let colItem of colItems) {
         colItem.addEventListener('click', (e) => {
           if (colItem.classList.contains('active')) {
             e.preventDefault()
             return
           }
-          
+
           const tabId = colItem.getAttribute('data-type'),
-                curTab = document.querySelector('.js-icollections-tab.active'),
-                newTab = document.querySelector(`.js-icollections-tab[data-type="${tabId}"]`)
-          
+            curTab = document.querySelector('.js-icollections-tab.active'),
+            newTab = document.querySelector(`.js-icollections-tab[data-type="${tabId}"]`)
+
           document.querySelector('.js-icollections-btn.active').classList.remove('active')
           colItem.classList.add('active')
-          
+
           window.animation.fadeOut(curTab, 200, () => {
             curTab.classList.remove('active')
             window.animation.fadeIn(newTab, 200, () => {
               newTab.classList.add('active')
             })
           })
-          
+
           e.preventDefault()
         })
       }
-      
+
     },
-    
+
     asyncScroll: () => {
       if (window.mobile) return false
-      
+
       const featElems = document.querySelectorAll('.js-async-scroll')
-      
+
       for (let item of featElems) {
         item.setAttribute('data-top', parseInt(getComputedStyle(item)['top']))
       }
-      
+
       window.addEventListener('scroll', () => {
         for (let item of featElems) {
           const rect = item.getBoundingClientRect(),
-                diff = rect.bottom - item.offsetHeight - (window.innerHeight || document.documentElement.clientHeight),
-                dataKoef = item.getAttribute('data-koef'),
-                dataTop = item.getAttribute('data-top')
-          
+            diff = rect.bottom - item.offsetHeight - (window.innerHeight || document.documentElement.clientHeight),
+            dataKoef = item.getAttribute('data-koef'),
+            dataTop = item.getAttribute('data-top')
+
           if (diff <= 0 && (rect.top + item.offsetHeight >= 0)) {
             item.style.top = dataTop - diff * dataKoef + 'px'
           }
         }
       })
     },
-    
+
     whereList: () => {
       const btn = document.querySelector('.js-where-more'),
-            hiddenCols = document.querySelectorAll('.where__adresses-col.hidden')
-      
+        hiddenCols = document.querySelectorAll('.where__adresses-col.hidden')
+
       btn.addEventListener('click', (e) => {
-        for(let hiddenCol of hiddenCols) {
+        for (let hiddenCol of hiddenCols) {
           window.animation.fadeIn(hiddenCol, 400)
         }
-        
+
         window.animation.fadeOut(btn, 400)
         e.preventDefault()
       })
     },
-    
+
     changerFunction: (elem, newsrc) => {
       window.animation.fadeOut(elem, 300, () => {
         elem.setAttribute('src', newsrc)
-        elem.onload = function() {
+        elem.onload = function () {
           window.animation.fadeIn(elem, 300)
         }
       })
     },
-    
+
     changeImageSrc: () => {
       const colorChangers = document.querySelectorAll('.js-info-color'),
         cardChangers = document.querySelectorAll('.js-card-thumb'),
         colorImg = document.querySelector('.js-info-img'),
         cardImg = document.querySelector('.js-card-mainimg')
-      
+
       for (let colorChanger of colorChangers) {
         colorChanger.addEventListener('click', () => {
           if (!colorChanger.classList.contains('active')) {
             window.verloni.obj.changerFunction(colorImg, colorChanger.getAttribute('data-src'))
-            
+
             for (let temp of colorChangers) temp.classList.remove('active')
             colorChanger.classList.add('active')
           }
         })
       }
-      
+
       if (cardChangers) {
         const changersSwiper = new Swiper('.js-card-thumbs', {
           speed: 800,
           slidesPerView: 5,
-          spaceBetween: 20,
+          spaceBetween: 10,
           navigation: {
             nextEl: '.js-card-thumbs .swiper-button-next',
             prevEl: '.js-card-thumbs .swiper-button-prev',
@@ -591,7 +644,7 @@
             500: {
               slidesPerView: 3,
             },
-            1270: {
+            1640: {
               slidesPerView: 4,
             }
           }
@@ -602,13 +655,13 @@
         cardChanger.addEventListener('click', () => {
           if (!cardChanger.classList.contains('active')) {
             window.verloni.obj.changerFunction(cardImg, cardChanger.getAttribute('data-src'))
-            
+
             for (let temp of cardChangers) temp.classList.remove('active')
             cardChanger.classList.add('active')
           }
         })
       }
-      
+
     },
 
     cardFancy: () => {
@@ -617,7 +670,7 @@
         cardFancyHref = document.querySelectorAll('.card__gallery-href');
 
       cardOverImg.addEventListener('click', (e) => {
-        for(let i = 0; i < cardFancyHref.length; i++) {
+        for (let i = 0; i < cardFancyHref.length; i++) {
           if (cardBigImg.getAttribute('src') == cardFancyHref[i].getAttribute('href')) {
             cardFancyHref[i].click();
             break;
@@ -627,33 +680,34 @@
       });
 
       $('.card__gallery-href').fancybox({
-        buttons : ['close'],
-				smallBtn : false,
-				afterLoad: function( instance ) {
+        buttons: ['close'],
+        smallBtn: false,
+        loop : true,
+        afterLoad: function (instance) {
           instance.$refs.container[0].classList.add('fancybox-container--gallery');
-				},
-				afterClose: function (instance ) {
+        },
+        afterClose: function (instance) {
           instance.$refs.container[0].classList.remove('fancybox-container--gallery');
         },
         gutter: 50,
         hash: false,
-        thumbs : {
-          autoStart : true,
-          hideOnClose : true,
-          parentEl : '.fancybox-container',
-          axis : 'x'
+        thumbs: {
+          autoStart: true,
+          hideOnClose: true,
+          parentEl: '.fancybox-container',
+          axis: 'x'
         },
-				lang: "ru",
-				i18n: {
-					ru: {
-						CLOSE: "Закрыть",
-						NEXT: "Следующий",
-						PREV: "Предыдущий"
-					},
-				}
+        lang: "ru",
+        i18n: {
+          ru: {
+            CLOSE: "Закрыть",
+            NEXT: "Следующий",
+            PREV: "Предыдущий"
+          },
+        }
       });
     },
-    
+
     init: function () {
 
       const burgerEl = document.querySelector('.js-burger'),
@@ -678,7 +732,7 @@
         }
         e.preventDefault()
       })
-      
+
       if (cardNavBtn) {
         cardNavBtn.addEventListener('click', (e) => {
           if (!cardNavBtn.classList.contains('active')) {
@@ -691,8 +745,9 @@
           e.preventDefault()
         })
       }
-      
+
       let sidebar;
+
       function sideBarInit() {
         if (document.querySelector('.collections')) {
           sidebar = new StickySidebar('.collections__side', {
@@ -713,7 +768,7 @@
 
       window.addEventListener('resize', () => {
         if (window.innerWidth < 1100) {
-          if (sidebar) { 
+          if (sidebar) {
             sidebar.destroy();
             sidebar = null;
           }
@@ -723,14 +778,14 @@
       })
 
       if (cardToggleSublist) {
-        for(let i=0; i<cardToggleSublist.length; i++) {
-          cardToggleSublist[i].addEventListener('click', (e)=> {
+        for (let i = 0; i < cardToggleSublist.length; i++) {
+          cardToggleSublist[i].addEventListener('click', (e) => {
             if (!cardToggleSublist[i].parentNode.classList.contains('card__nav-item--open-sublist')) {
               cardToggleSublist[i].parentNode.classList.add('card__nav-item--open-sublist');
             } else {
               cardToggleSublist[i].parentNode.classList.remove('card__nav-item--open-sublist');
             }
-            setTimeout(function() {
+            setTimeout(function () {
               sidebar.updateSticky();
             }, 600);
             e.preventDefault();
@@ -744,7 +799,7 @@
           e.preventDefault()
         })
       }
-      
+
       if (toNextCollection) {
         toNextCollection.addEventListener('click', (e) => {
           const mySwiper = document.querySelector('.js-collections').swiper
@@ -755,25 +810,25 @@
       }
 
       if (document.querySelector('.js-ibanner')) this.indexBannerCarousel()
-      
+
       if (document.querySelector('.js-igal')) this.indexGalleryCarousel()
 
       if (document.querySelector('.js-contacts-map')) this.contactsMap()
 
       if (document.querySelector('.js-async-scroll')) this.asyncScroll()
-      
+
       if (document.querySelector('.js-icollections-btn')) this.collections()
-      
+
       if (document.querySelector('.js-dishes')) this.indexDishes()
-      
+
       if (document.querySelector('.js-where-more')) this.whereList()
-      
+
       if (document.querySelector('.js-collections')) this.collectionsCars()
 
       if (document.querySelector('.js-card-fancy')) this.cardFancy()
 
       if (document.querySelectorAll('.js-info-color').length || document.querySelectorAll('.js-card-thumb').length) this.changeImageSrc()
-      
+
       if (document.querySelectorAll('.js-text-fixed').length) {
 
         for (let fixElem of document.querySelectorAll('.js-text-fixed')) {
@@ -783,18 +838,17 @@
 
         window.addEventListener('mousemove', (event) => {
           const centerX = Math.round(window.innerWidth / 2),
-              centerY = Math.round(window.innerHeight / 2),
-              diffX = - (event.clientX - centerX) / centerX,
-              diffY = - (event.clientY - centerY) / centerY 
-          
+            centerY = Math.round(window.innerHeight / 2),
+            diffX = -(event.clientX - centerX) / centerX,
+            diffY = -(event.clientY - centerY) / centerY
+
           for (let fixElem of document.querySelectorAll('.js-text-fixed')) {
             TweenMax.to(
-              fixElem, 
-              1, 
-              {
+              fixElem,
+              1, {
                 'left': fixElem.getAttribute('data-left') - Math.round(fixElem.getAttribute('data-round') * diffX),
-                'top': fixElem.getAttribute('data-top') - Math.round(fixElem.getAttribute('data-round') * diffY), 
-                ease:Expo.easeOut
+                'top': fixElem.getAttribute('data-top') - Math.round(fixElem.getAttribute('data-round') * diffY),
+                ease: Expo.easeOut
               }
             )
           }
@@ -808,7 +862,7 @@
           }
         })
       }
-      
+
       window.addEventListener('resize', () => {
         window.xs = window.innerWidth <= 960 ? true : false
         window.mobile = window.innerWidth <= 480 ? true : false
@@ -827,26 +881,26 @@
 
       this.resizeWatcher()
 
+      //objectFitImages()
+
       let eventResize
       try {
         eventResize = new Event('resize')
-      }
-      catch (e) {
+      } catch (e) {
         eventResize = document.createEvent('Event')
         let doesnt_bubble = false,
-            isnt_cancelable = false
+          isnt_cancelable = false
         eventResize.initEvent('resize', doesnt_bubble, isnt_cancelable);
       }
       window.dispatchEvent(eventResize)
-      
+
       let eventScroll
       try {
         eventScroll = new Event('scroll')
-      }
-      catch (e) {
+      } catch (e) {
         eventScroll = document.createEvent('Event');
         let doesnt_bubble = false,
-            isnt_cancelable = false
+          isnt_cancelable = false
         eventScroll.initEvent('scroll', doesnt_bubble, isnt_cancelable);
       }
       window.dispatchEvent(eventScroll)
@@ -864,5 +918,5 @@
       }, 200)
     }
   })
-  
+
 })();
