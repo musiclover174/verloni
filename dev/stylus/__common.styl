@@ -19,8 +19,7 @@ body
     .header,
     .content,
     .footer,
-    .swiper-buttons,
-    .ibanner__tonext
+    .swiper-buttons
       opacity 1
       transition .7s opacity
     .content
@@ -28,6 +27,9 @@ body
       transition-delay 0.3s
     .pace
       dn()
+    .ibanner__tonext
+      opacity 1
+      transition .7s opacity, background .7s
       
 .container
   w 100%
@@ -71,7 +73,7 @@ body
     @media $desktopMin
       fontify 52px 700 56px
     @media $LandscapeMedium
-      fontify 27px 700 32px
+      fontify 38px 700 46px
   h2:not([class])
     color black
     fontify 48px 700 54px
@@ -446,6 +448,8 @@ div[class\^="table-scroller"]
   pl 13px
   @media $LandscapeMin
     pl 0
+  @media $PortraitMedium
+    display none
   &__href
     color $grey
     fontify 14px 400 18px

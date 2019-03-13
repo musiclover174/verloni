@@ -44,6 +44,9 @@
       will-change transform
       transition 7s transform, .7s opacity
       transform translate(0, -50%) scale(1.03)
+      object-fit cover
+      font-family 'object-fit: cover;'
+      height 100%
       &:hover
         opacity 1
         transform translate(0, -50%) scale(1)
@@ -64,6 +67,8 @@
       @media $lDesktopMedium
         fontify 13px 400 21px
         mt 12px
+      @media $LandscapeMax
+        mt 7px
     &-href
       color black
       fontify 48px 700 54px

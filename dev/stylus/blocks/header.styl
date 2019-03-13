@@ -51,6 +51,8 @@
     l 0
     pos relative
     transition .7s opacity, .7s visibility, 0s left
+    @media $PortraitMedium
+      margin-left -5px
   &__menu
     mt -2px
     @media $LandscapeMax
@@ -267,6 +269,9 @@
         color white
         padding 0 15px
         ib()
+        @media $LandscapeMax
+          padding 3px 54px 5px
+          border-radius 30px
     &-sublist
       mt 14px
       dfv()

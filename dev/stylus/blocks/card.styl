@@ -26,7 +26,7 @@
     transform translate(0, 0)
     transform translate3d(0, 0, 0)
     will-change position, transform
-    &[style*="transform"]
+    &:not(&_collections)[style*="transform"]
       b -139px
     @media (min-width: 1100px)
       &:not(&_collections)
@@ -44,6 +44,8 @@
       top 158px
       padding 0
       transition left .4s
+      transform none
+      will-change unset
     &.show
       left 0
     &-mobile-btn
@@ -51,12 +53,10 @@
       position fixed
       cursor pointer
       right 0
-      top 140px
-      width 44px
-      height 44px
-      background url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACwAAAAsCAMAAAApWqozAAAAXVBMVEUAAADpNzfpNzfpNzfpNzfpNzfpNzfpNzfpNzfpNzfpNzfpNzfpNzfpNzfpNzfpNzfpNzfpNzfpNzfpNzfpNzfpNzfpNzfpNzfpNzfpNzfpNzfpNzfpNzfpNzf///+wtDYKAAAAHXRSTlMACvr16NabiGNMOBcC7d7dycG3rqSQenRVQS0lBK9Dxw4AAABoSURBVDjL7c+3DoAwDEXRFEog9N7C/38mb2RAOEwg4TvZ0hlswXmWpXHoJ2USBc45D2lNqyFLGq9jrSCrYRHAxJmAqjEWGzB1Zt5NEhuBNWTRzxtGGrvLGL+P91OPMD/4kQcZ3+MfdQDTwUYOjUvUVgAAAABJRU5ErkJggg==') no-repeat center #fff
-      border none
-      box-shadow 0 5px 35px rgba(0, 0, 0, 0.1)
+      top 83px
+      width 79px
+      height 170px
+      background url('data:image/png;base64,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') no-repeat center
       z-index 3
       transition filter .4s
       @media (max-width: 700)
@@ -131,14 +131,17 @@
         font-weight 700
   &__name
     color white
-    font-family RaleighBT
+    font-family ProximaNova
     text-align center
-    fontify 200px 700 139px
+    fontify 200px 700 145px
+    mb -11px
     @media $lDesktopMax
-      fontify 160px 700 111px
+      fontify 160px 700 116px
+      mb -9px
     @media $lDesktopMedium
       fontify 130px 700 90px
       pt 20px
+      mb -5px
     @media $desktopMax
       fontify 110px 700 77px
       pt 33px
@@ -517,7 +520,7 @@
         transform translate(-50%, -50%)
         width 36px
         height 36px
-        background url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAkCAMAAADW3miqAAAAclBMVEUAAAA7okc7okc7okc7okc7okc7okc7okc7okc7okc7okc7okc7okc7okc7okc7okc7okc7okc7okc7okc7okf///9LqlZEp1D1+/bF5Mid0aNtunb7/fve7+B7wIPd79+k1Krc7t5KqVXZ7dyGxY1ZsGOQ54H7AAAAFHRSTlMA2M767cVpRCEVCQJZyaScmaalWqfKGXsAAAEaSURBVDjLjZTbdoMgEEUBEfGapJ1RvEVN2///xbZxSQaDl/10HvZasA7DMIpWhZBBIEWhNPOSZiEQwix9dyIOK3i0UpIreLgm1Ilz8JLHxOGwAbdWksMm+XLiBXa4zE4Eu0TPfvi+xP/7yuDFYxy6bmoeQMn+JNLz3eATc3e6Z0wTB7Fuq6qtER1LM2VzabCZU4OmJJJihc0N1kuscSRSwYTNE7ZLbHEgkmDS5g6rJVbYEUmywC8ZIgVEco6bHEkeX1wycVyBYB/eMr/BqUDB+7N0OLhlalg9sPlqfnrH0uSBCWWPvbVCOyoeqyKjknK/Ndqh2x5f23508iMcf6lzn9Nawu+I+NTCOF49x0vsM2VetLrN6/DmrsNfX+JQ3RTkAM0AAAAASUVORK5CYII=') no-repeat center
+        background url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAkCAMAAADW3miqAAAAclBMVEUAAAA7okc7okc7okc7okc7okc7okc7okc7okc7okc7okc7okc7okc7okc7okc7okc7okc7okc7okc7okc7okf///9LqlZEp1D1+/bF5Mid0aNtunb7/fve7+B7wIPd79+k1Krc7t5KqVXZ7dyGxY1ZsGOQ54H7AAAAFHRSTlMA2M767cVpRCEVCQJZyaScmaalWqfKGXsAAAEcSURBVDjLjZTrboMwDIWdQCFc224xCbcC3fb+rzitKLNLA+n5ZR99UqITx8ClklrGURTLOlHgVVGeNNOpLF6ZVOiNRLpB8ov26JJzJqu0V1XGGKF3JP6pvNK7qtyJZ32g88qk+lDpIx9xDIm/vEru3OdpGJbuzr0SAHjON4sP2RvPHkBxBrHtjelbRE4pSKhpLHZr1aFtyE+gpqbD1pUtzuTXIKlZsHdljxP5EmJqBjSuNDiQH0O0A1nyI4I2xy0cisMXj0GGI5Dw4Q/zm9k1hcmfZcDpKUyltw9sv7qfkVOKPTBXM+LoqBONiocyNCqF2KFmGrrd8TU0vuGP8P6XCn9OR0k/I7O3FkZ49YSX2GcBXqnkuq7D6/M6/AVdKVDdcWIb1AAAAABJRU5ErkJggg==') no-repeat center
         opacity 0
         transition .4s opacity
         z-index 2
@@ -525,7 +528,8 @@
         &:before, &:after
           opacity 1
     &-thumbs
-      max-width 500px
+      //max-width 500px
+      max-width 640px
       margin 40px auto 0
       padding 0 40px
       // pos absolute
@@ -560,13 +564,14 @@
       t 0
       cursor pointer
       w 100%
-      pt 100%
-      border 1px solid transparent
-      border-radius 50%
+      //w 106px
+      //pt 100%
+      pt 69.4%
       background-repeat no-repeat
       background-size contain
       background-position center
       transition .7s transform, .7s opacity, .3s top
+      border 1px solid rgba(0,0,0,0.05)
       will-change transform
       // @media $LandscapeMin
       //   size 44px
