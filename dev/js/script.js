@@ -255,7 +255,7 @@
     indexGalleryCarousel: () => {
       const gallerySwiper = new Swiper('.js-igal', {
         loop: true,
-        loopedSlides: 4,
+        loopedSlides: 6,
         centeredSlides: true,
         speed: 800,
         slidesPerView: 'auto',
